@@ -1,4 +1,54 @@
-h3{
-            color: #ce6464;
-            text-align: center;
-        }
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #2b2b2b;
+    margin: 0;
+    padding: 40px 20px; /*vertical horizontal*/
+}
+
+/* Header */
+#main-title{
+    text-align: center;
+    color: #1c3d5a;
+    margin-bottom: 4px;
+}
+
+.subtitle{
+    text-align: center;
+    color: #5a5a5a;
+    font-style: italic;
+}
+
+
+/* sectiontitle */
+.section-title{
+    color: #1c3d5a;
+    border-bottom: 2px solid #1c3d5a;
+    padding-bottom: 4px;
+}
+
+.card{
+    background-color: white;
+    width: 400px;
+    padding: 20px;
+    margin: 50px auto;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.card img {
+    width: 250px;
+    border-radius: 15px;
+}
+
+.card a {
+    color: rgb(41, 38, 205);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.description {
+    color: gray;
+    font-size: 18px;
+    line-height: 1.5;
+}

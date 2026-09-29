@@ -5,40 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio saya</title>
     <!-- <style>
-        h3{
+        h1{
             color: #ce6464;
-            text-align: center;
+            /* text-align: center; */
         }
-    </style> --> 
+    </style>  -->
     <link rel="stylesheet" href="contohStyle.css">
 </head>
 
 <body>
-    <h1 style="color: darkblue; text-align: center">Tedi Gunawan</h1> <!-- inline style -->
-    <h2 style="font-family: Arial, Helvetica, sans-serif;color: #9f7c7c;">
-        <em>Junior Front End Web Developer</em></h2>
+    <h1 id="main-title">Tedi Gunawan</h1> <!-- inline style -->
+    <p class="subtitle"><em>Junior Front End Web Developer</em></p>
     <hr>
-    <p>Saya adalah seorang calon web developer yang sedang belajar membangun website dari HTML, CSS, sampai JavaScript </p>
+    <p >Saya adalah seorang calon web developer yang sedang belajar membangun website dari HTML, CSS, sampai JavaScript </p>
     
-    <h3>Tentang saya</h3>
+    <h2 class="section-title">Tentang saya</h3>
     <p>Saya adalah seorang yang suka eksplore berbagai macam bahasa. Dan juga belajar sedikit mengenai Desain 3d di Blender.
     Dan sekarang sedang belajar web development.
         Saya tertarik membangun website yang <strong>rapi</strong> dan
         <strong>fungsional</strong>
     </p>
     
-    <h2>Kontak</h2>
-    <p>
+    <h2 class="section-title">Kontak</h2>
+    <div class="card">
         Email: Tedi.gunawan@codingbee.org <br>
-        
-    </p>
+        Discord: <a href="https://discord.com/users/1529045655304278058">tedi833</a>
+    </div>
 </body> 
 </html>
 <!-- 
 inline style spesifik pada tag tertentu
 internal CSS semua code css ada dalam Head
 external CSS dalam head ada link rel href acuan file css
-dalam stylecss:
-# id
-. class
+bisa combine semua style namun perlu hati-hati
+dalam style css element selector:
+h1,p tag html element, bisa beberapa tag bersamaan
+# id hanya element tertentu biasanya cuma 1x pakai
+. class bisa berkali-kali di pakai
+
+Padding = jarak ke dalam.
+Margin = jarak ke luar.
+
 -->
