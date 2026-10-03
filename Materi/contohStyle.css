@@ -70,7 +70,7 @@ dd {
     line-height: 30px;
 }
 
-
+/* ==================================== */
 /* Materi 3 Style List */
 .skill-list {
     list-style-type: square;   /* disc, circle, square, none */
@@ -125,4 +125,46 @@ nav a:hover {
     color: rgb(137, 150, 228);
 }
 
+/* ==================================== */
 /* Materi 4 */
+
+.btn-primary {
+    font-weight: bold;
+    background-color: rgb(41, 84, 121);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background-color: #16324a;
+}
+
+.btn-reset {
+    font-weight: bold;
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-reset:hover {
+    background-color: #93291d;
+}
+
+input[type="radio"],input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} 
+
+/* ==================================== */
+/* Materi 5 */
+
