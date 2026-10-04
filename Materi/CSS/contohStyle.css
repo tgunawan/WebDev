@@ -167,7 +167,7 @@ select {
 
 /* ==================================== */
 /* Materi 5 */
-/* 273 */
+
 
 .body-gallery{
     margin: 0;
@@ -201,6 +201,8 @@ h1{
 }
 
 .gallery {
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex; /* Menggunakan Flexbox untuk tata letak, default row / buat 1 baris */
     /*flex-direction: column;  Mengatur tata letak secara vert;*/
     flex-wrap: wrap; /* Membungkus elemen jika tidak muat dalam satu baris */
@@ -219,4 +221,21 @@ h1{
 
 .audio-card audio{
     width: 100%;
+}
+
+.profile-photo{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;      /* foto tidak gepeng walau ukuran dipaksa */
+    border-radius: 50%;     /* foto profil bulat */
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.card iframe{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 20px auto;
 }
