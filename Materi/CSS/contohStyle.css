@@ -167,4 +167,55 @@ select {
 
 /* ==================================== */
 /* Materi 5 */
+/* 273 */
 
+.body-gallery{
+    margin: 0;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    background-color: #eae9ff;
+}
+
+h1{
+    text-align: center;
+}
+.image-card {
+    width: 250px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.image-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;  /*Efek transisi saat hover */
+}
+
+.image-card:hover img {
+    transform: scale(2.05); /* Memperbesar gambar saat dihover */
+}
+
+.gallery {
+    display: flex; /* Menggunakan Flexbox untuk tata letak */
+    flex-wrap: wrap; /* Membungkus elemen jika tidak muat dalam satu baris */
+    justify-content: center; /* Mengatur elemen agar berada di tengah */
+    gap: 20px; /* Jarak antar elemen */
+
+}
+
+.audio-card{
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.audio-card audio{
+    width: 100%;
+}

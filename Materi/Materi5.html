@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio saya 5 - Multimedia</title>
+    <link rel="stylesheet" href="CSS\contohStyle.css">
+</head>
+<body class="body-gallery">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="story.html">Story</a></li>
+            <li><a href="characters.html">Characters</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="Materi4.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="section-title" id="Gallery">Gallery</h1>
+
+    <!-- Gallery Card 1 -->
+    <div class="image-card">
+        <img src="https://via.placeholder.com/250x250.png" alt="Gallery image 1">
+        <p class="description">Description of gallery image 1</p>
+    </div>
+
+    <!-- Gallery Card 2 -->
+    <div class="card">
+        <img src="https://via.placeholder.com/250x250.png" alt="Gallery image 2">
+        <p class="description">Description of gallery image 2</p>
+    </div>
+
+    <!-- Optional video or image card -->
+    <div class="card">
+        <img src="https://via.placeholder.com/250x250.png" alt="Video thumbnail">
+        <p class="description">Embedded YouTube video example (replace with real video if you have one).</p>
+    </div>
+    <div class="card">
+        <video controls muted>
+            <source src="" type="Video">
+        </video>
+
+        <audio controls>
+            <source src="music.mp3" type="audio/mpeg">
+            <source src="music.ogg" type="audio/ogg">
+        </audio>
+    </div>
+</body>
+</html>
+
+<!--  Multi media (video, audio, image, etc.) 
+image img elemen untuk meletakkan gambar
+    - src = path to the image file
+    - alt = alternative text for the image, deskripsi gambar sejelas mungkin
+    - width / height = width and height of the image in pixels
+        - % = agar lebih responsive mengikuti ukuran container
+        - px = pixel cocok untuk gambar dengan resolusi kecil seperti PP
+        - max-width: 100% = agar tidak melebihi lebar container
+        - height: auto = mengatur ukuran video sesuai ukuran container
+        - css =untuk versi webdev modern lebih banyak di set heigh, width dan tampilan di css
+
+    -div = sering di pakai untuk container multimedia agar mudah di atur posisinya
+
+audio elemen untuk meletakkan audio
+ada dalam elemen audio:
+    - controls = menambahkan kontrol play/pause,
+    volume, dan seek bar. Tanpa control biasanya tidak memiliki kontrol player yang terlihat
+    - autoplay = memutar video secara otomatis ketika halaman 
+    - loop = memutar kembali saat audio selesai 
+    - muted = membuat audio dalam kondisi mute
+
+ - source = elemen untuk set file source dan type
+    - src = path to the audio file
+    - type = type of the audio file (mp3,ogg /dll)
+
+video elemen untuk meletakkan video
+
+CSS
+- object-fit: cover = membuat gambar memenuhi area yang ditentukan sambil mempertahankan proporsi gambar.
+- display: flex = membuat card dapat disusun secara horizontal.
+
+
+
+
+
+-->
