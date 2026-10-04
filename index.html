@@ -3,34 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio saya</title>
-    <!-- <style>
-        h3{
-            color: #ce6464;
-            text-align: center;
-        }
-    </style> --> 
-    <link rel="stylesheet" href="contohStyle.css">
+    <title>Home Index - Multimedia</title>
+    <link rel="stylesheet" href="Materi/CSS/contohStyle.css">
 </head>
+<body class="body-gallery">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="story.html">Story</a></li>
+            <li><a href="characters.html">Characters</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="Materi4.html">Contact</a></li>
+        </ul>
+    </nav>
 
-<body>
-    <h1 style="color: darkblue; text-align: center">Tedi Gunawan</h1> <!-- inline style -->
-    <h2 style="font-family: Arial, Helvetica, sans-serif;color: #9f7c7c;">
-        <em>Junior Front End Web Developer</em></h2>
-    <hr>
-    <p>Saya adalah seorang calon web developer yang sedang belajar membangun website dari HTML, CSS, sampai JavaScript </p>
-    
-    <h3>Tentang saya</h3>
-    <p>Saya adalah seorang yang suka eksplore berbagai macam bahasa. Dan juga belajar sedikit mengenai Desain 3d di Blender.
-    Dan sekarang sedang belajar web development.
-        Saya tertarik membangun website yang <strong>rapi</strong> dan
-        <strong>fungsional</strong>
-    </p>
-    
-    <h2>Kontak</h2>
-    <p>
-        Email: Tedi.gunawan@codingbee.org <br>
-        
-    </p>
-</body> 
+    <h1 class="section-title" id="Gallery">Gallery</h1>
+
+    <div class="gallery" >
+        <!-- Gallery Card 1 -->
+        <div class="image-card">
+            <img src="https://via.placeholder.com/250x250.png" alt="Gallery image 1">
+            <p class="description">Description of gallery image 1</p>
+        </div>
+
+        <!-- Gallery Card 2 -->
+        <div class="image-card">
+            <img src="https://via.placeholder.com/250x250.png" alt="Gallery image 2">
+            <p class="description">Description of gallery image 2</p>
+        </div>
+    </div>
+
+    <!-- Optional video or image card -->
+    <div class="card">
+        <img src="https://via.placeholder.com/250x250.png" alt="Video thumbnail">
+        <p class="description">Embedded YouTube video example (replace with real video if you have one).</p>
+    </div>
+    <div class="card">
+        <video controls muted>
+            <source src="https://www.youtube.com/watch?v=HiQq_iseViY" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+        </video>
+
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/HiQq_iseViY" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+
+        <audio controls>
+            <source src="music.mp3" type="audio/mpeg">
+            <source src="music.ogg" type="audio/ogg">
+        </audio>
+    </div>
+</body>
 </html>

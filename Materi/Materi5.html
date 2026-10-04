@@ -19,16 +19,18 @@
 
     <h1 class="section-title" id="Gallery">Gallery</h1>
 
-    <!-- Gallery Card 1 -->
-    <div class="image-card">
-        <img src="https://via.placeholder.com/250x250.png" alt="Gallery image 1">
-        <p class="description">Description of gallery image 1</p>
-    </div>
+    <div class="gallery" >
+        <!-- Gallery Card 1 -->
+        <div class="image-card">
+            <img src="https://via.placeholder.com/250x250.png" alt="Gallery image 1">
+            <p class="description">Description of gallery image 1</p>
+        </div>
 
-    <!-- Gallery Card 2 -->
-    <div class="card">
-        <img src="https://via.placeholder.com/250x250.png" alt="Gallery image 2">
-        <p class="description">Description of gallery image 2</p>
+        <!-- Gallery Card 2 -->
+        <div class="image-card">
+            <img src="https://via.placeholder.com/250x250.png" alt="Gallery image 2">
+            <p class="description">Description of gallery image 2</p>
+        </div>
     </div>
 
     <!-- Optional video or image card -->
@@ -38,8 +40,19 @@
     </div>
     <div class="card">
         <video controls muted>
-            <source src="" type="Video">
+            <source src="https://www.youtube.com/watch?v=HiQq_iseViY" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
         </video>
+
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/HiQq_iseViY" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
 
         <audio controls>
             <source src="music.mp3" type="audio/mpeg">
@@ -63,7 +76,9 @@ image img elemen untuk meletakkan gambar
     -div = sering di pakai untuk container multimedia agar mudah di atur posisinya
 
 audio elemen untuk meletakkan audio
-ada dalam elemen audio:
+video elemen untuk meletakkan video (lokal / di server)
+
+ada dalam elemen audio dan video:
     - controls = menambahkan kontrol play/pause,
     volume, dan seek bar. Tanpa control biasanya tidak memiliki kontrol player yang terlihat
     - autoplay = memutar video secara otomatis ketika halaman 
@@ -74,7 +89,7 @@ ada dalam elemen audio:
     - src = path to the audio file
     - type = type of the audio file (mp3,ogg /dll)
 
-video elemen untuk meletakkan video
+
 
 CSS
 - object-fit: cover = membuat gambar memenuhi area yang ditentukan sambil mempertahankan proporsi gambar.

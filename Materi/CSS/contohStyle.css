@@ -180,7 +180,7 @@ h1{
     text-align: center;
 }
 .image-card {
-    width: 250px;
+    width: 40%; /*250px jika ingin fix*/
     background-color: white;
     padding: 15px;
     border-radius: 15px;
@@ -201,7 +201,8 @@ h1{
 }
 
 .gallery {
-    display: flex; /* Menggunakan Flexbox untuk tata letak */
+    display: flex; /* Menggunakan Flexbox untuk tata letak, default row / buat 1 baris */
+    /*flex-direction: column;  Mengatur tata letak secara vert;*/
     flex-wrap: wrap; /* Membungkus elemen jika tidak muat dalam satu baris */
     justify-content: center; /* Mengatur elemen agar berada di tengah */
     gap: 20px; /* Jarak antar elemen */
