@@ -1,0 +1,108 @@
+/* ===== Global ===== */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #2b2b2b;
+    margin: 0;
+}
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+section {
+    margin-bottom: 40px;
+}
+
+/* ===== Navbar (Flexbox) ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c3d5a;
+    padding: 14px 24px;
+}
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+.navbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ===== Profile & Section Title ===== */
+.profile-photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+}
+#main-title { text-align: center; color: #1c3d5a; margin-bottom: 4px; }
+.subtitle { text-align: center; color: #5a5a5a; font-style: italic; }
+.section-title {
+    color: #1c3d5a;
+    border-bottom: 2px solid #1c3d5a;
+    padding-bottom: 4px;
+}
+
+/* ===== List ===== */
+.skill-list { list-style-type: square; padding-left: 20px; }
+.skill-list li { margin-bottom: 6px; }
+.timeline { list-style: none; padding-left: 0; border-left: 3px solid #1c3d5a; }
+.timeline li { padding: 8px 16px; margin-bottom: 8px; }
+
+/* ===== Gallery (Grid) ===== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.gallery-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ===== Button ===== */
+.btn-primary {
+    display: inline-block;
+    background-color: #1c3d5a;
+    color: #ffffff;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+.btn-primary:hover { background-color: #2f5d84; }
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #5a5a5a;
+    font-size: 14px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .gallery { grid-template-columns: 1fr; }
+    .navbar { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .navbar ul { flex-direction: column; gap: 10px; }
+}

@@ -3,62 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Index - Multimedia</title>
-    <link rel="stylesheet" href="Materi/CSS/contohStyle.css">
+    <title>Portfolio Saya — Tedi Gunawan</title>
+    <link rel="stylesheet" href="Materi/CSS/freestyle.css">
 </head>
-<body class="body-gallery">
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="story.html">Story</a></li>
-            <li><a href="characters.html">Characters</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="Materi4.html">Contact</a></li>
-        </ul>
-    </nav>
+<body>
+    <header class="navbar">
+        <span class="logo">Tedi Gunawan</span>
+        <nav>
+            <ul>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Project</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h1 class="section-title" id="Gallery">Gallery</h1>
+    <main>
+        <section id="tentang">
+            <img src="assets/images/profile.jpg" alt="Foto Tedi Gunawan" class="profile-photo">
+            <h1 id="main-title">Tedi Gunawan</h1>
+            <p class="subtitle">Front End Web Developer</p>
+            <p>
+                Halo! Saya Tedi, seorang pemula yang sedang belajar web development.
+                Saya tertarik membangun website yang <strong>rapi</strong> dan
+                <strong>fungsional</strong>.
+            </p>
+        </section>
 
-    <div class="gallery" >
-        <!-- Gallery Card 1 -->
-        <div class="image-card">
-            <img src="https://via.placeholder.com/250x250.png" alt="Gallery image 1">
-            <p class="description">Description of gallery image 1</p>
-        </div>
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <ul class="skill-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript (basic)</li>
+                <li>Git & GitHub</li>
+            </ul>
 
-        <!-- Gallery Card 2 -->
-        <div class="image-card">
-            <img src="https://via.placeholder.com/250x250.png" alt="Gallery image 2">
-            <p class="description">Description of gallery image 2</p>
-        </div>
-    </div>
+            <h2 class="section-title">Pengalaman</h2>
+            <ol class="timeline">
+                <li>2023 — Mengikuti bootcamp Web Development</li>
+                <li>2024 — Membuat 3 project portfolio pribadi</li>
+            </ol>
+        </section>
 
-    <!-- Optional video or image card -->
-    <div class="card">
-        <img src="https://via.placeholder.com/250x250.png" alt="Video thumbnail">
-        <p class="description">Embedded YouTube video example (replace with real video if you have one).</p>
-    </div>
-    <div class="card">
-        <video controls muted>
-            <source src="https://www.youtube.com/watch?v=HiQq_iseViY" type="video/mp4">
-            Browser Anda tidak mendukung tag video.
-        </video>
+        <section id="project">
+            <h2 class="section-title">Project Saya</h2>
+            <div class="gallery">
+                <img src="assets/images/project1.jpg" alt="Landing Page" class="gallery-img">
+                <img src="assets/images/project2.jpg" alt="E-Commerce" class="gallery-img">
+                <img src="assets/images/project3.jpg" alt="Dashboard" class="gallery-img">
+            </div>
+        </section>
 
-        <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/HiQq_iseViY" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
-        </iframe>
+        <section id="kontak">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <form>
+                <p>Metode kontak yang diinginkan:</p>
+                <label><input type="radio" name="contact" value="email" checked> Email</label>
+                <label><input type="radio" name="contact" value="wa"> WhatsApp</label>
 
-        <audio controls>
-            <source src="music.mp3" type="audio/mpeg">
-            <source src="music.ogg" type="audio/ogg">
-        </audio>
-    </div>
+                <p>Jenis project yang saya minati:</p>
+                <label><input type="checkbox" name="interest" value="landing"> Landing Page</label>
+                <label><input type="checkbox" name="interest" value="ecommerce"> E-Commerce</label>
+
+                <p>
+                    <label for="topik">Topik favorit:</label>
+                    <select id="topik" name="topik">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="js">JavaScript</option>
+                    </select>
+                </p>
+
+                <button type="button" class="btn-primary">Kirim Pesan</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Tedi Gunawan. Dibuat dengan HTML & CSS.</p>
+    </footer>
 </body>
 </html>
