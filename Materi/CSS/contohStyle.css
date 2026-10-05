@@ -239,3 +239,41 @@ h1{
     display: block;
     margin: 0 auto 20px auto;
 }
+
+
+/* ==================================== */
+/* Materi 6 & 7 */
+
+.gallerygrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom sama lebar */
+    gap: 16px;
+}
+.gallery-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Tablet: layar <= 768px */
+@media (max-width: 768px) {
+    .gallerygrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: layar <= 480px */
+@media (max-width: 480px) {
+    .gallerygrid {
+        grid-template-columns: 1fr; /* 1 kolom */
+    }
+    .navbar {
+        flex-direction: column;    /* logo & menu ditumpuk */
+        align-items: flex-start;
+    }
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

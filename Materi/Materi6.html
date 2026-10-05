@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio saya 6 &  7- Flexbox VS Grid</title>
+    <link rel="stylesheet" href="CSS\contohStyle.css">
+</head>
+<body>
+    <header class="navbar">
+        <span class="logo">Tedi Gunawan</span>
+        <nav>
+            <ul>
+                <li><a href="#tentang">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Project</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="tentang">
+            <img src="assets/images/profile.jpg" alt="Foto Tedi Gunawan" class="profile-photo">
+            <h1 id="main-title">Tedi Gunawan</h1>
+            <p class="subtitle">Curious Developer</p>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <ul class="skill-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript (basic)</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </section>
+
+        <section id="project">
+            <h2 class="section-title">Project Saya</h2>
+            <div class="gallerygrid">
+                <img src="assets/images/project1.jpg" alt="Landing Page" class="gallery-img">
+                <img src="assets/images/project2.jpg" alt="E-Commerce" class="gallery-img">
+                <img src="assets/images/project3.jpg" alt="Dashboard" class="gallery-img">
+            </div>
+        </section>
+
+        <section id="kontak">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <!-- form dari pertemuan 4 -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Tedi Gunawan. Dibuat dengan HTML, CSS. </p>
+    </footer>
+</body>
+</html>
+
+<!--  CSS Layout
+
+CSS Flexbox
+Cocok untuk : Navbar, Menu, Button group, Card sederhana, Menyusun item horizontal, Menyusun item vertical, Centering element
+    -display: flex;
+    -flex-direction: column; jika tidak di input default akan row
+    -justify-content: flex-start, flex-end, space-between, space-around, space-evenly
+        flex-start = mulai dari kiri
+        flex-end = mulai dari kanan
+        center = tengah
+         
+        space-between = ruang, space di tengah saja, item kanan kiri di ujung
+        space-around = ruang mengelilingi item
+        space-evenly = semua ruang sama besar
+    -align-items : Digunakan untuk mengatur posisi item pada cross axis.
+        align-items : Mengatur posisi pada sumbu silang dari flex direction
+            justify-content = kiri ↔ kanan
+            align-items = atas ↕ bawah
+        flex-start = Item berada di atas.
+        flex-end = Item berada di bawah.
+        center = Item berada di tengah vertikal.
+        stretch (default) = Item akan "meregang" mengikuti tinggi container.Jika item tidak punya tinggi tetap:
+    -flex-wrap : Digunakan untuk mengatur bagaimana item akan berusaha berada dalam satu baris,item dapat turun ke baris berikutnya.Ini sangat berguna untuk membuat responsive card layout.
+
+gap digunakan untuk memberikan jarak antar item.
+
+CSS Grid =sistem layout yang digunakan untuk mengatur elemen dalam baris dan kolom
+Grid sangat cocok untuk: Image gallery, Product cards, Dashboard, Portfolio, Layout halaman
+    -display: grid;
+    -grid-template-columns: repeat(3, 1fr) artinya 3 kolom dengan ukuran yang sama
+        - fr fraction
+
+
+Flexbox vs Grid
+Flexbox                  Grid
+One-dimensional          Two-dimensional
+Row atau column          Row dan column
+Cocok untuk navbar       Cocok untuk gallery
+Cocok untuk menu         Cocok untuk dashboard
+Cocok untuk alignment    Cocok untuk layout kompleks
+display: flex            display: grid
+Flexbox = mengatur dalam satu arah
+Grid = mengatur dalam baris dan kolom.
+
+Jadi dalam satu website kita tidak harus memilih salah satu.
+Kita bisa menggunakan:
+Navbar      → Flexbox
+Gallery     → Grid
+Button      → Flexbox
+Page layout → Grid/Flexbox
+
+Responsive website adalah website yang dapat menyesuaikan tampilannya berdasarkan ukuran layar.
+Responsive website biasanya menggunakan viewport. 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+Media Query
+Media query digunakan untuk memberikan CSS berbeda berdasarkan kondisi tertentu, misalnya ukuran layar.
+    @media (max-width: 600px){
+    }
+contoh
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns:  1fr;
+    }
+}
+
+Responsive Image
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+Responsive Container
+.container {
+    width: 100%; dapat mengikuti lebar layar
+    max-width: 1200px; fix maksimum lebar tidak terlalu lebar
+    margin: auto; berada di tengah
+}
+
+responsive font
+h1 {
+    font-size: 40px;
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+}
+
+responsive navbar
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+Semantic HTML
+
+Mereka membantu browser, Google, dan developer memahami struktur halaman, bukan hanya tampilannya.
+header = Bagian pembuka halaman atau suatu section.
+span = Berbeda dengan elemen lainnya. span digunakan untuk menandai bagian kecil teks.
+    span {
+color: red;
+}
+nav = Digunakan untuk menu navigasi.
+main = Konten utama halaman. hanya ada 1 di tiap halaman
+section = Bagian atau topik tertentu dalam halaman.
+footer = Bagian bawah halaman.
+article = bagian yang tidak berhubungan dengan konten utama
+aside = Bagian yang berisi konten yang tidak berhubungan dengan konten utama
+-->
