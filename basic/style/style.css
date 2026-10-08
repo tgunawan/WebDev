@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    /* margin : 2% ; tidak perlu margin dan padding, isikan salah satu agar browser tidak bingung dan menghasilkan jarak ganda*/
+    padding: 40px 20px ;
+}
+
+.profile-card{
+    background-color: #ffffff;
+    width: 350px;
+    padding: 30px;
+    border: 2px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5%;
+    border-style: solid;
+    border-color: rgb(1, 1, 96);
+    text-indent: 10px;
+    text-align:justify;
+    /* transition: transform 1s ease; */
+}
+
+/* .profile-card :hover{
+    transform: scale(1.6);
+} */
+
+.profile-card img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(5, 9, 146, 0.776);
+    margin-bottom: 20px;
+}
+
+
+.about-me{
+    margin-bottom: 25px;
+    line-height: 1.6;
+    
+}
+
+#skills{
+    margin-bottom: 20px;
+    line-height: 1;
+}
+#skills h3, #kontak h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    border-bottom: 2px solid #eee; /* Garis pemisah */
+    padding-bottom: 5px;
+}
+
+#skills ul, #kontak ul {
+    list-style-type: none; /* Menghilangkan bullet default */
+    padding-left: 0;
+}
+
+#skills li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #d7d4d4; /* Garis pemisah antar item */
+}
+
+/* Styling tambahan untuk link di kontak */
+#kontak a {
+    color: #3498db;
+    text-decoration: none; /* Menghilangkan garis bawah default link */
+}
+#kontak a:hover {
+    text-decoration: underline; /* Memberi underline saat di-hover */
+}
