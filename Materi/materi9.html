@@ -4,14 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materi JS</title>
+    <link rel="stylesheet" href="./CSS/js.css">
 </head>
 <body>
-    <button onclick="sayHello()">Click Me</button>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="assets/images/project1.jpg" alt="Landing Page">
+            </div>
+            <div class="flip-card-back">
+                <h3>Landing Page</h3>
+                <p>Dibuat dengan HTML, CSS, Flexbox.</p>
+            </div>
+        </div>
+    </div>
 
-    <script>
+    <button onclick="sayHello()">Click Me</button>
+    <p id="result">
+        
+    </p>
+    <p name="test_para">
+        
+    </p>
+    <p>
+        
+    </p>
+    <!-- <script>
+        function sayHello() {
+            alert("Hello Cinderella!");
+        } -->
+
+    <script src="./Scripts/script.js"></script>
+
+</body>
+</html>
+
+<!--  intro js
+review direct page
+    Redirect manual pakai link 
+    <a href="Materi1.html">Lihat halaman "Coming Soon"</a> 
+    Redirect otomatis pakai meta tag 
+    <meta http-equiv="refresh" content="3;url=Materi2.html "> 
+    <p>Anda akan diarahkan ke halaman utama dalam 3 detik...</p> 
+
+    test : peserta paham efek hover CSS, transisi, dan cara membuat + redirect halaman baru.
+
+panggil js ada 2 cara sebelum </body>
+1.  <script>
         function sayHello() {
             alert("Hello Cinderella!");
         }
     </script>
-</body>
-</html>
+2.  <script src="./Scripts/script.js"></script>
+
+tipe data dalam js
+string = text
+number = bilangan bulat / desimal
+boolean = true / false
+array = dengan pakai []
+object (dictionary di python) = dengan pakai {} ada properti dan value
+
+let nama; undefined = ada variable namun belum ada nilai
+let nama= null; => sengaja kosong
+
+
+variable
+let = dapat di ubah
+const = tidak dapat di ubah
+var = tidak efektif di modern js
+
+cara panggil:
+let firstName = "Cinderella";
+let greeting = "Hello " + firstName;
+
+let greeting2 = 'Hello ${firstName}!';
+
+menampilkan variable / mengubah text pada html dengan innerHTML
+
+let name = "Cinderella";
+
+document.getElementById("result").innerHTML = name;
+
+<p id="result"></p> otomatis akan menampilkan Cinderella
+
+MethodMencari           | berdasarkan  
+getElementById()        | id
+getElementsByClassName()| class
+getElementsByTagName()  | tag / elemen (p/h1/article)
+querySelector()         | selector CSS pertama
+querySelectorAll()      | semua selector CSS
+
+
+
+operator
+- Arithmetic
+    - console.log(a + b); +,-,*,/,%
+- Assignment
+    - score += 10;
+    - let name = 2;
+- Comparison hasil true / false
+    - >
+    - <
+    - >=
+    - <=
+    - === => nilai dan tipe data harus sama jadi lebih aman
+    - ==  => nilai harus sama tipe data dapat berbeda
+    - !==
+
+- Logical
+    - AND &&
+    - OR ||
+    - NOT !
+
+Commentar dengan // atau /**/
+
+DOM — Document Object Model
+
+
+-->
