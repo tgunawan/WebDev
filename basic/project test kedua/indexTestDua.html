@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test sampai JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Project Gallery</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">home</a></li>
+            <li><a href="#home">project</a></li>
+            <li><a href="#home">gallery</a></li>
+            <li><a href="#home">about me</a></li>
+            <li><a href="#home">contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <form class="card" action="indexTestDua2.html">
+            
+            <label for="username">Masukkan username</label><br>
+            <input type="text" name="user" id="username" required oninput="ubahNama()"><br>
+            <label for="password">Masukkan password</label><br>
+            <input type="password" name="passw" id="password" required oninput="ubahPassw()">
+            <p>kamu input nama : <span id="namaUbah">Nama</span>, dan password: <span id="passUbah">password</span> pastikan benar sebelum melanjutkan</p>
+            <button type="button" onclick="cek()">Submit</button>
+        </form>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

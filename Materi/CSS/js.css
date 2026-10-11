@@ -38,4 +38,27 @@
 }
 
 /* ======================== */
-/*   */
+
+.container{
+    display: flex;
+}
+
+.left{
+    display: flex;
+    flex: 0.5;
+    flex-direction: column;
+    margin: 20px;
+    gap: 5px;
+}
+
+.left button{
+    border-radius: 30%;
+    padding: 5px 20px
+}
+main{
+    flex:3;
+}
+
+.paragraf{
+    display: none;
+}

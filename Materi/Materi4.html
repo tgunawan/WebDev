@@ -81,6 +81,23 @@ Input type : radio, checkbox
   -name="nama" → dipakai saat submit form.
  - value : nilai yang di kirim saat input di pilih
  - checked : menjadikan pilihan default
+ - pattern="html|web" untuk memastikan input sesuai yang di inginkan
+    contoh 
+    pattern="08[0-9]{8,12} cek no hp
+    pattern="[A-Za-z]+" harus huruf
+ - type="number"
+        min="1"
+        max="100"
+ -  type="email"
+ - type="text"
+    minlength="5"
+    maxlength="20"
+- action
+<form class="card" action="indexTestDua2.html">
+    jika button submit di tekan maka akan pindah
+
+
+
 - label -> dapat di pakai untuk mengurung input agar lebih rapih dan dapat membuat text dalam label terklik juga
     - jika dalam 1 elemen p sebelum select ada for artinya saat label di klik dapat otomatis fokus pada dropdown select
 

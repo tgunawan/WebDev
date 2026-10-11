@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 100px;
+    color: white;
+    background-color: #568cbb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+}
+
+nav{
+    background-color: #2a77bb;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: aliceblue;
+}
+nav ul li a:hover {
+    text-decoration: none;
+    color: rgb(117, 215, 120);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+.card {
+    background-color: antiquewhite;
+    margin: 5%;
+    padding: 5%;
+    border-radius: 30%;
+    max-width: 60%;
+    min-height: 200px;
+    box-shadow: 5px 5px 10px gray;
+}
+.card input{
+    max-width:inherit;
+}
+main button{
+    padding: 5px;
+    border-radius: 30%;
+}
