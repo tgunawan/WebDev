@@ -117,3 +117,13 @@ function cekUser(){
     }
 }
 cekUser()
+
+// =================================================
+function showData() {
+
+    let name = document.getElementById("name").value;
+    let age = document.getElementById("age").value;
+
+    document.getElementById("result").textContent =
+        `Hello ${name}, you are ${age} years old.`;
+}

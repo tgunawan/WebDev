@@ -259,6 +259,7 @@ function cekUser(){
 cekUser()
 '
 ======================
+Loop Array
 - array bisa berbeda tipe data
 - akses dan ubah data = array[1]=n
 - cek jumlah data array = array.length
@@ -315,5 +316,251 @@ let number2 = Number(document.getElementById("number2").value);
 
 let total = number1 + number2;
 
+=====================================================
+Form
+
+<form>
+    <label>Name</label>
+    <input type="text" id="name">
+
+    <label>Age</label>
+    <input type="number" id="age">
+
+    <button type="button" onclick="showData() ">Submit</button>
+</form>
+
+---------------------------
+<form action="satu.html">
+    <label>Name</label>
+    <input type="text" id="name" pattern="set">
+
+    <button type="submit"">Submit</button>
+</form>
+
+jika dalam form ada action dapat pakai submit type button untuk pindah html namun akan merefresh halaman terkadang tidak dapat di gabung dengan function js, contoh untuk ubah text dalam halaman maka akan terefresh terus dan text tidak terlihat berubah
+- dengan pattern bisa set kondisi input tertentu
+---------------------------------------------------------
+bisa di gabung
+<form id="myForm">
+    <input type="text" id="nama" required>
+    <button type="submit">Kirim</button>
+</form>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (this.checkValidity()) {
+        window.location.href = "halaman2.html";
+    }
+});
+</script>
+-------------------------------------------------------
+<input type="text" id="name">
+let name = document.getElementById("name").value;
+<input type="number" id="age"> default tetap string saat di ambil data
+let age = document.getElementById("age").value;
+
+ <input type="checkbox" id="invitation">
+ let invitation = document.getElementById("invitation").checked;
+
+----------------------------------------
+
+ <label>
+    <input type="radio" name="role" value="guest">
+    Guest
+</label>
+<label>
+    <input type="radio" name="role" value="royal">
+    Royal
+</label>
+
+let role = document.querySelector(
+    'input[name="role"]:checked'
+).value;
+
+------------------------------------------
+<select id="character">
+    <option value="cinderella">Cinderella</option>
+    <option value="prince">Prince</option>
+    <option value="fairy">Fairy Godmother</option>
+</select>
+let character =
+    document.getElementById("character").value;
+-------------------------------------------
+function cek(){
+    let nama=document.getElementById("username").value
+    let pass=document.getElementById("password").value
+    if (!nama || !pass) {
+        alert("Isi input yang kosong");
+        return;
+    }
+    if (nama==="admin" && pass==="admin"){
+        alert("Selamat datang admin")
+    }else{
+        alert("Selamat datang user")
+        window.location.href = "indexTestDua2.html";
+    }
+}
+
+===========================================================
+Event Handler
+- onclick = user klik button
+    <button onclick="sayHello()">
+        Click Me
+    </button>
+
+- onmouseover = mouse masuk ke element
+- onmouseout = mouse keluar
+<h1 onmouseover="changeColor()"
+    onmouseout="resetColor()">
+    Cinderella
+</h1>
+
+function changeColor() {
+    document.querySelector("h1").style.color = "purple";
+}
+
+function resetColor() {
+    document.querySelector("h1").style.color = "black";
+}
+
+
+- addEventListener = event handler yang menjalankan fungsi berdasarkan trigger dari suatu elemen
+
+    - click
+    <input type="text" id="name">
+    <button id="submitButton">
+        Submit
+    </button>
+    <p id="result"></p>
+
+    JavaScript:
+    let button = document.getElementById("submitButton");
+    button.addEventListener("click", function() {
+        let name = document.getElementById("name").value;
+        document.getElementById("result").textContent =
+            `Welcome, ${name}!`;
+    });
+
+    - submit = form di kirim
+    <form id="cinderellaForm">
+    <input type="text" id="name">
+    <button type="submit">
+        Submit
+    </button>
+    </form>
+
+    JavaScript:
+    let form = document.getElementById("cinderellaForm");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        let name = document.getElementById("name").value;
+        alert(`Welcome, ${name}!`);
+    });
+
+    event.preventDefault() digunakan agar browser tidak melakukan aksi default form, seperti reload halaman.
+
+    - input =user mengetik / real time DOM manipulation
+
+    <input type="text" id="name">
+    <p id="result"></p>
+    
+    JavaScript:
+    let input = document.getElementById("name");
+    let result = document.getElementById("result");
+    input.addEventListener("input", function() {
+        result.textContent = input.value;
+    });
+
+    - cek validasi
+    <form id="myForm">
+    <input type="text" id="nama" required>
+    <input type="email" id="email" required>
+    <button type="submit">Lanjut</button>
+    </form>
+
+    <script>
+    document.getElementById("myForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        if (this.checkValidity()) {
+            window.location.href = "halaman2.html";
+        } else {
+            this.reportValidity();
+        }
+    });
+    </script>
+
+    - cek keyboard input
+    <input type="text" id="cari">
+ 
+
+    JavaScript:
+
+    JavaScript
+    document.getElementById("cari").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        alert("Anda menekan Enter");
+    }
+    console.log("Tombol ditekan:", event.key);
+     
+    });
+
+    - arrow function
+    document.getElementById("btn").addEventListener("click", () => {
+    alert("Hello World");
+    });
+
+    - Multi-Step Form Sederhana
+     Di halaman1.html:
+    <form id="dataForm">
+    <input type="text" id="nama" required>
+    <input type="email" id="email" required>
+    <button type="submit">Next</button>
+    </form>
+     
+    <script>
+    const form = document.getElementById("dataForm");
+    form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+     
+    localStorage.setItem("nama",
+    document.getElementById("nama").value);
+    localStorage.setItem("email",
+    document.getElementById("email").value);
+     
+    window.location.href = "halaman2.html";
+    });
+    </script>
+     
+
+    Di halaman2.html:
+
+    JavaScript
+    const nama = localStorage.getItem("nama");
+    const email = localStorage.getItem("email");
+     
+    console.log(nama);
+    console.log(email); 
+
+    - load =  berjalan ketika seluruh halaman selesai dimuat:
+        window.addEventListener("load", () => {
+        console.log("Semua resource telah dimuat");
+        });
+
+    - DOMContentLoaded = Tidak menunggu gambar selesai dimuat.
+        <h1 id="judul">Hello</h1>
+ 
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("judul").textContent = "Selamat Datang";
+        });
+        </script>
+         
 
 -->
