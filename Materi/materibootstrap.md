@@ -350,3 +350,74 @@ Plain Text
 10. Navbar
 
 Kalau sudah menguasai 10 topik itu, Anda akan bisa membaca hampir semua template Bootstrap dan cepat tahu class mana yang harus dipakai.
+
+
+
+
+// =====================================================================
+// =====================================================================
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- konten -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+Grid System Bootstrap (mirip konsep CSS Grid, tapi dengan class siap pakai)
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">Kolom 1</div>
+        <div class="col-md-4">Kolom 2</div>
+        <div class="col-md-4">Kolom 3</div>
+    </div>
+</div>
+
+
+Navbar Bootstrap
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Budi Santoso</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+Card Bootstrap (pengganti flip-card manual, opsional dikombinasikan)
+
+<div class="card" style="width: 18rem;">
+    <img src="assets/images/project1.jpg" class="card-img-top" alt="Landing Page">
+    <div class="card-body">
+        <h5 class="card-title">Landing Page</h5>
+        <p class="card-text">Dibuat dengan HTML & CSS Flexbox.</p>
+    </div>
+</div>
+
+
+<form>
+    <div class="mb-3">
+        <label class="form-label">Nama Lengkap</label>
+        <input type="text" class="form-control" id="inputNama">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail">
+    </div>
+    <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+</form>
+
+

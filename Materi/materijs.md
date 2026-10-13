@@ -404,6 +404,12 @@ function cek(){
 }
 
 ===========================================================
+input.addEventListener("input", handleInput);     // setiap kali user mengetik
+form.addEventListener("submit", handleSubmit);     // saat form dikirim
+window.addEventListener("scroll", handleScroll);   // saat halaman di-scroll
+element.addEventListener("mouseover", handleHover); // saat mouse di atas elemen
+
+
 Event Handler
 - onclick = user klik button
     <button onclick="sayHello()">
@@ -512,6 +518,10 @@ function resetColor() {
     alert("Hello World");
     });
 
+
+
+Local Storage
+
     - Multi-Step Form Sederhana
      Di halaman1.html:
     <form id="dataForm">
@@ -562,5 +572,21 @@ function resetColor() {
         });
         </script>
          
+
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const nama = document.getElementById("inputNama").value.trim();
+    const email = document.getElementById("inputEmail").value.trim();
+    const pesan = document.getElementById("inputPesan").value.trim();
+
+    const hasil = validasiForm(nama, email, pesan);
+    document.getElementById("formStatus").textContent = hasil.pesan;
+
+    if (hasil.sukses) {
+        localStorage.setItem("pesanTerakhir", JSON.stringify({ nama, email, pesan }));
+        form.reset();
+    }
+});
 
 -->

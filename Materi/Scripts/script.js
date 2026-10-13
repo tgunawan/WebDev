@@ -127,3 +127,5 @@ function showData() {
     document.getElementById("result").textContent =
         `Hello ${name}, you are ${age} years old.`;
 }
+
+// =================================================
