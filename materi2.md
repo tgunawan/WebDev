@@ -1,11 +1,13 @@
-# Laragon
+# Laragon dan phpmyadmin
 
 Setelah install jalankan dan buka broser:
 1. http://localhost/ untuk cek apakah Laragon terinstall
 2. http://localhost/phpmyadmin untuk akses php myadmin atau masuk lewat menu tools PHP MyAdmin
+3. jika belum di install masuk Menu - tools - quick add - phpmyadmin
+    - jika ingin hapus cukup hapus folder di laragon - etc - apps cari folder atau apps yang ingin di hapus
+
 
 Untuk Laragon, default phpMyAdmin biasanya:
-
 Default Login MySQL/MariaDB Laragon
 Plain Text
 Username : root
@@ -108,5 +110,27 @@ Beberapa tipe data yang sering digunakan dalam database:
 |BOOLEAN |True/False | 1 / 0 |
 
 
+## SQL di Balik phpMyAdmin
+Walaupun kita menggunakan interface phpMyAdmin, sebenarnya phpMyAdmin menjalankan perintah SQL.
 
+- Misalnya kita membuat database:
+CREATE DATABASE kasir;
+
+- Membuat table:
+CREATE TABLE barang (
+    id_barang INT AUTO_INCREMENT PRIMARY KEY,
+    nama_barang VARCHAR(100),
+    harga INT,
+    stok INT
+);
+
+- Memasukkan data:
+INSERT INTO barang (nama_barang, harga, stok) 
+VALUES
+('Indomie Goreng', 3500, 20),
+('Teh Botol', 5000, 15),
+('Roti Coklat', 7000, 10);
+
+- Menampilkan data:
+SELECT * FROM barang;
 

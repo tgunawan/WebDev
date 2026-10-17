@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../../../../laragon/www/kasir"
 		}
 	],
 	"settings": {}
