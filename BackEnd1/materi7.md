@@ -1,4 +1,7 @@
 # Meet 7: PHP Function, Dynamic Chart (CanvasJS), dan Data Filtering
+## file yang di buat
+- functions.php
+- dynamic_chart.php => pakai style dan js (canvasjs)
 
 ## 1\. Rangkuman Konsep Utama
 
@@ -12,7 +15,7 @@
 
 ## 2\. Struktur Database & Helper Functions (`functions.php`)
 
-### Database Schema
+### Database Schema yang di pakai
 
 ``` sql
 CREATE TABLE kategori (
@@ -119,6 +122,8 @@ require_once "functions.php";
 $conn = getKoneksi();
 
 // Menangkap parameter filter & sorting dari URL ($_GET)
+// menentukan Jika $_GET['id_kategori'] sudah di-set, gunakan nilainya; jika belum, gunakan string kosong.”
+
 $filter_kategori = isset($_GET['id_kategori']) ? $_GET['id_kategori'] : '';
 $sort_by         = isset($_GET['sort']) ? $_GET['sort'] : 'jumlah_desc';
 

@@ -5,6 +5,7 @@ $conn = getKoneksi();
 
 // Menangkap parameter filter & sorting dari URL ($_GET)
 $filter_kategori = isset($_GET['id_kategori']) ? $_GET['id_kategori'] : '';
+// menentukan Jika $_GET['id_kategori'] sudah di-set, gunakan nilainya; jika belum, gunakan string kosong.”
 $sort_by         = isset($_GET['sort']) ? $_GET['sort'] : 'jumlah_desc';
 
 // Mengambil data melalui PHP Function
