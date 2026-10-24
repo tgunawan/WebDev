@@ -1,4 +1,5 @@
 # Laragon dan phpmyadmin
+## buat database kasir
 
 Setelah install jalankan dan buka broser:
 1. http://localhost/ untuk cek apakah Laragon terinstall

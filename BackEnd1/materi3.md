@@ -1,4 +1,5 @@
 # intro PHP
+## buat file index.php yang nanti di ubah
 PHP (PHP: Hypertext Preprocessor) adalah bahasa pemrograman yang dirancang terutama untuk pengembangan web backend. PHP berjalan di server dan menghasilkan HTML yang kemudian dikirim ke browser.
 
 ## Jika dianalogikan:

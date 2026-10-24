@@ -1,4 +1,6 @@
 # Connecting PHP and Database
+## buat koneksi.php yang akan di panggil di file index.php
+
 
 - pastikan localhost / Laragon berjalan
 - pastikan phpmyadmin bisa dibuka

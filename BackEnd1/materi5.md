@@ -1,5 +1,10 @@
 # CRUD
 Rangkuman Project Simple PHP CRUD & ORDER BY (Meet 5)
+## Akan buat file
+- barang.php
+- File tambah_barang.php
+- edit_barang.php
+- hapus_barang.php
 
 1. Struktur Project dan Database
 Project ini terdiri dari 5 file PHP utama:

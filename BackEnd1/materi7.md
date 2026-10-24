@@ -5,7 +5,7 @@
   - **PHP Function**: Blok kode reusable yang dibuat untuk menjalankan tugas spesifik dan dapat dipanggil kapan saja. Mengisolasi logika bisnis dan query database (seperti laporan/rekap data) agar kode lebih rapi, modular, dan mudah dikelola.
   - **Dynamic Chart**: Grafik visual yang datanya diambil secara *real-time* dari database MySQL melalui PHP, diubah menjadi format JSON (`json_encode()`), lalu dibaca oleh library JavaScript seperti **CanvasJS**.
   - **Alur Data Dynamic Chart**:
-    $$\\text{Database (MySQL)} \\xrightarrow{\\text{PHP Query / Function}} \\text{PHP Array} \\xrightarrow{\\text{json\_encode()}} \\text{JSON} \\xrightarrow{\\text{JavaScript}} \\text{CanvasJS Chart}$$
+    $$\\text{Database (MySQL)} \\xrightarrow{\\text{PHP Query / Function}} \\text{PHP Array} \\xrightarrow {\\text{json\_encode()}} \\text{JSON} \\xrightarrow{\\text{JavaScript}} \\text{CanvasJS Chart}$$
   - **Filtering & ORDER BY**: Fitur penyaringan data (misal berdasarkan Kategori) yang dikombinasikan dengan klausa `ORDER BY` pada query SQL untuk menyusun visualisasi grafik secara urut dan dinamis.
 
 -----

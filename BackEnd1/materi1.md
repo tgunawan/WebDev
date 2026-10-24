@@ -1,5 +1,5 @@
 # UML
-
+# Buat Diagaram Activity dan class
 Dalam Web Development, UML adalah singkatan dari Unified Modeling Language.
 
 UML digunakan untuk merancang dan memvisualisasikan sistem sebelum coding dimulai. Bisa dianggap sebagai "blueprint" atau "gambar kerja" sebuah aplikasi web.
@@ -11,18 +11,14 @@ Menjelaskan siapa yang menggunakan sistem dan apa yang bisa dilakukan.
 Contoh website perpustakaan:
 
 
-+----------------+
 | Admin         |
-+----------------+
-|               |
-|               |
-Tambah Buku Hapus Buku
- 
-+----------------+
-| Member           |
-+----------------+
-        |
-Pinjam Buku
+|---------------|
+|  Tambah Buku  |
+|  Hapus Buku   |
+
+|    Member     |
+|---------------|
+|  Pinjam Buku  |
 
 
 Pertanyaan yang dijawab:

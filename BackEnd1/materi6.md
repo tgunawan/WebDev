@@ -1,5 +1,5 @@
 #  Relasi Tabel, JOIN, ORDER BY, dan Aggregate dalam PHP & MySQL
-
+## akan buat laporan_barang.php dimana gabungan tabel dan sort
 ## 1. Rangkuman Konsep Utama
 
 - **Relasi Antar Tabel & Foreign Key**: Menghubungkan data antar tabel dalam database menggunakan kolom referensi. Kolom `id_kategori` pada tabel `barang` bertindak sebagai Foreign Key yang merujuk ke Primary Key `id_kategori` pada tabel `kategori`.

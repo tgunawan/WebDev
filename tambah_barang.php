@@ -13,7 +13,7 @@ if (isset($_POST["simpan"])) {
         $query = "INSERT INTO barang (nama_barang, harga, stok) VALUES ('$nama_barang', $harga, $stok)";
         mysqli_query($conn, $query);
 
-        header("Location: barang.php");
+        header("Location: barang.php"); //mengarahkan ke halaman tertentu
         exit; 
 
     }
