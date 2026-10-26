@@ -1,0 +1,1985 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}</style><style>:root{color-scheme:light dark;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}}:root[data-theme="dark"]{color-scheme:dark;--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}:root[data-theme="light"]{color-scheme:light}@media print{:root,:root[data-theme="dark"]{color-scheme:light;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}}body{background:var(--md-bg);color:var(--md-text);max-width:720px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',sans-serif;overflow-wrap:break-word}body>:first-child{margin-top:0}h1,h2,h3,h4,h5,h6{margin:6px 0 0;line-height:1.25;font-weight:600;text-wrap:balance}h1{font-size:1.35em}h2{font-size:1.15em;color:var(--md-muted)}h3,h4,h5,h6{font-size:1em}p,ul,ol,blockquote,table,pre,hr{margin:0}strong{font-weight:600}a{color:var(--md-link);text-decoration:none}a:hover{text-decoration:underline}ul,ol{display:flex;flex-direction:column;gap:6px;padding-left:22px}ul{list-style:disc}ol{list-style:decimal}:is(li,td,th)>*+:is(p,ul,ol,blockquote){margin-top:6px}blockquote{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--md-rule);padding-left:10px;color:var(--md-muted)}:not(pre)>code{background:var(--md-fill);padding:1px 3px;border-radius:4px;font:.92em 'SF Mono',ui-monospace,Menlo,Consolas,monospace}a>code{background:none;color:inherit}pre{background:var(--md-fill);padding:10px 12px;border-radius:6px;overflow-x:auto;font:12px/1.5 'SF Mono',ui-monospace,Menlo,Consolas,monospace;margin-block:4px}pre code{background:none;padding:0;font:inherit}table{width:100%;border-collapse:separate;border-spacing:2px;font:inherit}th,td{padding:6px 8px;border-radius:3px;text-align:left;vertical-align:top}th{background:var(--md-fill-strong);font-weight:600}td{background:var(--md-fill)}:is(th,td) :not(pre)>code{background:transparent}hr{border:0;border-top:1px solid var(--md-rule-strong);margin-block:10px}img{max-width:100%;height:auto;border-radius:4px}</style>
+</head><body>
+<h1>Lesson Plan Lengkap: Web Development Front End</h1>
+<h3>HTML • CSS • JavaScript • Bootstrap — Progressive Portfolio Project</h3>
+<hr>
+<h2>Tentang Lesson Plan Ini</h2>
+<p>Lesson plan ini disusun berdasarkan silabus <strong>&quot;Welcome to Web Development&quot;</strong> yang mencakup dua part besar:</p>
+<ul>
+<li><strong>Part 1</strong> — Fondasi HTML &amp; CSS (8 pertemuan)</li>
+<li><strong>Part 2</strong> — JavaScript &amp; Bootstrap (11 pertemuan)</li>
+</ul>
+<p>Total <strong>19 pertemuan</strong>, ditutup dengan Final Exam di setiap part.</p>
+<p><strong>Prinsip utama lesson plan ini: satu proyek yang tumbuh setiap pertemuan.</strong>
+Setiap peserta akan membangun <strong>1 website portofolio pribadi</strong> yang sama dari pertemuan 1 sampai pertemuan 19. Di setiap pertemuan, mereka menambahkan 1-2 fitur baru ke website yang sama — bukan membuat proyek baru dari nol setiap kali. Ini membuat peserta benar-benar merasakan progres, dan di akhir kelas mereka punya portofolio nyata yang bisa dipakai melamar kerja/magang.</p>
+<p><strong>Konsep tambahan yang saya masukkan</strong> (tidak ada di tabel asli, tapi penting agar alur belajar tidak bolong):</p>
+<ul>
+<li>Git &amp; GitHub basic workflow (add, commit, push) sebelum &quot;Connecting GitHub with Vercel&quot; — karena di tabel ada &quot;Connecting GitHub with Vercel&quot; tapi belum ada dasar Git-nya.</li>
+<li>Semantic HTML tags (<code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>footer</code>) — supaya struktur HTML tidak hanya <code>div</code> semua.</li>
+<li>CSS Box Model (margin, border, padding, width/height) — prasyarat wajib sebelum Flexbox/Grid, ditambahkan di pertemuan Layout.</li>
+<li><code>console.log()</code> dan DevTools Console — dasar debugging sebelum masuk DOM.</li>
+<li>Array method dasar (<code>.push</code>, <code>.forEach</code>, <code>.map</code>) — pelengkap alami dari &quot;Intro to Array&quot;.</li>
+<li>Form validation dasar dengan JavaScript (melengkapi &quot;DOM Form&quot; agar terasa fungsinya).</li>
+<li>Sedikit pengantar <code>localStorage</code> di pertemuan Event Handler (opsional/bonus) — agar data form contact tidak hilang saat refresh, sekaligus latihan event yang terasa nyata.</li>
+</ul>
+<hr>
+<h2>Gambaran Proyek Progresif: &quot;Portfolio Pribadi&quot;</h2>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Pertemuan</th>
+<th>Yang ditambahkan ke proyek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fondasi</td>
+<td>1</td>
+<td>Struktur HTML dasar: bio, heading, paragraf</td>
+</tr>
+<tr>
+<td>Fondasi</td>
+<td>2</td>
+<td>Styling CSS dasar: warna, font, alignment</td>
+</tr>
+<tr>
+<td>Fondasi</td>
+<td>3</td>
+<td>Section &quot;Skills&quot; (list) &amp; &quot;Experience&quot; (ordered list)</td>
+</tr>
+<tr>
+<td>Fondasi</td>
+<td>4</td>
+<td>Tombol CTA, form kontak versi statis (radio/checkbox/select)</td>
+</tr>
+<tr>
+<td>Fondasi</td>
+<td>5</td>
+<td>Foto profil, galeri project (images), audio player</td>
+</tr>
+<tr>
+<td>Fondasi</td>
+<td>6</td>
+<td>Navbar dengan Flexbox, galeri dengan Grid</td>
+</tr>
+<tr>
+<td>Fondasi</td>
+<td>7</td>
+<td>Membuat semua di atas responsive (mobile-first)</td>
+</tr>
+<tr>
+<td>Fondasi</td>
+<td>8</td>
+<td><strong>Final Exam Part 1</strong>: portfolio statis lengkap &amp; rapi</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>9</td>
+<td>Efek hover zoom di project card, flip card, halaman redirect</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>10</td>
+<td>Variabel &amp; tipe data untuk menyimpan info pribadi</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>11</td>
+<td>Navbar aktif otomatis, smooth scroll, teks sapaan dinamis</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>12</td>
+<td>Validasi form kontak dengan if/else</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>13</td>
+<td>Generate skill bar / testimonial secara otomatis dengan loop</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>14</td>
+<td>Data project disimpan di Array, di-render otomatis dengan loop</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>15</td>
+<td>Form kontak: validasi field kosong</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>16</td>
+<td>Refactor semua logic jadi function yang rapi &amp; reusable</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>17</td>
+<td>Event handler: klik, submit, filter project by kategori</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>18</td>
+<td>Rebuild layout pakai Bootstrap (grid, navbar, card, form)</td>
+</tr>
+<tr>
+<td>Interaktif</td>
+<td>19</td>
+<td><strong>Final Exam Part 2</strong>: portfolio interaktif, responsive, deploy ke Vercel</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1>PART 1 — FONDASI HTML &amp; CSS</h1>
+<h2>Pertemuan 1 — Basic Equipment &amp; Intro to HTML</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami struktur file dalam satu project website.</li>
+<li>Memahami pentingnya penempatan file yang konsisten dan terstruktur.</li>
+<li>Memahami format dokumen (HTML) yang dipakai selama kelas.</li>
+<li>Memahami struktur dasar HTML dan elemen-elemen teks dasar.</li>
+</ol>
+<h3>A. Basic Equipment (Persiapan)</h3>
+<p><strong>1. Install &amp; Setup Visual Studio Code</strong></p>
+<ul>
+<li>Download di <a href="https://code.visualstudio.com/">code.visualstudio.com</a></li>
+<li>Install extension <strong>&quot;Open in Browser&quot;</strong> atau <strong>Live Server</strong> (di silabus disebut TechER — gunakan Live Server sebagai pengganti umum jika TechER tidak tersedia) supaya file HTML bisa dibuka otomatis di browser dan auto-reload setiap disimpan.</li>
+<li>Set default browser (misal Chrome) supaya file HTML selalu terbuka di browser yang sama.</li>
+</ul>
+<p><strong>2. File Structure — struktur folder project</strong></p>
+<p>Struktur folder adalah hal pertama yang harus rapi sebelum menulis kode:</p>
+<pre><code>portfolio-project/
+├── index.html          &lt;- halaman utama
+├── css/
+│   └── style.css       &lt;- semua styling
+├── js/
+│   └── script.js       &lt;- semua logic JavaScript (dipakai mulai Part 2)
+├── assets/
+│   ├── images/         &lt;- semua foto &amp; gambar
+│   └── audio/          &lt;- file audio (jika ada)
+└── README.md           &lt;- deskripsi singkat project
+</code></pre>
+<blockquote>
+<p><strong>Kenapa penting?</strong> Kalau semua file (html, css, gambar) dicampur jadi satu folder tanpa struktur, project akan sangat sulit dikelola begitu jumlah file bertambah. Kebiasaan menata folder sejak awal = kebiasaan developer profesional.</p>
+</blockquote>
+<p><strong>3. Git &amp; GitHub — dasar version control</strong> <em>(konsep tambahan, prasyarat sebelum connect ke Vercel)</em></p>
+<pre><code class="language-bash"># di dalam folder project, jalankan sekali:
+git init
+git add .
+git commit -m &#34;Initial commit: struktur project portfolio&#34;
+
+# hubungkan ke repository GitHub yang sudah dibuat di github.com
+git remote add origin https://github.com/username/portfolio-project.git
+git branch -M main
+git push -u origin main
+</code></pre>
+<p><strong>4. Connecting Visual Studio Code with GitHub</strong></p>
+<ul>
+<li>Install extension <strong>GitHub Pull Requests and Issues</strong> atau gunakan tab <strong>Source Control</strong> bawaan VS Code (ikon garpu di sidebar kiri).</li>
+<li>Login ke akun GitHub lewat VS Code (<code>Sign in to GitHub</code> di Source Control panel).</li>
+<li>Setiap perubahan file akan muncul di tab Source Control → tinggal klik <code>+</code> (stage) → tulis pesan commit → klik centang (commit) → <code>Sync Changes</code> (push).</li>
+</ul>
+<p><strong>5. Connecting GitHub with Vercel</strong></p>
+<ul>
+<li>Buka <a href="https://vercel.com/">vercel.com</a> → Sign up/login pakai akun GitHub.</li>
+<li>Klik <strong>Add New → Project</strong> → pilih repository <code>portfolio-project</code>.</li>
+<li>Klik <strong>Deploy</strong> — Vercel otomatis mendeteksi ini static HTML dan langsung online dalam hitungan detik.</li>
+<li>Setiap kali kamu <code>git push</code>, Vercel otomatis re-deploy versi terbaru (auto CI/CD).</li>
+</ul>
+<h3>B. Intro to HTML</h3>
+<p><strong>Main Structure (tag html, head, body)</strong></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;id&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Portfolio Saya&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- Semua konten yang tampil di layar ditulis di dalam body --&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Penjelasan:</p>
+<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code> — memberitahu browser bahwa ini dokumen HTML5.</li>
+<li><code>&lt;html&gt;</code> — elemen pembungkus seluruh halaman.</li>
+<li><code>&lt;head&gt;</code> — berisi metadata (judul tab, charset, link CSS) — <strong>tidak tampil di layar</strong>.</li>
+<li><code>&lt;body&gt;</code> — berisi semua konten yang <strong>tampil di layar</strong>.</li>
+<li><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code> — supaya karakter khusus (é, —, emoji) tampil dengan benar.</li>
+<li><code>&lt;meta name=&quot;viewport&quot;...&gt;</code> — wajib untuk membuat halaman responsive di HP (dipakai lagi di pertemuan 7).</li>
+</ul>
+<p><strong>Comment Tag</strong></p>
+<pre><code class="language-html">&lt;!-- Ini adalah komentar, tidak akan tampil di browser --&gt;
+&lt;!-- Gunakan untuk memberi catatan pada kode, atau menonaktifkan sementara sebuah elemen --&gt;
+</code></pre>
+<p><strong>HTML Tag for Basic Text (<code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>, <code>&lt;p&gt;</code>)</strong></p>
+<pre><code class="language-html">&lt;h1&gt;Nama Lengkap Kamu&lt;/h1&gt;
+&lt;h2&gt;Front End Web Developer&lt;/h2&gt;
+&lt;p&gt;
+    Saya adalah seorang calon web developer yang sedang belajar
+    membangun website dari HTML, CSS, hingga JavaScript.
+&lt;/p&gt;
+&lt;h3&gt;Tentang Saya&lt;/h3&gt;
+&lt;p&gt;Detail cerita singkat tentang dirimu di sini.&lt;/p&gt;
+</code></pre>
+<ul>
+<li><code>&lt;h1&gt;</code> adalah heading terbesar/terpenting (idealnya hanya 1 per halaman), <code>&lt;h6&gt;</code> terkecil.</li>
+<li><code>&lt;p&gt;</code> adalah paragraf teks biasa.</li>
+</ul>
+<p><strong>HTML Tag Formatting Elements</strong></p>
+<pre><code class="language-html">&lt;p&gt;&lt;strong&gt;Teks tebal (bold)&lt;/strong&gt; untuk penekanan penting.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Teks miring (italic)&lt;/em&gt; untuk penekanan halus.&lt;/p&gt;
+&lt;p&gt;Baris pertama&lt;br&gt;Baris kedua setelah line break&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Ini &lt;mark&gt;teks yang di-highlight&lt;/mark&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;Teks kecil, biasanya untuk disclaimer.&lt;/small&gt;&lt;/p&gt;
+</code></pre>
+<p><strong>HTML Style (Color, Font, Alignment) — inline style</strong></p>
+<pre><code class="language-html">&lt;h1 style=&#34;color: darkblue; text-align: center;&#34;&gt;Nama Lengkap Kamu&lt;/h1&gt;
+&lt;p style=&#34;font-family: Arial, sans-serif; color: gray;&#34;&gt;
+    Front End Web Developer
+&lt;/p&gt;
+</code></pre>
+<blockquote>
+<p><strong>Catatan penting untuk peserta:</strong> inline style (<code>style=&quot;...&quot;</code> langsung di tag) memang bisa dipakai, tapi <strong>tidak direkomendasikan</strong> untuk project sungguhan karena bercampur dengan struktur HTML dan susah di-maintain. Ini hanya latihan awal — mulai pertemuan 2 kita pindah ke CSS file terpisah.</p>
+</blockquote>
+<h3>🎯 Proyek Pertemuan 1: <code>index.html</code> versi awal</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;id&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Portfolio Saya&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 style=&#34;text-align: center;&#34;&gt;Budi Santoso&lt;/h1&gt;
+    &lt;p style=&#34;text-align: center;&#34;&gt;&lt;em&gt;Front End Web Developer&lt;/em&gt;&lt;/p&gt;
+
+    &lt;hr&gt;
+
+    &lt;h2&gt;Tentang Saya&lt;/h2&gt;
+    &lt;p&gt;
+        Halo! Saya Budi, seorang pemula yang sedang belajar web development.
+        Saya tertarik membangun website yang &lt;strong&gt;rapi&lt;/strong&gt; dan
+        &lt;strong&gt;fungsional&lt;/strong&gt;.
+    &lt;/p&gt;
+
+    &lt;h2&gt;Kontak&lt;/h2&gt;
+    &lt;p&gt;Email: budi@example.com&lt;br&gt;Instagram: @budisantoso&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>Target:</strong> peserta bisa membuka file ini di browser lewat Live Server, dan sudah paham kenapa file disusun dengan struktur folder di atas.</p>
+<hr>
+<h2>Pertemuan 2 — Intro to CSS</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mengenal struktur dan penerapan perintah CSS.</li>
+<li>Mampu mengkombinasikan CSS dengan HTML.</li>
+<li>Menciptakan halaman website yang lebih menarik.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>CSS Model File (Internal vs External)</strong></p>
+<pre><code class="language-html">&lt;!-- 1. Internal CSS — ditulis di dalam &lt;style&gt; pada head --&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        h1 { color: darkblue; }
+    &lt;/style&gt;
+&lt;/head&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!-- 2. External CSS — file terpisah, dipanggil lewat &lt;link&gt; (INI YANG DIPAKAI SELAMA KELAS) --&gt;
+&lt;head&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;css/style.css&#34;&gt;
+&lt;/head&gt;
+</code></pre>
+<blockquote>
+<p><strong>Kenapa external CSS lebih disarankan?</strong> Karena HTML (struktur) dan CSS (tampilan) jadi terpisah rapi, file CSS bisa dipakai ulang di banyak halaman HTML, dan lebih mudah di-maintain.</p>
+</blockquote>
+<p><strong>Comment Line</strong></p>
+<pre><code class="language-css">/* Ini adalah komentar di CSS */
+/* Section: Header */
+</code></pre>
+<p><strong>Unique Identity (class vs id)</strong></p>
+<pre><code class="language-css">/* id -&gt; untuk 1 elemen unik saja, ditulis dengan # */
+#main-title {
+    color: navy;
+}
+
+/* class -&gt; bisa dipakai berkali-kali untuk banyak elemen, ditulis dengan . */
+.section-title {
+    color: darkslategray;
+    text-decoration: underline;
+}
+</code></pre>
+<pre><code class="language-html">&lt;h1 id=&#34;main-title&#34;&gt;Budi Santoso&lt;/h1&gt;
+&lt;h2 class=&#34;section-title&#34;&gt;Tentang Saya&lt;/h2&gt;
+&lt;h2 class=&#34;section-title&#34;&gt;Kontak&lt;/h2&gt;
+</code></pre>
+<p>Aturan sederhana: <strong><code>id</code> = satu-satunya di halaman itu, <code>class</code> = boleh dipakai berulang</strong>.</p>
+<h3>🎯 Proyek Pertemuan 2: <code>css/style.css</code> + update <code>index.html</code></h3>
+<p><code>css/style.css</code>:</p>
+<pre><code class="language-css">/* ===== Global Style ===== */
+body {
+    font-family: &#39;Segoe UI&#39;, Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #2b2b2b;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* ===== Header ===== */
+#main-title {
+    text-align: center;
+    color: #1c3d5a;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #5a5a5a;
+    font-style: italic;
+}
+
+/* ===== Section Titles ===== */
+.section-title {
+    color: #1c3d5a;
+    border-bottom: 2px solid #1c3d5a;
+    padding-bottom: 4px;
+}
+</code></pre>
+<p><code>index.html</code> (bagian head &amp; sedikit body diubah):</p>
+<pre><code class="language-html">&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Portfolio Saya&lt;/title&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;css/style.css&#34;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 id=&#34;main-title&#34;&gt;Budi Santoso&lt;/h1&gt;
+    &lt;p class=&#34;subtitle&#34;&gt;Front End Web Developer&lt;/p&gt;
+
+    &lt;hr&gt;
+
+    &lt;h2 class=&#34;section-title&#34;&gt;Tentang Saya&lt;/h2&gt;
+    &lt;p&gt;
+        Halo! Saya Budi, seorang pemula yang sedang belajar web development.
+    &lt;/p&gt;
+
+    &lt;h2 class=&#34;section-title&#34;&gt;Kontak&lt;/h2&gt;
+    &lt;p&gt;Email: budi@example.com&lt;br&gt;Instagram: @budisantoso&lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<p><strong>Target:</strong> peserta paham perbedaan <code>class</code> vs <code>id</code>, dan portfolio sudah punya tampilan warna/font yang konsisten lewat file CSS terpisah.</p>
+<hr>
+<h2>Pertemuan 3 — List (HTML x CSS)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mengenal berbagai macam model list.</li>
+<li>Mampu menghias list dengan CSS.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Unordered List</strong></p>
+<pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p><strong>Ordered List</strong></p>
+<pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;Belajar HTML dasar&lt;/li&gt;
+    &lt;li&gt;Belajar CSS&lt;/li&gt;
+    &lt;li&gt;Belajar JavaScript&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p><strong>Other List — Description List</strong> <em>(pelengkap: dl/dt/dd)</em></p>
+<pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;Bahasa untuk membangun struktur halaman web.&lt;/dd&gt;
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Bahasa untuk mengatur tampilan halaman web.&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+<p><strong>Styling List dengan CSS</strong></p>
+<pre><code class="language-css">.skill-list {
+    list-style-type: square;   /* disc, circle, square, none */
+    padding-left: 20px;
+}
+.skill-list li {
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.timeline {
+    list-style: none;          /* hilangkan bullet default */
+    padding-left: 0;
+    border-left: 3px solid #1c3d5a;
+}
+.timeline li {
+    padding: 8px 16px;
+    margin-bottom: 8px;
+}
+</code></pre>
+<h3>🎯 Proyek Pertemuan 3: tambah section &quot;Skills&quot; &amp; &quot;Experience&quot;</h3>
+<p>Tambahkan di <code>index.html</code> (sebelum bagian Kontak):</p>
+<pre><code class="language-html">&lt;h2 class=&#34;section-title&#34;&gt;Skills&lt;/h2&gt;
+&lt;ul class=&#34;skill-list&#34;&gt;
+    &lt;li&gt;HTML5&lt;/li&gt;
+    &lt;li&gt;CSS3&lt;/li&gt;
+    &lt;li&gt;JavaScript (basic)&lt;/li&gt;
+    &lt;li&gt;Git &amp; GitHub&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 class=&#34;section-title&#34;&gt;Pengalaman&lt;/h2&gt;
+&lt;ol class=&#34;timeline&#34;&gt;
+    &lt;li&gt;2023 — Mengikuti bootcamp Web Development&lt;/li&gt;
+    &lt;li&gt;2024 — Membuat 3 project portfolio pribadi&lt;/li&gt;
+    &lt;li&gt;2024 — Magang sebagai Front End Developer&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p><strong>Target:</strong> portfolio sudah punya section Skills &amp; Experience yang tampil rapi dengan bullet/nomor custom.</p>
+<hr>
+<h2>Pertemuan 4 — Button Style (HTML x CSS)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mengenal berbagai model tombol/button dan implementasinya.</li>
+<li>Mampu membuat komponen website yang menarik dengan HTML &amp; CSS.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Basic Button</strong></p>
+<pre><code class="language-html">&lt;button class=&#34;btn-primary&#34;&gt;Hire Me&lt;/button&gt;
+&lt;a href=&#34;#kontak&#34; class=&#34;btn-primary&#34;&gt;Hubungi Saya&lt;/a&gt;
+</code></pre>
+<p><strong>Radio Button</strong> (memilih 1 dari beberapa opsi)</p>
+<pre><code class="language-html">&lt;p&gt;Metode kontak yang diinginkan:&lt;/p&gt;
+&lt;label&gt;&lt;input type=&#34;radio&#34; name=&#34;contact&#34; value=&#34;email&#34; checked&gt; Email&lt;/label&gt;
+&lt;label&gt;&lt;input type=&#34;radio&#34; name=&#34;contact&#34; value=&#34;wa&#34;&gt; WhatsApp&lt;/label&gt;
+&lt;label&gt;&lt;input type=&#34;radio&#34; name=&#34;contact&#34; value=&#34;ig&#34;&gt; Instagram&lt;/label&gt;
+</code></pre>
+<p><strong>Check Button (Checkbox)</strong> (memilih lebih dari 1 opsi)</p>
+<pre><code class="language-html">&lt;p&gt;Jenis project yang saya minati:&lt;/p&gt;
+&lt;label&gt;&lt;input type=&#34;checkbox&#34; name=&#34;interest&#34; value=&#34;landing&#34;&gt; Landing Page&lt;/label&gt;
+&lt;label&gt;&lt;input type=&#34;checkbox&#34; name=&#34;interest&#34; value=&#34;ecommerce&#34;&gt; E-Commerce&lt;/label&gt;
+&lt;label&gt;&lt;input type=&#34;checkbox&#34; name=&#34;interest&#34; value=&#34;dashboard&#34;&gt; Dashboard&lt;/label&gt;
+</code></pre>
+<p><strong>Select Button (Dropdown)</strong></p>
+<pre><code class="language-html">&lt;label for=&#34;topik&#34;&gt;Topik favorit:&lt;/label&gt;
+&lt;select id=&#34;topik&#34; name=&#34;topik&#34;&gt;
+    &lt;option value=&#34;html&#34;&gt;HTML&lt;/option&gt;
+    &lt;option value=&#34;css&#34;&gt;CSS&lt;/option&gt;
+    &lt;option value=&#34;js&#34;&gt;JavaScript&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<p><strong>Styling Button dengan CSS</strong></p>
+<pre><code class="language-css">.btn-primary {
+    display: inline-block;
+    background-color: #1c3d5a;
+    color: #ffffff;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+.btn-primary:hover {
+    background-color: #2f5d84;
+}
+
+input[type=&#34;radio&#34;], input[type=&#34;checkbox&#34;] {
+    margin-right: 6px;
+}
+
+select {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+</code></pre>
+<h3>🎯 Proyek Pertemuan 4: tambah section &quot;Hubungi Saya&quot; (form statis)</h3>
+<pre><code class="language-html">&lt;h2 class=&#34;section-title&#34; id=&#34;kontak&#34;&gt;Hubungi Saya&lt;/h2&gt;
+&lt;form&gt;
+    &lt;p&gt;Metode kontak yang diinginkan:&lt;/p&gt;
+    &lt;label&gt;&lt;input type=&#34;radio&#34; name=&#34;contact&#34; value=&#34;email&#34; checked&gt; Email&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&#34;radio&#34; name=&#34;contact&#34; value=&#34;wa&#34;&gt; WhatsApp&lt;/label&gt;
+
+    &lt;p&gt;Jenis project yang saya minati:&lt;/p&gt;
+    &lt;label&gt;&lt;input type=&#34;checkbox&#34; name=&#34;interest&#34; value=&#34;landing&#34;&gt; Landing Page&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&#34;checkbox&#34; name=&#34;interest&#34; value=&#34;ecommerce&#34;&gt; E-Commerce&lt;/label&gt;
+
+    &lt;p&gt;
+        &lt;label for=&#34;topik&#34;&gt;Topik favorit:&lt;/label&gt;
+        &lt;select id=&#34;topik&#34; name=&#34;topik&#34;&gt;
+            &lt;option value=&#34;html&#34;&gt;HTML&lt;/option&gt;
+            &lt;option value=&#34;css&#34;&gt;CSS&lt;/option&gt;
+            &lt;option value=&#34;js&#34;&gt;JavaScript&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/p&gt;
+
+    &lt;button type=&#34;button&#34; class=&#34;btn-primary&#34;&gt;Kirim Pesan&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<p><strong>Target:</strong> peserta bisa membuat &amp; menata radio, checkbox, select, dan tombol CTA yang menarik secara visual.</p>
+<hr>
+<h2>Pertemuan 5 — Media (HTML x CSS)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mengenal implementasi media pada website.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Images</strong></p>
+<pre><code class="language-html">&lt;img src=&#34;assets/images/profile.jpg&#34; alt=&#34;Foto profil Budi Santoso&#34; class=&#34;profile-photo&#34;&gt;
+</code></pre>
+<pre><code class="language-css">.profile-photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;      /* foto tidak gepeng walau ukuran dipaksa */
+    border-radius: 50%;     /* foto profil bulat */
+    display: block;
+    margin: 0 auto 20px auto;
+}
+</code></pre>
+<p><strong>Audio</strong></p>
+<pre><code class="language-html">&lt;audio controls&gt;
+    &lt;source src=&#34;assets/audio/intro.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
+    Browser kamu tidak mendukung audio player.
+&lt;/audio&gt;
+</code></pre>
+<h3>🎯 Proyek Pertemuan 5: tambah foto profil &amp; galeri project</h3>
+<pre><code class="language-html">&lt;img src=&#34;assets/images/profile.jpg&#34; alt=&#34;Foto Budi Santoso&#34; class=&#34;profile-photo&#34;&gt;
+&lt;h1 id=&#34;main-title&#34;&gt;Budi Santoso&lt;/h1&gt;
+&lt;p class=&#34;subtitle&#34;&gt;Front End Web Developer&lt;/p&gt;
+
+&lt;h2 class=&#34;section-title&#34;&gt;Project Saya&lt;/h2&gt;
+&lt;div class=&#34;gallery&#34;&gt;
+    &lt;img src=&#34;assets/images/project1.jpg&#34; alt=&#34;Project Landing Page&#34; class=&#34;gallery-img&#34;&gt;
+    &lt;img src=&#34;assets/images/project2.jpg&#34; alt=&#34;Project E-Commerce&#34; class=&#34;gallery-img&#34;&gt;
+    &lt;img src=&#34;assets/images/project3.jpg&#34; alt=&#34;Project Dashboard&#34; class=&#34;gallery-img&#34;&gt;
+&lt;/div&gt;
+
+&lt;h2 class=&#34;section-title&#34;&gt;Perkenalan Singkat (Audio)&lt;/h2&gt;
+&lt;audio controls&gt;
+    &lt;source src=&#34;assets/audio/intro.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
+    Browser kamu tidak mendukung audio player.
+&lt;/audio&gt;
+</code></pre>
+<pre><code class="language-css">.gallery-img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+</code></pre>
+<p><strong>Target:</strong> portfolio punya foto profil bulat, galeri project, dan audio player.</p>
+<hr>
+<h2>Pertemuan 6 — Layout (HTML x CSS): Flexbox &amp; Grid</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami pentingnya layout pada website.</li>
+<li>Memiliki website yang terstruktur.</li>
+</ol>
+<h3>Materi Tambahan (prasyarat): CSS Box Model &amp; Semantic HTML</h3>
+<p>Sebelum flexbox/grid, peserta wajib paham <strong>box model</strong> — setiap elemen HTML adalah kotak dengan 4 lapisan:</p>
+<pre><code>margin (jarak ke elemen lain)
+  └── border (garis tepi)
+        └── padding (jarak ke isi)
+              └── content (isi elemen)
+</code></pre>
+<pre><code class="language-css">.card {
+    width: 200px;
+    padding: 16px;     /* jarak dalam */
+    border: 1px solid #ccc;
+    margin: 12px;      /* jarak luar */
+}
+</code></pre>
+<p>Gunakan <strong>semantic tag</strong> agar struktur HTML bermakna (bukan <code>&lt;div&gt;</code> semua):</p>
+<pre><code class="language-html">&lt;header&gt;...&lt;/header&gt;
+&lt;nav&gt;...&lt;/nav&gt;
+&lt;main&gt;
+    &lt;section id=&#34;tentang&#34;&gt;...&lt;/section&gt;
+    &lt;section id=&#34;skills&#34;&gt;...&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;
+</code></pre>
+<h3>Flexbox (untuk layout 1 dimensi — navbar, baris/kolom sejajar)</h3>
+<pre><code class="language-css">.navbar {
+    display: flex;
+    justify-content: space-between; /* sebar kiri-kanan */
+    align-items: center;            /* rata tengah vertikal */
+    background-color: #1c3d5a;
+    padding: 12px 24px;
+}
+.navbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+</code></pre>
+<h3>Grid (untuk layout 2 dimensi — galeri, kartu project)</h3>
+<pre><code class="language-css">.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom sama lebar */
+    gap: 16px;
+}
+.gallery-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+</code></pre>
+<h3>🎯 Proyek Pertemuan 6: restrukturisasi portfolio dengan semantic tag + flexbox navbar + grid gallery</h3>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;header class=&#34;navbar&#34;&gt;
+        &lt;span class=&#34;logo&#34;&gt;Budi Santoso&lt;/span&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&#34;#tentang&#34;&gt;Tentang&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&#34;#skills&#34;&gt;Skills&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&#34;#project&#34;&gt;Project&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&#34;#kontak&#34;&gt;Kontak&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section id=&#34;tentang&#34;&gt;
+            &lt;img src=&#34;assets/images/profile.jpg&#34; alt=&#34;Foto Budi Santoso&#34; class=&#34;profile-photo&#34;&gt;
+            &lt;h1 id=&#34;main-title&#34;&gt;Budi Santoso&lt;/h1&gt;
+            &lt;p class=&#34;subtitle&#34;&gt;Front End Web Developer&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section id=&#34;skills&#34;&gt;
+            &lt;h2 class=&#34;section-title&#34;&gt;Skills&lt;/h2&gt;
+            &lt;ul class=&#34;skill-list&#34;&gt;
+                &lt;li&gt;HTML5&lt;/li&gt;&lt;li&gt;CSS3&lt;/li&gt;&lt;li&gt;JavaScript (basic)&lt;/li&gt;&lt;li&gt;Git &amp; GitHub&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+
+        &lt;section id=&#34;project&#34;&gt;
+            &lt;h2 class=&#34;section-title&#34;&gt;Project Saya&lt;/h2&gt;
+            &lt;div class=&#34;gallery&#34;&gt;
+                &lt;img src=&#34;assets/images/project1.jpg&#34; alt=&#34;Landing Page&#34; class=&#34;gallery-img&#34;&gt;
+                &lt;img src=&#34;assets/images/project2.jpg&#34; alt=&#34;E-Commerce&#34; class=&#34;gallery-img&#34;&gt;
+                &lt;img src=&#34;assets/images/project3.jpg&#34; alt=&#34;Dashboard&#34; class=&#34;gallery-img&#34;&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section id=&#34;kontak&#34;&gt;
+            &lt;h2 class=&#34;section-title&#34;&gt;Hubungi Saya&lt;/h2&gt;
+            &lt;!-- form dari pertemuan 4 --&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Budi Santoso. Dibuat dengan HTML, CSS.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+</code></pre>
+<p><strong>Target:</strong> portfolio kini punya navbar flexbox yang rapi, galeri grid 3 kolom, dan struktur semantic yang jelas (header/nav/main/section/footer).</p>
+<hr>
+<h2>Pertemuan 7 — HTML Responsive Website</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mengimplementasikan website yang responsive di berbagai ukuran layar.</li>
+</ol>
+<h3>Materi: Media Query</h3>
+<pre><code class="language-css">/* Default: tampilan desktop */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.navbar ul {
+    display: flex;
+    gap: 20px;
+}
+
+/* Tablet: layar &lt;= 768px */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: layar &lt;= 480px */
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr; /* 1 kolom */
+    }
+    .navbar {
+        flex-direction: column;    /* logo &amp; menu ditumpuk */
+        align-items: flex-start;
+    }
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</code></pre>
+<p>Prinsip <strong>mobile-first</strong> (opsional tapi disarankan untuk dijelaskan): tulis CSS dasar untuk mobile dulu, lalu tambahkan <code>min-width</code> untuk layar lebih besar. Untuk kelas ini, pendekatan desktop-first di atas sudah cukup dan lebih mudah dipahami pemula.</p>
+<h3>🎯 Proyek Pertemuan 7: tambahkan media query ke <code>style.css</code></h3>
+<p>Tambahkan blok <code>@media</code> di atas ke file <code>css/style.css</code> yang sudah ada. Uji dengan <strong>DevTools → Toggle Device Toolbar</strong> (Ctrl+Shift+M di Chrome) untuk melihat tampilan di berbagai ukuran layar.</p>
+<p><strong>Target:</strong> portfolio tampil rapi baik di desktop, tablet, maupun HP.</p>
+<hr>
+<h2>Pertemuan 8 — Final Exam Part 1: Free Project (Review + Challenge)</h2>
+<h3>Tujuan Belajar</h3>
+<p>Memiliki satu prototipe website yang siap dikembangkan lebih lanjut.</p>
+<h3>Aktivitas</h3>
+<ol>
+<li>Review seluruh materi Part 1 (HTML dasar → CSS → List → Button → Media → Layout → Responsive).</li>
+<li><strong>Challenge</strong>: peserta merapikan &amp; melengkapi portfolio pribadi masing-masing secara mandiri, lalu deploy ke Vercel.</li>
+</ol>
+<h3>Checklist Final Exam Part 1</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Struktur folder rapi (<code>index.html</code>, <code>css/</code>, <code>assets/</code>)</li>
+<li><input disabled="" type="checkbox"> HTML memakai semantic tag (<code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>footer</code>)</li>
+<li><input disabled="" type="checkbox"> CSS eksternal (bukan inline style)</li>
+<li><input disabled="" type="checkbox"> Ada minimal: 1 heading utama, section Tentang, Skills (list), Project (gallery/grid), Kontak (form + button)</li>
+<li><input disabled="" type="checkbox"> Layout memakai Flexbox dan/atau Grid</li>
+<li><input disabled="" type="checkbox"> Responsive di 3 ukuran layar (desktop/tablet/mobile)</li>
+<li><input disabled="" type="checkbox"> Sudah di-push ke GitHub dan online di Vercel</li>
+</ul>
+<h3>📄 Kode Kumulatif Lengkap — Akhir Part 1</h3>
+<p><code>index.html</code>:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;id&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Portfolio Saya — Budi Santoso&lt;/title&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;css/style.css&#34;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header class=&#34;navbar&#34;&gt;
+        &lt;span class=&#34;logo&#34;&gt;Budi Santoso&lt;/span&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&#34;#tentang&#34;&gt;Tentang&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&#34;#skills&#34;&gt;Skills&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&#34;#project&#34;&gt;Project&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&#34;#kontak&#34;&gt;Kontak&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section id=&#34;tentang&#34;&gt;
+            &lt;img src=&#34;assets/images/profile.jpg&#34; alt=&#34;Foto Budi Santoso&#34; class=&#34;profile-photo&#34;&gt;
+            &lt;h1 id=&#34;main-title&#34;&gt;Budi Santoso&lt;/h1&gt;
+            &lt;p class=&#34;subtitle&#34;&gt;Front End Web Developer&lt;/p&gt;
+            &lt;p&gt;
+                Halo! Saya Budi, seorang pemula yang sedang belajar web development.
+                Saya tertarik membangun website yang &lt;strong&gt;rapi&lt;/strong&gt; dan
+                &lt;strong&gt;fungsional&lt;/strong&gt;.
+            &lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section id=&#34;skills&#34;&gt;
+            &lt;h2 class=&#34;section-title&#34;&gt;Skills&lt;/h2&gt;
+            &lt;ul class=&#34;skill-list&#34;&gt;
+                &lt;li&gt;HTML5&lt;/li&gt;
+                &lt;li&gt;CSS3&lt;/li&gt;
+                &lt;li&gt;JavaScript (basic)&lt;/li&gt;
+                &lt;li&gt;Git &amp; GitHub&lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;h2 class=&#34;section-title&#34;&gt;Pengalaman&lt;/h2&gt;
+            &lt;ol class=&#34;timeline&#34;&gt;
+                &lt;li&gt;2023 — Mengikuti bootcamp Web Development&lt;/li&gt;
+                &lt;li&gt;2024 — Membuat 3 project portfolio pribadi&lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/section&gt;
+
+        &lt;section id=&#34;project&#34;&gt;
+            &lt;h2 class=&#34;section-title&#34;&gt;Project Saya&lt;/h2&gt;
+            &lt;div class=&#34;gallery&#34;&gt;
+                &lt;img src=&#34;assets/images/project1.jpg&#34; alt=&#34;Landing Page&#34; class=&#34;gallery-img&#34;&gt;
+                &lt;img src=&#34;assets/images/project2.jpg&#34; alt=&#34;E-Commerce&#34; class=&#34;gallery-img&#34;&gt;
+                &lt;img src=&#34;assets/images/project3.jpg&#34; alt=&#34;Dashboard&#34; class=&#34;gallery-img&#34;&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section id=&#34;kontak&#34;&gt;
+            &lt;h2 class=&#34;section-title&#34;&gt;Hubungi Saya&lt;/h2&gt;
+            &lt;form&gt;
+                &lt;p&gt;Metode kontak yang diinginkan:&lt;/p&gt;
+                &lt;label&gt;&lt;input type=&#34;radio&#34; name=&#34;contact&#34; value=&#34;email&#34; checked&gt; Email&lt;/label&gt;
+                &lt;label&gt;&lt;input type=&#34;radio&#34; name=&#34;contact&#34; value=&#34;wa&#34;&gt; WhatsApp&lt;/label&gt;
+
+                &lt;p&gt;Jenis project yang saya minati:&lt;/p&gt;
+                &lt;label&gt;&lt;input type=&#34;checkbox&#34; name=&#34;interest&#34; value=&#34;landing&#34;&gt; Landing Page&lt;/label&gt;
+                &lt;label&gt;&lt;input type=&#34;checkbox&#34; name=&#34;interest&#34; value=&#34;ecommerce&#34;&gt; E-Commerce&lt;/label&gt;
+
+                &lt;p&gt;
+                    &lt;label for=&#34;topik&#34;&gt;Topik favorit:&lt;/label&gt;
+                    &lt;select id=&#34;topik&#34; name=&#34;topik&#34;&gt;
+                        &lt;option value=&#34;html&#34;&gt;HTML&lt;/option&gt;
+                        &lt;option value=&#34;css&#34;&gt;CSS&lt;/option&gt;
+                        &lt;option value=&#34;js&#34;&gt;JavaScript&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/p&gt;
+
+                &lt;button type=&#34;button&#34; class=&#34;btn-primary&#34;&gt;Kirim Pesan&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2026 Budi Santoso. Dibuat dengan HTML &amp; CSS.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>css/style.css</code>:</p>
+<pre><code class="language-css">/* ===== Global ===== */
+body {
+    font-family: &#39;Segoe UI&#39;, Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #2b2b2b;
+    margin: 0;
+}
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+section {
+    margin-bottom: 40px;
+}
+
+/* ===== Navbar (Flexbox) ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c3d5a;
+    padding: 14px 24px;
+}
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+.navbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ===== Profile &amp; Section Title ===== */
+.profile-photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+}
+#main-title { text-align: center; color: #1c3d5a; margin-bottom: 4px; }
+.subtitle { text-align: center; color: #5a5a5a; font-style: italic; }
+.section-title {
+    color: #1c3d5a;
+    border-bottom: 2px solid #1c3d5a;
+    padding-bottom: 4px;
+}
+
+/* ===== List ===== */
+.skill-list { list-style-type: square; padding-left: 20px; }
+.skill-list li { margin-bottom: 6px; }
+.timeline { list-style: none; padding-left: 0; border-left: 3px solid #1c3d5a; }
+.timeline li { padding: 8px 16px; margin-bottom: 8px; }
+
+/* ===== Gallery (Grid) ===== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.gallery-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ===== Button ===== */
+.btn-primary {
+    display: inline-block;
+    background-color: #1c3d5a;
+    color: #ffffff;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+.btn-primary:hover { background-color: #2f5d84; }
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #5a5a5a;
+    font-size: 14px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .gallery { grid-template-columns: 1fr; }
+    .navbar { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .navbar ul { flex-direction: column; gap: 10px; }
+}
+</code></pre>
+<hr>
+<h1>PART 2 — JAVASCRIPT &amp; BOOTSTRAP</h1>
+<h2>Pertemuan 9 — Review Part 1 + Zoom Hover, Redirect, Flip Box</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mampu memahami konsep serta implementasi struktur dasar website.</li>
+<li>Menjelaskan redirect webpage dan flip box.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Review Part 1</strong>: peserta diminta menjelaskan ulang alur folder, tag semantic, flexbox vs grid dari portfolio masing-masing.</p>
+<p><strong>Intro to Zoom Hover</strong> (efek CSS saat mouse hover)</p>
+<pre><code class="language-css">.gallery-img {
+    transition: transform 0.3s ease;
+}
+.gallery-img:hover {
+    transform: scale(1.08);
+    cursor: pointer;
+}
+</code></pre>
+<p><strong>Intro to Redirect Webpage</strong></p>
+<pre><code class="language-html">&lt;!-- Redirect otomatis pakai meta tag --&gt;
+&lt;meta http-equiv=&#34;refresh&#34; content=&#34;3;url=index.html&#34;&gt;
+&lt;p&gt;Anda akan diarahkan ke halaman utama dalam 3 detik...&lt;/p&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!-- Redirect manual pakai link --&gt;
+&lt;a href=&#34;under-construction.html&#34;&gt;Lihat halaman &#34;Coming Soon&#34;&lt;/a&gt;
+</code></pre>
+<p><strong>Intro to Flip Box</strong> (kartu yang membalik saat di-hover, pakai CSS 3D transform)</p>
+<pre><code class="language-html">&lt;div class=&#34;flip-card&#34;&gt;
+    &lt;div class=&#34;flip-card-inner&#34;&gt;
+        &lt;div class=&#34;flip-card-front&#34;&gt;
+            &lt;img src=&#34;assets/images/project1.jpg&#34; alt=&#34;Landing Page&#34;&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;flip-card-back&#34;&gt;
+            &lt;h3&gt;Landing Page&lt;/h3&gt;
+            &lt;p&gt;Dibuat dengan HTML, CSS, Flexbox.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.flip-card {
+    width: 200px;
+    height: 160px;
+    perspective: 1000px;
+}
+.flip-card-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.flip-card-front img { width: 100%; height: 100%; object-fit: cover; }
+.flip-card-back {
+    background: #1c3d5a;
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 12px;
+}
+</code></pre>
+<h3>Challenge 1 — Create New Page</h3>
+<p>Peserta membuat halaman baru <code>under-construction.html</code> yang berisi pesan &quot;Halaman ini sedang dikembangkan&quot; dan redirect otomatis ke <code>index.html</code> setelah beberapa detik, lalu buat link ke halaman itu dari navbar (misal menu &quot;Blog&quot; yang belum siap).</p>
+<h3>🎯 Proyek Pertemuan 9: ganti galeri jadi flip card + halaman baru</h3>
+<p>Ganti section <code>#project</code> di <code>index.html</code> dengan flip card di atas (3 kartu, masing-masing untuk 1 project), tambahkan efek zoom-hover pada foto profil, dan buat <code>under-construction.html</code> baru.</p>
+<p><strong>Target:</strong> peserta paham efek hover CSS, transisi, dan cara membuat + redirect halaman baru.</p>
+<hr>
+<h2>Pertemuan 10 — Intro to JavaScript</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mengenal bahasa pemrograman JavaScript.</li>
+<li>Memahami tipe data, variabel, dan operator.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Menghubungkan JavaScript ke HTML</strong></p>
+<pre><code class="language-html">&lt;!-- letakkan sebelum penutup &lt;/body&gt; agar HTML sudah termuat lebih dulu --&gt;
+&lt;script src=&#34;js/script.js&#34;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Data Type</strong></p>
+<pre><code class="language-javascript">let nama = &#34;Budi Santoso&#34;;      // String
+let umur = 22;                  // Number
+let isMahasiswa = false;        // Boolean
+let hobi = [&#34;coding&#34;, &#34;desain&#34;]; // Array
+let alamat = { kota: &#34;Jakarta&#34;, kodePos: &#34;12345&#34; }; // Object
+let belumDiisi = null;          // Null (sengaja kosong)
+let belumDidefinisikan;         // Undefined
+</code></pre>
+<p><strong>Variable — <code>let</code>, <code>const</code>, <code>var</code></strong></p>
+<pre><code class="language-javascript">let umur = 22;        // nilai BISA diubah lagi nanti
+const nama = &#34;Budi&#34;;  // nilai TIDAK BISA diubah lagi (konstan)
+// var namaLama = &#34;...&#34;; // gaya lama, dihindari di kode modern
+</code></pre>
+<p><strong>Operator</strong></p>
+<pre><code class="language-javascript">// Aritmethic operator
+let total = 10 + 5;   // + - * / % (modulus/sisa bagi)
+let sisa = 10 % 3;    // hasil: 1
+
+// Comparison operator
+console.log(10 == &#34;10&#34;);   // true  (hanya bandingkan nilai)
+console.log(10 === &#34;10&#34;);  // false (bandingkan nilai DAN tipe data)
+console.log(10 !== 5);     // true
+
+// Logical operator
+let umurCukup = umur &gt;= 18 &amp;&amp; isMahasiswa === false; // AND
+let bolehDaftar = umur &gt;= 18 || isMahasiswa === true; // OR
+let bukanMahasiswa = !isMahasiswa; // NOT
+</code></pre>
+<p><strong>Comments</strong></p>
+<pre><code class="language-javascript">// Ini komentar satu baris
+/* Ini komentar
+   beberapa baris */
+</code></pre>
+<h3>🎯 Proyek Pertemuan 10: <code>js/script.js</code> — data diri lewat variabel</h3>
+<pre><code class="language-javascript">// js/script.js
+
+// Data diri disimpan sebagai variabel
+const namaDepan = &#34;Budi&#34;;
+const namaBelakang = &#34;Santoso&#34;;
+const tahunMulaiBelajar = 2023;
+const tahunSekarang = new Date().getFullYear();
+
+// Operator dipakai untuk menghitung lama belajar
+const lamaBelajar = tahunSekarang - tahunMulaiBelajar;
+
+console.log(&#34;Nama:&#34;, namaDepan, namaBelakang);
+console.log(&#34;Sudah belajar web dev selama&#34;, lamaBelajar, &#34;tahun&#34;);
+</code></pre>
+<p>Hubungkan di <code>index.html</code> sebelum <code>&lt;/body&gt;</code>:</p>
+<pre><code class="language-html">&lt;script src=&#34;js/script.js&#34;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Target:</strong> peserta paham variabel, tipe data, dan operator lewat DevTools Console (<code>console.log</code>), sebagai fondasi sebelum masuk DOM.</p>
+<hr>
+<h2>Pertemuan 11 — JavaScript DOM (Document Object Model)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mengenal komponen dan perintah dasar DOM.</li>
+<li>Menjelaskan struktur dan fungsi DOM.</li>
+<li>Implementasi DOM pada project.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Intro to DOM (Method | Document)</strong></p>
+<p>DOM adalah representasi HTML dalam bentuk objek yang bisa &quot;dibaca&quot; dan &quot;diubah&quot; lewat JavaScript.</p>
+<pre><code class="language-javascript">document.getElementById(&#34;main-title&#34;);     // ambil 1 elemen lewat id
+document.querySelector(&#34;.section-title&#34;);  // ambil elemen PERTAMA yang cocok selector CSS
+document.querySelectorAll(&#34;.gallery-img&#34;); // ambil SEMUA elemen yang cocok (jadi list)
+</code></pre>
+<p><strong>DOM Element — Style</strong></p>
+<pre><code class="language-javascript">const title = document.getElementById(&#34;main-title&#34;);
+title.style.color = &#34;crimson&#34;;
+title.style.fontSize = &#34;40px&#34;;
+</code></pre>
+<p><strong>DOM Element — Tab Link (navigasi aktif)</strong></p>
+<pre><code class="language-javascript">const navLinks = document.querySelectorAll(&#34;.navbar a&#34;);
+navLinks.forEach(link =&gt; {
+    link.addEventListener(&#34;click&#34;, () =&gt; {
+        navLinks.forEach(l =&gt; l.classList.remove(&#34;active&#34;));
+        link.classList.add(&#34;active&#34;);
+    });
+});
+</code></pre>
+<pre><code class="language-css">.navbar a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+</code></pre>
+<p><strong>DOM Element — Scroll (smooth scroll ke section)</strong></p>
+<pre><code class="language-javascript">document.querySelectorAll(&#39;.navbar a[href^=&#34;#&#34;]&#39;).forEach(link =&gt; {
+    link.addEventListener(&#34;click&#34;, function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute(&#34;href&#34;));
+        target.scrollIntoView({ behavior: &#34;smooth&#34; });
+    });
+});
+</code></pre>
+<p><strong>DOM HTML — mengubah isi/konten elemen</strong></p>
+<pre><code class="language-javascript">const subtitle = document.querySelector(&#34;.subtitle&#34;);
+subtitle.innerHTML = &#34;Front End Web Developer &lt;strong&gt;| Open for Work&lt;/strong&gt;&#34;;
+</code></pre>
+<h3>Challenge 2 — Show Data with DOM HTML</h3>
+<p>Tampilkan sapaan dinamis berdasarkan jam saat halaman dibuka (pagi/siang/malam) menggunakan DOM.</p>
+<pre><code class="language-javascript">const jamSekarang = new Date().getHours();
+let sapaan;
+
+if (jamSekarang &lt; 11) {
+    sapaan = &#34;Selamat Pagi!&#34;;
+} else if (jamSekarang &lt; 18) {
+    sapaan = &#34;Selamat Siang!&#34;;
+} else {
+    sapaan = &#34;Selamat Malam!&#34;;
+}
+
+document.getElementById(&#34;greeting&#34;).innerHTML = sapaan + &#34; Terima kasih sudah berkunjung.&#34;;
+</code></pre>
+<h3>🎯 Proyek Pertemuan 11: navbar aktif, smooth scroll, sapaan dinamis</h3>
+<p>Tambahkan <code>&lt;p id=&quot;greeting&quot;&gt;&lt;/p&gt;</code> di bawah <code>.subtitle</code> pada <code>index.html</code>, lalu tambahkan seluruh kode DOM di atas ke <code>js/script.js</code>.</p>
+<p><strong>Target:</strong> navbar terasa &quot;hidup&quot; (highlight menu aktif + smooth scroll), dan halaman menampilkan sapaan otomatis sesuai jam.</p>
+<hr>
+<h2>Pertemuan 12 — Branching (If Statement &amp; Nested If)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami konsep kondisi pada program.</li>
+<li>Implementasi if &amp; nested if.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Intro to Alert System</strong></p>
+<pre><code class="language-javascript">alert(&#34;Selamat datang di portfolio saya!&#34;);
+</code></pre>
+<p><strong>If Statement</strong></p>
+<pre><code class="language-javascript">let nama = &#34;&#34;;
+if (nama === &#34;&#34;) {
+    alert(&#34;Nama wajib diisi!&#34;);
+}
+</code></pre>
+<p><strong>Nested If</strong> (kondisi di dalam kondisi)</p>
+<pre><code class="language-javascript">let umur = 17;
+let punyaKTP = false;
+
+if (umur &gt;= 17) {
+    if (punyaKTP) {
+        console.log(&#34;Boleh mendaftar sebagai relawan.&#34;);
+    } else {
+        console.log(&#34;Umur cukup, tapi KTP belum ada.&#34;);
+    }
+} else {
+    console.log(&#34;Umur belum mencukupi.&#34;);
+}
+</code></pre>
+<h3>Challenge 3 — Check Data Condition</h3>
+<p>Validasi form kontak sederhana: cek apakah field nama &amp; email sudah diisi sebelum menampilkan pesan &quot;terkirim&quot;.</p>
+<pre><code class="language-javascript">function validasiForm(nama, email) {
+    if (nama === &#34;&#34; || email === &#34;&#34;) {
+        alert(&#34;Nama dan Email wajib diisi!&#34;);
+    } else {
+        if (email.includes(&#34;@&#34;)) {
+            alert(&#34;Pesan berhasil dikirim. Terima kasih, &#34; + nama + &#34;!&#34;);
+        } else {
+            alert(&#34;Format email tidak valid.&#34;);
+        }
+    }
+}
+
+// simulasi pemanggilan
+validasiForm(&#34;Budi&#34;, &#34;budi@example.com&#34;); // -&gt; berhasil
+validasiForm(&#34;&#34;, &#34;budi@example.com&#34;);     // -&gt; nama wajib diisi
+validasiForm(&#34;Budi&#34;, &#34;budigmail.com&#34;);    // -&gt; format tidak valid
+</code></pre>
+<h3>🎯 Proyek Pertemuan 12: validasi dasar form kontak</h3>
+<p>Tambahkan <code>id</code> pada input form kontak (<code>id=&quot;inputNama&quot;</code>, <code>id=&quot;inputEmail&quot;</code>), lalu buat tombol &quot;Kirim Pesan&quot; memanggil fungsi <code>validasiForm()</code> di atas dengan <code>document.getElementById(...).value</code> sebagai argumennya (detail lengkap tentang function dijelaskan pertemuan 16 — untuk sekarang cukup gunakan bentuk sederhana di atas).</p>
+<p><strong>Target:</strong> peserta paham logika percabangan <code>if / else if / else</code> dan nested if, serta menerapkannya untuk validasi input pengguna.</p>
+<hr>
+<h2>Pertemuan 13 — Loop (While &amp; For Statement)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami konsep pengulangan (looping) pada program.</li>
+<li>Implementasi loop &amp; nested loop.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Intro to Looping Concept</strong>
+Loop dipakai ketika kita ingin mengulang sebuah aksi tanpa menulis kode yang sama berkali-kali.</p>
+<p><strong>While Statement</strong></p>
+<pre><code class="language-javascript">let i = 1;
+while (i &lt;= 5) {
+    console.log(&#34;Perulangan ke-&#34; + i);
+    i++;
+}
+</code></pre>
+<p><strong>For Statement</strong></p>
+<pre><code class="language-javascript">for (let i = 1; i &lt;= 5; i++) {
+    console.log(&#34;Perulangan ke-&#34; + i);
+}
+</code></pre>
+<p><strong>Nested Loop</strong> (loop di dalam loop)</p>
+<pre><code class="language-javascript">// membuat pola grid sederhana 3x3 di console
+for (let baris = 1; baris &lt;= 3; baris++) {
+    let teksBaris = &#34;&#34;;
+    for (let kolom = 1; kolom &lt;= 3; kolom++) {
+        teksBaris += &#34;[&#34; + baris + &#34;,&#34; + kolom + &#34;] &#34;;
+    }
+    console.log(teksBaris);
+}
+</code></pre>
+<h3>🎯 Proyek Pertemuan 13: generate skill bar otomatis dengan loop</h3>
+<pre><code class="language-javascript">const skills = [
+    { nama: &#34;HTML&#34;, level: 90 },
+    { nama: &#34;CSS&#34;, level: 80 },
+    { nama: &#34;JavaScript&#34;, level: 60 }
+];
+
+const skillContainer = document.getElementById(&#34;skill-bars&#34;);
+
+for (let i = 0; i &lt; skills.length; i++) {
+    skillContainer.innerHTML += `
+        &lt;div class=&#34;skill-bar&#34;&gt;
+            &lt;span&gt;${skills[i].nama}&lt;/span&gt;
+            &lt;div class=&#34;bar-bg&#34;&gt;
+                &lt;div class=&#34;bar-fill&#34; style=&#34;width: ${skills[i].level}%;&#34;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    `;
+}
+</code></pre>
+<pre><code class="language-html">&lt;!-- tambahkan div kosong ini di section#skills --&gt;
+&lt;div id=&#34;skill-bars&#34;&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.skill-bar { margin-bottom: 12px; }
+.bar-bg { background: #dde3e8; border-radius: 6px; overflow: hidden; height: 12px; }
+.bar-fill { background: #1c3d5a; height: 100%; }
+</code></pre>
+<p><strong>Target:</strong> peserta paham <code>for</code> vs <code>while</code>, dan bisa memakainya untuk generate elemen HTML secara otomatis (bibit dari Array + DOM rendering di pertemuan berikutnya).</p>
+<blockquote>
+<p>Catatan pengajar: contoh di atas sengaja memakai array <code>skills</code> walau materi Array formal baru diajarkan pertemuan berikutnya — ini jembatan alami agar peserta melihat kenapa Array dan Loop selalu dipakai berdampingan.</p>
+</blockquote>
+<hr>
+<h2>Pertemuan 14 — Intro to Array</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami array sebagai struktur data untuk menyimpan banyak nilai.</li>
+<li>Menggabungkan Array + Loop untuk render data secara dinamis.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Array 1D</strong></p>
+<pre><code class="language-javascript">const bahasaPemrograman = [&#34;HTML&#34;, &#34;CSS&#34;, &#34;JavaScript&#34;];
+
+console.log(bahasaPemrograman[0]); // &#34;HTML&#34;   (index dimulai dari 0)
+console.log(bahasaPemrograman.length); // 3
+
+// menambah data
+bahasaPemrograman.push(&#34;TypeScript&#34;);
+
+// mengakses semua data dengan loop
+for (let i = 0; i &lt; bahasaPemrograman.length; i++) {
+    console.log(bahasaPemrograman[i]);
+}
+
+// method modern (pelengkap): forEach
+bahasaPemrograman.forEach(function (item) {
+    console.log(&#34;Bahasa:&#34;, item);
+});
+</code></pre>
+<p><strong>Array of Object</strong> (dipakai untuk data project yang punya banyak informasi)</p>
+<pre><code class="language-javascript">const daftarProject = [
+    { judul: &#34;Landing Page&#34;, deskripsi: &#34;Dibuat dengan HTML &amp; CSS Flexbox.&#34;, gambar: &#34;assets/images/project1.jpg&#34; },
+    { judul: &#34;E-Commerce UI&#34;, deskripsi: &#34;Latihan Grid &amp; responsive design.&#34;, gambar: &#34;assets/images/project2.jpg&#34; },
+    { judul: &#34;Dashboard Admin&#34;, deskripsi: &#34;Kombinasi Flexbox, Grid, dan JavaScript.&#34;, gambar: &#34;assets/images/project3.jpg&#34; }
+];
+</code></pre>
+<h3>🎯 Proyek Pertemuan 14: data project disimpan di Array, render otomatis</h3>
+<pre><code class="language-javascript">const daftarProject = [
+    { judul: &#34;Landing Page&#34;, deskripsi: &#34;Dibuat dengan HTML &amp; CSS Flexbox.&#34;, gambar: &#34;assets/images/project1.jpg&#34; },
+    { judul: &#34;E-Commerce UI&#34;, deskripsi: &#34;Latihan Grid &amp; responsive design.&#34;, gambar: &#34;assets/images/project2.jpg&#34; },
+    { judul: &#34;Dashboard Admin&#34;, deskripsi: &#34;Kombinasi Flexbox, Grid, dan JavaScript.&#34;, gambar: &#34;assets/images/project3.jpg&#34; }
+];
+
+const projectContainer = document.getElementById(&#34;project-container&#34;);
+
+for (let i = 0; i &lt; daftarProject.length; i++) {
+    const p = daftarProject[i];
+    projectContainer.innerHTML += `
+        &lt;div class=&#34;flip-card&#34;&gt;
+            &lt;div class=&#34;flip-card-inner&#34;&gt;
+                &lt;div class=&#34;flip-card-front&#34;&gt;
+                    &lt;img src=&#34;${p.gambar}&#34; alt=&#34;${p.judul}&#34;&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;flip-card-back&#34;&gt;
+                    &lt;h3&gt;${p.judul}&lt;/h3&gt;
+                    &lt;p&gt;${p.deskripsi}&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    `;
+}
+</code></pre>
+<pre><code class="language-html">&lt;!-- ganti flip card manual dari pertemuan 9 dengan container kosong ini --&gt;
+&lt;section id=&#34;project&#34;&gt;
+    &lt;h2 class=&#34;section-title&#34;&gt;Project Saya&lt;/h2&gt;
+    &lt;div class=&#34;gallery&#34; id=&#34;project-container&#34;&gt;&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<p><strong>Target:</strong> peserta paham kenapa data sebaiknya disimpan di Array, bukan ditulis manual berkali-kali di HTML — menambah project baru cukup menambah 1 baris di Array, tidak perlu menulis ulang HTML.</p>
+<hr>
+<h2>Pertemuan 15 — DOM Form</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami fungsi DOM Form.</li>
+<li>Implementasi validasi field kosong.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>DOM Form — mengambil nilai input</strong></p>
+<pre><code class="language-html">&lt;form id=&#34;formKontak&#34;&gt;
+    &lt;input type=&#34;text&#34; id=&#34;inputNama&#34; placeholder=&#34;Nama Lengkap&#34;&gt;
+    &lt;input type=&#34;email&#34; id=&#34;inputEmail&#34; placeholder=&#34;Email&#34;&gt;
+    &lt;textarea id=&#34;inputPesan&#34; placeholder=&#34;Pesan Anda&#34;&gt;&lt;/textarea&gt;
+    &lt;button type=&#34;submit&#34; class=&#34;btn-primary&#34;&gt;Kirim Pesan&lt;/button&gt;
+&lt;/form&gt;
+&lt;p id=&#34;formStatus&#34;&gt;&lt;/p&gt;
+</code></pre>
+<pre><code class="language-javascript">const form = document.getElementById(&#34;formKontak&#34;);
+
+form.addEventListener(&#34;submit&#34;, function (e) {
+    e.preventDefault(); // mencegah halaman reload saat submit
+
+    const nama = document.getElementById(&#34;inputNama&#34;).value;
+    const email = document.getElementById(&#34;inputEmail&#34;).value;
+    const pesan = document.getElementById(&#34;inputPesan&#34;).value;
+
+    console.log({ nama, email, pesan });
+});
+</code></pre>
+<h3>Challenge 4 — Check Blank Field</h3>
+<pre><code class="language-javascript">form.addEventListener(&#34;submit&#34;, function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById(&#34;inputNama&#34;).value.trim();
+    const email = document.getElementById(&#34;inputEmail&#34;).value.trim();
+    const pesan = document.getElementById(&#34;inputPesan&#34;).value.trim();
+    const status = document.getElementById(&#34;formStatus&#34;);
+
+    if (nama === &#34;&#34; || email === &#34;&#34; || pesan === &#34;&#34;) {
+        status.textContent = &#34;⚠️ Semua field wajib diisi!&#34;;
+        status.style.color = &#34;crimson&#34;;
+        return; // hentikan proses jika ada field kosong
+    }
+
+    status.textContent = &#34;✅ Pesan berhasil dikirim. Terima kasih, &#34; + nama + &#34;!&#34;;
+    status.style.color = &#34;green&#34;;
+    form.reset(); // kosongkan kembali form
+});
+</code></pre>
+<h3>🎯 Proyek Pertemuan 15: form kontak fungsional dengan validasi blank field</h3>
+<p>Ganti form statis pada section <code>#kontak</code> dengan versi <code>id</code>-berbasis di atas, dan tambahkan seluruh script validasi ke <code>js/script.js</code>.</p>
+<p><strong>Target:</strong> form kontak sekarang benar-benar mengecek input kosong dan memberi feedback langsung ke pengguna tanpa reload halaman.</p>
+<hr>
+<h2>Pertemuan 16 — Intro to Function (Argument &amp; Parameter)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami konsep function.</li>
+<li>Implementasi function dengan parameter &amp; argument.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Intro to Function</strong></p>
+<pre><code class="language-javascript">function sapa() {
+    console.log(&#34;Halo, selamat datang!&#34;);
+}
+sapa(); // memanggil function
+</code></pre>
+<p><strong>Argument &amp; Parameter</strong></p>
+<pre><code class="language-javascript">// &#34;nama&#34; adalah PARAMETER (tempat menampung nilai)
+function sapaDenganNama(nama) {
+    console.log(&#34;Halo, &#34; + nama + &#34;!&#34;);
+}
+
+sapaDenganNama(&#34;Budi&#34;); // &#34;Budi&#34; adalah ARGUMENT (nilai yang dikirim)
+sapaDenganNama(&#34;Sari&#34;);
+</code></pre>
+<pre><code class="language-javascript">// Function bisa mengembalikan nilai dengan &#34;return&#34;
+function tambah(a, b) {
+    return a + b;
+}
+const hasil = tambah(5, 3); // hasil = 8
+</code></pre>
+<h3>🎯 Proyek Pertemuan 16: refactor semua logic jadi function yang rapi</h3>
+<pre><code class="language-javascript">// ===== 1. Function render project (dari pertemuan 14) =====
+function renderProject(daftarProject) {
+    const container = document.getElementById(&#34;project-container&#34;);
+    container.innerHTML = &#34;&#34;; // kosongkan dulu sebelum render ulang
+
+    daftarProject.forEach(function (p) {
+        container.innerHTML += `
+            &lt;div class=&#34;flip-card&#34;&gt;
+                &lt;div class=&#34;flip-card-inner&#34;&gt;
+                    &lt;div class=&#34;flip-card-front&#34;&gt;&lt;img src=&#34;${p.gambar}&#34; alt=&#34;${p.judul}&#34;&gt;&lt;/div&gt;
+                    &lt;div class=&#34;flip-card-back&#34;&gt;&lt;h3&gt;${p.judul}&lt;/h3&gt;&lt;p&gt;${p.deskripsi}&lt;/p&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        `;
+    });
+}
+
+// ===== 2. Function render skill bar (dari pertemuan 13) =====
+function renderSkills(skills) {
+    const container = document.getElementById(&#34;skill-bars&#34;);
+    container.innerHTML = &#34;&#34;;
+    skills.forEach(function (s) {
+        container.innerHTML += `
+            &lt;div class=&#34;skill-bar&#34;&gt;
+                &lt;span&gt;${s.nama}&lt;/span&gt;
+                &lt;div class=&#34;bar-bg&#34;&gt;&lt;div class=&#34;bar-fill&#34; style=&#34;width: ${s.level}%;&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        `;
+    });
+}
+
+// ===== 3. Function validasi form (dari pertemuan 15) =====
+function validasiForm(nama, email, pesan) {
+    if (nama === &#34;&#34; || email === &#34;&#34; || pesan === &#34;&#34;) {
+        return { sukses: false, pesan: &#34;⚠️ Semua field wajib diisi!&#34; };
+    }
+    if (!email.includes(&#34;@&#34;)) {
+        return { sukses: false, pesan: &#34;⚠️ Format email tidak valid.&#34; };
+    }
+    return { sukses: true, pesan: &#34;✅ Pesan berhasil dikirim. Terima kasih, &#34; + nama + &#34;!&#34; };
+}
+
+// ===== Pemanggilan semua function saat halaman dimuat =====
+const daftarProject = [
+    { judul: &#34;Landing Page&#34;, deskripsi: &#34;Dibuat dengan HTML &amp; CSS Flexbox.&#34;, gambar: &#34;assets/images/project1.jpg&#34; },
+    { judul: &#34;E-Commerce UI&#34;, deskripsi: &#34;Latihan Grid &amp; responsive design.&#34;, gambar: &#34;assets/images/project2.jpg&#34; },
+    { judul: &#34;Dashboard Admin&#34;, deskripsi: &#34;Kombinasi Flexbox, Grid, dan JavaScript.&#34;, gambar: &#34;assets/images/project3.jpg&#34; }
+];
+const skills = [
+    { nama: &#34;HTML&#34;, level: 90 }, { nama: &#34;CSS&#34;, level: 80 }, { nama: &#34;JavaScript&#34;, level: 60 }
+];
+
+renderProject(daftarProject);
+renderSkills(skills);
+</code></pre>
+<p><strong>Target:</strong> peserta paham kenapa memecah kode jadi function membuat kode lebih rapi, mudah dibaca, dan mudah dipakai ulang (reusable) — ini fondasi menuju kode yang &quot;production-ready&quot;.</p>
+<hr>
+<h2>Pertemuan 17 — Event Handlers</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami &amp; mengimplementasi event handler dengan konsep function.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Intro to Event Handlers</strong></p>
+<pre><code class="language-javascript">const tombol = document.querySelector(&#34;.btn-primary&#34;);
+
+tombol.addEventListener(&#34;click&#34;, function () {
+    console.log(&#34;Tombol diklik!&#34;);
+});
+</code></pre>
+<p>Event lain yang umum dipakai:</p>
+<pre><code class="language-javascript">input.addEventListener(&#34;input&#34;, handleInput);     // setiap kali user mengetik
+form.addEventListener(&#34;submit&#34;, handleSubmit);     // saat form dikirim
+window.addEventListener(&#34;scroll&#34;, handleScroll);   // saat halaman di-scroll
+element.addEventListener(&#34;mouseover&#34;, handleHover); // saat mouse di atas elemen
+</code></pre>
+<h3>Challenge 5 — Show Data with Function (Filter Project by Kategori)</h3>
+<pre><code class="language-javascript">const daftarProjectLengkap = [
+    { judul: &#34;Landing Page&#34;, kategori: &#34;landing&#34;, deskripsi: &#34;...&#34;, gambar: &#34;assets/images/project1.jpg&#34; },
+    { judul: &#34;Toko Online&#34;, kategori: &#34;ecommerce&#34;, deskripsi: &#34;...&#34;, gambar: &#34;assets/images/project2.jpg&#34; },
+    { judul: &#34;Dashboard Admin&#34;, kategori: &#34;dashboard&#34;, deskripsi: &#34;...&#34;, gambar: &#34;assets/images/project3.jpg&#34; }
+];
+
+function filterProject(kategori) {
+    if (kategori === &#34;semua&#34;) {
+        return daftarProjectLengkap;
+    }
+    return daftarProjectLengkap.filter(function (p) {
+        return p.kategori === kategori;
+    });
+}
+
+document.querySelectorAll(&#34;.filter-btn&#34;).forEach(function (btn) {
+    btn.addEventListener(&#34;click&#34;, function () {
+        const kategoriDipilih = btn.dataset.kategori; // ambil dari atribut data-kategori
+        renderProject(filterProject(kategoriDipilih));
+    });
+});
+</code></pre>
+<pre><code class="language-html">&lt;div class=&#34;filter-buttons&#34;&gt;
+    &lt;button class=&#34;filter-btn&#34; data-kategori=&#34;semua&#34;&gt;Semua&lt;/button&gt;
+    &lt;button class=&#34;filter-btn&#34; data-kategori=&#34;landing&#34;&gt;Landing Page&lt;/button&gt;
+    &lt;button class=&#34;filter-btn&#34; data-kategori=&#34;ecommerce&#34;&gt;E-Commerce&lt;/button&gt;
+    &lt;button class=&#34;filter-btn&#34; data-kategori=&#34;dashboard&#34;&gt;Dashboard&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&#34;gallery&#34; id=&#34;project-container&#34;&gt;&lt;/div&gt;
+</code></pre>
+<h3>🎯 Bonus: menyimpan pesan form dengan <code>localStorage</code> <em>(opsional, konsep tambahan)</em></h3>
+<p>Supaya event handler terasa lebih nyata manfaatnya — data form tidak hilang walau halaman di-refresh:</p>
+<pre><code class="language-javascript">form.addEventListener(&#34;submit&#34;, function (e) {
+    e.preventDefault();
+    const nama = document.getElementById(&#34;inputNama&#34;).value.trim();
+    const email = document.getElementById(&#34;inputEmail&#34;).value.trim();
+    const pesan = document.getElementById(&#34;inputPesan&#34;).value.trim();
+
+    const hasil = validasiForm(nama, email, pesan);
+    document.getElementById(&#34;formStatus&#34;).textContent = hasil.pesan;
+
+    if (hasil.sukses) {
+        localStorage.setItem(&#34;pesanTerakhir&#34;, JSON.stringify({ nama, email, pesan }));
+        form.reset();
+    }
+});
+</code></pre>
+<h3>🎯 Proyek Pertemuan 17: filter project by kategori + event handler lengkap</h3>
+<p>Tambahkan <code>kategori</code> pada setiap object di array <code>daftarProject</code>, tambahkan tombol filter di atas galeri project, dan hubungkan semua event handler (klik tombol filter, submit form, dsb) ke <code>js/script.js</code>.</p>
+<p><strong>Target:</strong> portfolio kini benar-benar interaktif — pengunjung bisa memfilter project berdasarkan kategori, dan form kontak berfungsi penuh dengan validasi + penyimpanan sementara.</p>
+<hr>
+<h2>Pertemuan 18 — Welcome to Bootstrap</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Menjelaskan fungsi dan penerapan Bootstrap.</li>
+<li>Mempercepat proses pembuatan tampilan dengan Bootstrap.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Intro to Bootstrap</strong> — apa itu Bootstrap?</p>
+<p>Bootstrap adalah framework CSS siap pakai yang menyediakan sistem grid, komponen (navbar, card, button, form), dan utility class, sehingga kita tidak perlu menulis CSS dari nol untuk kebutuhan layout umum.</p>
+<p><strong>Instalasi via CDN</strong></p>
+<pre><code class="language-html">&lt;head&gt;
+    &lt;link href=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- konten --&gt;
+    &lt;script src=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><strong>Grid System Bootstrap</strong> (mirip konsep CSS Grid, tapi dengan class siap pakai)</p>
+<pre><code class="language-html">&lt;div class=&#34;container&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+        &lt;div class=&#34;col-md-4&#34;&gt;Kolom 1&lt;/div&gt;
+        &lt;div class=&#34;col-md-4&#34;&gt;Kolom 2&lt;/div&gt;
+        &lt;div class=&#34;col-md-4&#34;&gt;Kolom 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Navbar Bootstrap</strong></p>
+<pre><code class="language-html">&lt;nav class=&#34;navbar navbar-expand-lg navbar-dark bg-dark&#34;&gt;
+    &lt;div class=&#34;container-fluid&#34;&gt;
+        &lt;a class=&#34;navbar-brand&#34; href=&#34;#&#34;&gt;Budi Santoso&lt;/a&gt;
+        &lt;button class=&#34;navbar-toggler&#34; type=&#34;button&#34; data-bs-toggle=&#34;collapse&#34; data-bs-target=&#34;#navMenu&#34;&gt;
+            &lt;span class=&#34;navbar-toggler-icon&#34;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&#34;collapse navbar-collapse&#34; id=&#34;navMenu&#34;&gt;
+            &lt;ul class=&#34;navbar-nav ms-auto&#34;&gt;
+                &lt;li class=&#34;nav-item&#34;&gt;&lt;a class=&#34;nav-link&#34; href=&#34;#tentang&#34;&gt;Tentang&lt;/a&gt;&lt;/li&gt;
+                &lt;li class=&#34;nav-item&#34;&gt;&lt;a class=&#34;nav-link&#34; href=&#34;#skills&#34;&gt;Skills&lt;/a&gt;&lt;/li&gt;
+                &lt;li class=&#34;nav-item&#34;&gt;&lt;a class=&#34;nav-link&#34; href=&#34;#project&#34;&gt;Project&lt;/a&gt;&lt;/li&gt;
+                &lt;li class=&#34;nav-item&#34;&gt;&lt;a class=&#34;nav-link&#34; href=&#34;#kontak&#34;&gt;Kontak&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+</code></pre>
+<p><strong>Card Bootstrap</strong> (pengganti flip-card manual, opsional dikombinasikan)</p>
+<pre><code class="language-html">&lt;div class=&#34;card&#34; style=&#34;width: 18rem;&#34;&gt;
+    &lt;img src=&#34;assets/images/project1.jpg&#34; class=&#34;card-img-top&#34; alt=&#34;Landing Page&#34;&gt;
+    &lt;div class=&#34;card-body&#34;&gt;
+        &lt;h5 class=&#34;card-title&#34;&gt;Landing Page&lt;/h5&gt;
+        &lt;p class=&#34;card-text&#34;&gt;Dibuat dengan HTML &amp; CSS Flexbox.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Form &amp; Button Bootstrap</strong></p>
+<pre><code class="language-html">&lt;form&gt;
+    &lt;div class=&#34;mb-3&#34;&gt;
+        &lt;label class=&#34;form-label&#34;&gt;Nama Lengkap&lt;/label&gt;
+        &lt;input type=&#34;text&#34; class=&#34;form-control&#34; id=&#34;inputNama&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;mb-3&#34;&gt;
+        &lt;label class=&#34;form-label&#34;&gt;Email&lt;/label&gt;
+        &lt;input type=&#34;email&#34; class=&#34;form-control&#34; id=&#34;inputEmail&#34;&gt;
+    &lt;/div&gt;
+    &lt;button type=&#34;submit&#34; class=&#34;btn btn-primary&#34;&gt;Kirim Pesan&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<h3>🎯 Proyek Pertemuan 18: rebuild navbar, grid project, dan form pakai Bootstrap</h3>
+<p>Ganti navbar custom (flexbox manual) dengan navbar Bootstrap di atas, ganti grid galeri (<code>display:grid</code> manual) dengan <code>row</code> + <code>col-md-4</code> Bootstrap berisi <code>card</code>, dan ganti form kontak dengan komponen form Bootstrap — <strong>JavaScript custom dari pertemuan 10-17 tetap dipakai</strong> (validasi, filter, render project), hanya tampilannya yang kini dibangun dengan class Bootstrap.</p>
+<p><strong>Target:</strong> peserta paham bahwa Bootstrap mempercepat styling (bukan mengganti logic JavaScript), dan portfolio kini lebih cepat dibangun dengan komponen siap pakai.</p>
+<hr>
+<h2>Pertemuan 19 — Final Exam Part 2: Free Project (Review + Challenge)</h2>
+<h3>Tujuan Belajar</h3>
+<p>Memiliki satu prototipe website yang siap dikembangkan lebih lanjut — interaktif, responsive, dan online.</p>
+<h3>Aktivitas</h3>
+<ol>
+<li>Review seluruh materi Part 2 (JavaScript dasar → DOM → Branching → Loop → Array → Form → Function → Event Handler → Bootstrap).</li>
+<li><strong>Challenge</strong>: peserta menyempurnakan portfolio pribadi masing-masing menjadi versi final, lalu re-deploy ke Vercel.</li>
+</ol>
+<h3>Checklist Final Exam Part 2</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Navbar aktif otomatis &amp; smooth scroll berfungsi</li>
+<li><input disabled="" type="checkbox"> Data project &amp; skill disimpan di Array, dirender otomatis lewat loop + function</li>
+<li><input disabled="" type="checkbox"> Filter project by kategori berfungsi (event handler)</li>
+<li><input disabled="" type="checkbox"> Form kontak: validasi field kosong &amp; format email, memberi feedback ke user</li>
+<li><input disabled="" type="checkbox"> Semua logic JavaScript dipecah jadi function yang rapi (bukan kode acak-acakan di satu blok)</li>
+<li><input disabled="" type="checkbox"> Layout dibangun dengan Bootstrap (navbar, grid, card, form)</li>
+<li><input disabled="" type="checkbox"> Website tetap responsive di desktop/tablet/mobile</li>
+<li><input disabled="" type="checkbox"> Sudah di-push ke GitHub dan online di Vercel (versi final)</li>
+</ul>
+<h3>📄 Kode Kumulatif Lengkap — Versi Final (Part 1 + Part 2)</h3>
+<p><code>index.html</code>:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;id&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Portfolio Saya — Budi Santoso&lt;/title&gt;
+    &lt;link href=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;css/style.css&#34;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class=&#34;navbar navbar-expand-lg navbar-dark bg-dark sticky-top&#34;&gt;
+        &lt;div class=&#34;container-fluid&#34;&gt;
+            &lt;a class=&#34;navbar-brand&#34; href=&#34;#&#34;&gt;Budi Santoso&lt;/a&gt;
+            &lt;button class=&#34;navbar-toggler&#34; type=&#34;button&#34; data-bs-toggle=&#34;collapse&#34; data-bs-target=&#34;#navMenu&#34;&gt;
+                &lt;span class=&#34;navbar-toggler-icon&#34;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;div class=&#34;collapse navbar-collapse&#34; id=&#34;navMenu&#34;&gt;
+                &lt;ul class=&#34;navbar-nav ms-auto&#34;&gt;
+                    &lt;li class=&#34;nav-item&#34;&gt;&lt;a class=&#34;nav-link&#34; href=&#34;#tentang&#34;&gt;Tentang&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&#34;nav-item&#34;&gt;&lt;a class=&#34;nav-link&#34; href=&#34;#skills&#34;&gt;Skills&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&#34;nav-item&#34;&gt;&lt;a class=&#34;nav-link&#34; href=&#34;#project&#34;&gt;Project&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&#34;nav-item&#34;&gt;&lt;a class=&#34;nav-link&#34; href=&#34;#kontak&#34;&gt;Kontak&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;main class=&#34;container py-5&#34;&gt;
+        &lt;section id=&#34;tentang&#34; class=&#34;text-center mb-5&#34;&gt;
+            &lt;img src=&#34;assets/images/profile.jpg&#34; alt=&#34;Foto Budi Santoso&#34; class=&#34;profile-photo&#34;&gt;
+            &lt;h1 id=&#34;main-title&#34;&gt;Budi Santoso&lt;/h1&gt;
+            &lt;p class=&#34;subtitle&#34;&gt;Front End Web Developer&lt;/p&gt;
+            &lt;p id=&#34;greeting&#34; class=&#34;fst-italic text-secondary&#34;&gt;&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section id=&#34;skills&#34; class=&#34;mb-5&#34;&gt;
+            &lt;h2 class=&#34;section-title&#34;&gt;Skills&lt;/h2&gt;
+            &lt;div id=&#34;skill-bars&#34;&gt;&lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section id=&#34;project&#34; class=&#34;mb-5&#34;&gt;
+            &lt;h2 class=&#34;section-title&#34;&gt;Project Saya&lt;/h2&gt;
+            &lt;div class=&#34;filter-buttons mb-3&#34;&gt;
+                &lt;button class=&#34;btn btn-outline-primary btn-sm filter-btn&#34; data-kategori=&#34;semua&#34;&gt;Semua&lt;/button&gt;
+                &lt;button class=&#34;btn btn-outline-primary btn-sm filter-btn&#34; data-kategori=&#34;landing&#34;&gt;Landing Page&lt;/button&gt;
+                &lt;button class=&#34;btn btn-outline-primary btn-sm filter-btn&#34; data-kategori=&#34;ecommerce&#34;&gt;E-Commerce&lt;/button&gt;
+                &lt;button class=&#34;btn btn-outline-primary btn-sm filter-btn&#34; data-kategori=&#34;dashboard&#34;&gt;Dashboard&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;row g-3&#34; id=&#34;project-container&#34;&gt;&lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section id=&#34;kontak&#34; class=&#34;mb-5&#34;&gt;
+            &lt;h2 class=&#34;section-title&#34;&gt;Hubungi Saya&lt;/h2&gt;
+            &lt;form id=&#34;formKontak&#34; class=&#34;w-100&#34; style=&#34;max-width: 500px;&#34;&gt;
+                &lt;div class=&#34;mb-3&#34;&gt;
+                    &lt;label class=&#34;form-label&#34;&gt;Nama Lengkap&lt;/label&gt;
+                    &lt;input type=&#34;text&#34; class=&#34;form-control&#34; id=&#34;inputNama&#34;&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;mb-3&#34;&gt;
+                    &lt;label class=&#34;form-label&#34;&gt;Email&lt;/label&gt;
+                    &lt;input type=&#34;email&#34; class=&#34;form-control&#34; id=&#34;inputEmail&#34;&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;mb-3&#34;&gt;
+                    &lt;label class=&#34;form-label&#34;&gt;Pesan&lt;/label&gt;
+                    &lt;textarea class=&#34;form-control&#34; id=&#34;inputPesan&#34; rows=&#34;4&#34;&gt;&lt;/textarea&gt;
+                &lt;/div&gt;
+                &lt;button type=&#34;submit&#34; class=&#34;btn btn-primary&#34;&gt;Kirim Pesan&lt;/button&gt;
+                &lt;p id=&#34;formStatus&#34; class=&#34;mt-2 fw-bold&#34;&gt;&lt;/p&gt;
+            &lt;/form&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer class=&#34;text-center py-4 text-secondary&#34;&gt;
+        &lt;p&gt;&amp;copy; 2026 Budi Santoso. Dibuat dengan HTML, CSS, JavaScript &amp; Bootstrap.&lt;/p&gt;
+    &lt;/footer&gt;
+
+    &lt;script src=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js&#34;&gt;&lt;/script&gt;
+    &lt;script src=&#34;js/script.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>js/script.js</code>:</p>
+<pre><code class="language-javascript">// ===================================================
+// 1. DATA (Array of Object)
+// ===================================================
+const daftarProjectLengkap = [
+    { judul: &#34;Landing Page&#34;, kategori: &#34;landing&#34;, deskripsi: &#34;Dibuat dengan HTML &amp; CSS Flexbox.&#34;, gambar: &#34;assets/images/project1.jpg&#34; },
+    { judul: &#34;Toko Online&#34;, kategori: &#34;ecommerce&#34;, deskripsi: &#34;Latihan Grid &amp; responsive design.&#34;, gambar: &#34;assets/images/project2.jpg&#34; },
+    { judul: &#34;Dashboard Admin&#34;, kategori: &#34;dashboard&#34;, deskripsi: &#34;Kombinasi Flexbox, Grid, dan JavaScript.&#34;, gambar: &#34;assets/images/project3.jpg&#34; }
+];
+
+const skills = [
+    { nama: &#34;HTML&#34;, level: 90 },
+    { nama: &#34;CSS&#34;, level: 80 },
+    { nama: &#34;JavaScript&#34;, level: 60 }
+];
+
+// ===================================================
+// 2. FUNCTION — Render
+// ===================================================
+function renderProject(daftarProject) {
+    const container = document.getElementById(&#34;project-container&#34;);
+    container.innerHTML = &#34;&#34;;
+    daftarProject.forEach(function (p) {
+        container.innerHTML += `
+            &lt;div class=&#34;col-md-4&#34;&gt;
+                &lt;div class=&#34;card h-100&#34;&gt;
+                    &lt;img src=&#34;${p.gambar}&#34; class=&#34;card-img-top&#34; alt=&#34;${p.judul}&#34;&gt;
+                    &lt;div class=&#34;card-body&#34;&gt;
+                        &lt;h5 class=&#34;card-title&#34;&gt;${p.judul}&lt;/h5&gt;
+                        &lt;p class=&#34;card-text&#34;&gt;${p.deskripsi}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        `;
+    });
+}
+
+function renderSkills(skillsData) {
+    const container = document.getElementById(&#34;skill-bars&#34;);
+    container.innerHTML = &#34;&#34;;
+    skillsData.forEach(function (s) {
+        container.innerHTML += `
+            &lt;div class=&#34;skill-bar&#34;&gt;
+                &lt;span&gt;${s.nama}&lt;/span&gt;
+                &lt;div class=&#34;bar-bg&#34;&gt;&lt;div class=&#34;bar-fill&#34; style=&#34;width: ${s.level}%;&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        `;
+    });
+}
+
+function tampilkanSapaan() {
+    const jamSekarang = new Date().getHours();
+    let sapaan;
+    if (jamSekarang &lt; 11) {
+        sapaan = &#34;Selamat Pagi!&#34;;
+    } else if (jamSekarang &lt; 18) {
+        sapaan = &#34;Selamat Siang!&#34;;
+    } else {
+        sapaan = &#34;Selamat Malam!&#34;;
+    }
+    document.getElementById(&#34;greeting&#34;).textContent = sapaan + &#34; Terima kasih sudah berkunjung.&#34;;
+}
+
+// ===================================================
+// 3. FUNCTION — Filter (Branching + Array method)
+// ===================================================
+function filterProject(kategori) {
+    if (kategori === &#34;semua&#34;) {
+        return daftarProjectLengkap;
+    }
+    return daftarProjectLengkap.filter(function (p) {
+        return p.kategori === kategori;
+    });
+}
+
+// ===================================================
+// 4. FUNCTION — Validasi Form (Branching)
+// ===================================================
+function validasiForm(nama, email, pesan) {
+    if (nama === &#34;&#34; || email === &#34;&#34; || pesan === &#34;&#34;) {
+        return { sukses: false, pesan: &#34;⚠️ Semua field wajib diisi!&#34; };
+    }
+    if (!email.includes(&#34;@&#34;)) {
+        return { sukses: false, pesan: &#34;⚠️ Format email tidak valid.&#34; };
+    }
+    return { sukses: true, pesan: &#34;✅ Pesan berhasil dikirim. Terima kasih, &#34; + nama + &#34;!&#34; };
+}
+
+// ===================================================
+// 5. EVENT HANDLERS
+// ===================================================
+document.querySelectorAll(&#34;.filter-btn&#34;).forEach(function (btn) {
+    btn.addEventListener(&#34;click&#34;, function () {
+        renderProject(filterProject(btn.dataset.kategori));
+    });
+});
+
+const form = document.getElementById(&#34;formKontak&#34;);
+form.addEventListener(&#34;submit&#34;, function (e) {
+    e.preventDefault();
+    const nama = document.getElementById(&#34;inputNama&#34;).value.trim();
+    const email = document.getElementById(&#34;inputEmail&#34;).value.trim();
+    const pesan = document.getElementById(&#34;inputPesan&#34;).value.trim();
+    const status = document.getElementById(&#34;formStatus&#34;);
+
+    const hasil = validasiForm(nama, email, pesan);
+    status.textContent = hasil.pesan;
+    status.style.color = hasil.sukses ? &#34;green&#34; : &#34;crimson&#34;;
+
+    if (hasil.sukses) {
+        localStorage.setItem(&#34;pesanTerakhir&#34;, JSON.stringify({ nama, email, pesan }));
+        form.reset();
+    }
+});
+
+// Smooth scroll + navbar active state
+document.querySelectorAll(&#39;.navbar a[href^=&#34;#&#34;]&#39;).forEach(function (link) {
+    link.addEventListener(&#34;click&#34;, function (e) {
+        e.preventDefault();
+        document.querySelectorAll(&#34;.navbar a&#34;).forEach(l =&gt; l.classList.remove(&#34;active&#34;));
+        link.classList.add(&#34;active&#34;);
+        document.querySelector(link.getAttribute(&#34;href&#34;)).scrollIntoView({ behavior: &#34;smooth&#34; });
+    });
+});
+
+// ===================================================
+// 6. INISIALISASI — dijalankan saat halaman dimuat
+// ===================================================
+tampilkanSapaan();
+renderSkills(skills);
+renderProject(daftarProjectLengkap);
+</code></pre>
+<p><code>css/style.css</code> (tambahan khusus di atas CSS Bootstrap):</p>
+<pre><code class="language-css">body { font-family: &#39;Segoe UI&#39;, Arial, sans-serif; }
+.profile-photo {
+    width: 160px; height: 160px; object-fit: cover;
+    border-radius: 50%; margin-bottom: 16px;
+    transition: transform 0.3s ease;
+}
+.profile-photo:hover { transform: scale(1.05); }
+.section-title { border-bottom: 2px solid #1c3d5a; padding-bottom: 4px; margin-bottom: 20px; }
+.skill-bar { margin-bottom: 12px; }
+.bar-bg { background: #dde3e8; border-radius: 6px; overflow: hidden; height: 12px; }
+.bar-fill { background: #1c3d5a; height: 100%; }
+.navbar a.active { text-decoration: underline; font-weight: bold; }
+</code></pre>
+<p><strong>Target akhir kelas:</strong> setiap peserta memiliki <strong>satu website portfolio pribadi yang lengkap</strong>: struktur semantic, styling Bootstrap + custom CSS, responsive di semua device, dan interaktif penuh (render data dari Array, filter project, validasi form) — online dan bisa dibagikan lewat link Vercel.</p>
+<hr>
+<h2>Ringkasan Peta Konsep per Pertemuan</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Topik Utama</th>
+<th>Peserta bisa apa setelah ini?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Setup tools, HTML dasar</td>
+<td>Membuat halaman HTML dasar &amp; paham struktur project</td>
+</tr>
+<tr>
+<td>2</td>
+<td>CSS dasar</td>
+<td>Styling halaman lewat file CSS eksternal</td>
+</tr>
+<tr>
+<td>3</td>
+<td>List</td>
+<td>Menampilkan data dalam bentuk list yang rapi</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Button &amp; form input</td>
+<td>Membuat tombol, radio, checkbox, select</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Media</td>
+<td>Menampilkan gambar &amp; audio</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Flexbox &amp; Grid</td>
+<td>Membuat layout navbar &amp; galeri yang terstruktur</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Responsive</td>
+<td>Website tampil baik di semua ukuran layar</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Final Exam 1</strong></td>
+<td>Portfolio statis lengkap, online di Vercel</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Hover, redirect, flip box</td>
+<td>Efek visual interaktif dasar (CSS)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>JS dasar</td>
+<td>Variabel, tipe data, operator</td>
+</tr>
+<tr>
+<td>11</td>
+<td>DOM</td>
+<td>Memanipulasi elemen HTML lewat JavaScript</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Branching</td>
+<td>Logika kondisi (if/else, nested if)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Loop</td>
+<td>Pengulangan (for/while)</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Array</td>
+<td>Menyimpan &amp; mengelola banyak data sekaligus</td>
+</tr>
+<tr>
+<td>15</td>
+<td>DOM Form</td>
+<td>Mengambil &amp; memvalidasi input form</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Function</td>
+<td>Kode yang rapi, reusable, terorganisir</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Event Handler</td>
+<td>Website merespons interaksi pengguna</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Bootstrap</td>
+<td>Membangun UI lebih cepat dengan komponen siap pakai</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>Final Exam 2</strong></td>
+<td>Portfolio interaktif &amp; responsive penuh, online di Vercel</td>
+</tr>
+</tbody>
+</table>
+
+</body></html>

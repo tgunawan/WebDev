@@ -1,0 +1,1838 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}</style><style>:root{color-scheme:light dark;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}}:root[data-theme="dark"]{color-scheme:dark;--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}:root[data-theme="light"]{color-scheme:light}@media print{:root,:root[data-theme="dark"]{color-scheme:light;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}}body{background:var(--md-bg);color:var(--md-text);max-width:720px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',sans-serif;overflow-wrap:break-word}body>:first-child{margin-top:0}h1,h2,h3,h4,h5,h6{margin:6px 0 0;line-height:1.25;font-weight:600;text-wrap:balance}h1{font-size:1.35em}h2{font-size:1.15em;color:var(--md-muted)}h3,h4,h5,h6{font-size:1em}p,ul,ol,blockquote,table,pre,hr{margin:0}strong{font-weight:600}a{color:var(--md-link);text-decoration:none}a:hover{text-decoration:underline}ul,ol{display:flex;flex-direction:column;gap:6px;padding-left:22px}ul{list-style:disc}ol{list-style:decimal}:is(li,td,th)>*+:is(p,ul,ol,blockquote){margin-top:6px}blockquote{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--md-rule);padding-left:10px;color:var(--md-muted)}:not(pre)>code{background:var(--md-fill);padding:1px 3px;border-radius:4px;font:.92em 'SF Mono',ui-monospace,Menlo,Consolas,monospace}a>code{background:none;color:inherit}pre{background:var(--md-fill);padding:10px 12px;border-radius:6px;overflow-x:auto;font:12px/1.5 'SF Mono',ui-monospace,Menlo,Consolas,monospace;margin-block:4px}pre code{background:none;padding:0;font:inherit}table{width:100%;border-collapse:separate;border-spacing:2px;font:inherit}th,td{padding:6px 8px;border-radius:3px;text-align:left;vertical-align:top}th{background:var(--md-fill-strong);font-weight:600}td{background:var(--md-fill)}:is(th,td) :not(pre)>code{background:transparent}hr{border:0;border-top:1px solid var(--md-rule-strong);margin-block:10px}img{max-width:100%;height:auto;border-radius:4px}</style>
+</head><body>
+<h1>Lesson Plan Lengkap: Web Development Back End</h1>
+<h3>Database Design • PHP • MySQL • Reporting Dashboard — Progressive Project</h3>
+<hr>
+<h2>Tentang Lesson Plan Ini</h2>
+<p>Lesson plan ini melanjutkan <strong>Lesson Plan Front End</strong> yang sudah dibuat sebelumnya, berdasarkan silabus <strong>&quot;Database Design → PHP → Publish&quot;</strong> yang terdiri dari dua part:</p>
+<ul>
+<li><strong>Part 1</strong> — Database Design, Database, PHP (11 pertemuan)</li>
+<li><strong>Part 2</strong> — Join Table, Summary Data, Publish (8 pertemuan)</li>
+</ul>
+<p>Total <strong>19 pertemuan</strong>, ditutup dengan Final Exam di setiap part.</p>
+<p><strong>Studi kasus proyek: &quot;Sistem Manajemen Pesan Pengunjung &amp; Dashboard Admin&quot;</strong></p>
+<p>Proyek ini <strong>menyambung langsung</strong> dari portfolio front end yang sudah dibuat sebelumnya. Ingat, di front end sudah ada <strong>form kontak</strong> di section <code>#kontak</code> — nah, di back end ini kita akan membuat supaya pesan yang dikirim lewat form itu <strong>benar-benar tersimpan ke database</strong>, lalu kita bangun <strong>halaman admin</strong> untuk melihat, mengurutkan, memfilter, mengubah status, dan menghapus pesan tersebut — lengkap dengan <strong>dashboard grafik</strong> ringkasan data.</p>
+<p>Kenapa studi kasus ini dipilih? Karena setiap topik di silabus (Activity Diagram, Class Diagram, CRUD, Join, Group By, Dynamic Chart) bisa dipetakan langsung ke kebutuhan nyata: mengelola pesan masuk dari pengunjung portfolio.</p>
+<p><strong>Konsep tambahan yang saya masukkan</strong> (tidak ada di tabel asli, tapi wajib ada agar aplikasi aman &amp; lengkap secara alur belajar):</p>
+<ul>
+<li><strong><code>$_POST</code> / <code>$_GET</code> superglobals</strong> — dasar PHP menerima data dari form HTML, prasyarat sebelum &quot;Input Data to MySQL Database&quot;.</li>
+<li><strong>Prepared Statement (MySQLi)</strong> — pengganti query string biasa untuk mencegah <strong>SQL Injection</strong>. Ini krusial secara keamanan dan wajib diajarkan bersamaan dengan INSERT/UPDATE/DELETE, bukan sekadar query string manual.</li>
+<li><strong><code>htmlspecialchars()</code></strong> — mencegah <strong>XSS</strong> saat menampilkan kembali data yang berasal dari input pengguna.</li>
+<li><strong>Error handling dasar (<code>try/catch</code> &amp; pengecekan koneksi)</strong> — supaya aplikasi tidak &quot;blank putih&quot; saat database gagal terhubung.</li>
+<li><strong>Foreign Key &amp; relasi antar tabel</strong> — pelengkap alami dari Class Diagram, sekaligus prasyarat wajib sebelum materi Join.</li>
+<li><strong>Chart.js</strong> sebagai library chart — pelengkap teknis dari &quot;Create Dynamic Column Chart&quot; (PHP menyiapkan data, Chart.js yang menggambar).</li>
+</ul>
+<hr>
+<h2>Studi Kasus &amp; Struktur Database</h2>
+<p><strong>Kebutuhan sistem</strong> (akan divisualisasikan di pertemuan 1 &amp; 2 dengan Activity Diagram &amp; Class Diagram):</p>
+<ol>
+<li>Pengunjung mengisi form kontak di website portfolio (front end) → data tersimpan otomatis ke database.</li>
+<li>Admin login ke halaman <code>/admin</code> untuk melihat semua pesan masuk.</li>
+<li>Admin bisa mengurutkan pesan (terbaru/terlama), memfilter berdasarkan kategori &amp; status, mengubah status (<code>baru</code> → <code>dibaca</code>), dan menghapus pesan.</li>
+<li>Admin melihat dashboard ringkasan: total pesan per kategori, ditampilkan sebagai grafik batang (column chart) yang bisa difilter.</li>
+</ol>
+<p><strong>Struktur Tabel (akan dibuat detail di Pertemuan 3):</strong></p>
+<pre><code>tabel: kategori
++----+------------------+
+| id | nama_kategori    |
++----+------------------+
+| 1  | Landing Page     |
+| 2  | E-Commerce       |
+| 3  | Dashboard        |
++----+------------------+
+
+tabel: pesan
++----+----------+------------------+---------------+--------+-------------+---------------------+
+| id | nama     | email            | kategori_id   | pesan  | status      | tanggal_kirim       |
++----+----------+------------------+---------------+--------+-------------+---------------------+
+| 1  | Budi     | budi@mail.com    | 1 (FK)        | ...    | baru        | 2026-09-20 10:15:00 |
++----+----------+------------------+---------------+--------+-------------+---------------------+
+</code></pre>
+<p><code>kategori_id</code> pada tabel <code>pesan</code> adalah <strong>Foreign Key</strong> yang merujuk ke <code>id</code> pada tabel <code>kategori</code> — inilah relasi yang nanti dipakai untuk materi <strong>Join</strong>.</p>
+<hr>
+<h2>Gambaran Proyek Progresif</h2>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Pertemuan</th>
+<th>Yang ditambahkan ke proyek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desain</td>
+<td>1</td>
+<td>Activity Diagram alur sistem pesan pengunjung</td>
+</tr>
+<tr>
+<td>Desain</td>
+<td>2</td>
+<td>Class Diagram: struktur tabel <code>pesan</code> &amp; <code>kategori</code></td>
+</tr>
+<tr>
+<td>Database</td>
+<td>3</td>
+<td>Install Laragon + phpMyAdmin, buat database &amp; tabel</td>
+</tr>
+<tr>
+<td>PHP Dasar</td>
+<td>4</td>
+<td>Struktur file PHP, variabel, operator</td>
+</tr>
+<tr>
+<td>PHP Dasar</td>
+<td>5</td>
+<td>Branching: validasi status pesan (if/switch)</td>
+</tr>
+<tr>
+<td>PHP Dasar</td>
+<td>6</td>
+<td>Koneksi PHP ↔ MySQL, form kontak <strong>benar-benar menyimpan data</strong> (INSERT)</td>
+</tr>
+<tr>
+<td>PHP Dasar</td>
+<td>7</td>
+<td>Loop dasar (while, for, nested) sebagai fondasi menampilkan banyak data</td>
+</tr>
+<tr>
+<td>PHP Dasar</td>
+<td>8</td>
+<td>Array + SELECT * FROM → halaman admin menampilkan <strong>semua pesan</strong> dari database</td>
+</tr>
+<tr>
+<td>PHP Dasar</td>
+<td>9</td>
+<td>ORDER BY → pesan bisa diurutkan terbaru/terlama</td>
+</tr>
+<tr>
+<td>PHP Dasar</td>
+<td>10</td>
+<td>DELETE &amp; UPDATE → admin bisa hapus pesan &amp; ubah status baru/dibaca</td>
+</tr>
+<tr>
+<td>PHP Dasar</td>
+<td>11</td>
+<td><strong>Final Exam Part 1</strong>: CRUD admin pesan lengkap</td>
+</tr>
+<tr>
+<td>Review</td>
+<td>12</td>
+<td>Review front end + back end secara menyeluruh</td>
+</tr>
+<tr>
+<td>Lanjutan</td>
+<td>13</td>
+<td>JOIN → tabel pesan digabung dengan kategori (tampilkan nama kategori, bukan cuma id)</td>
+</tr>
+<tr>
+<td>Lanjutan</td>
+<td>14</td>
+<td>GROUP BY → hitung jumlah pesan per kategori</td>
+</tr>
+<tr>
+<td>Lanjutan</td>
+<td>15</td>
+<td>Dynamic Column Chart → dashboard grafik jumlah pesan per kategori</td>
+</tr>
+<tr>
+<td>Lanjutan</td>
+<td>16</td>
+<td>Filtering Data → dashboard bisa difilter berdasarkan kategori/status</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td>17</td>
+<td>Setup server/hosting untuk PHP + MySQL</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td>18</td>
+<td>System Testing sebelum go-live</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td>19</td>
+<td><strong>Final Exam Part 2</strong>: sistem lengkap online, front end + back end terhubung</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1>PART 1 — DATABASE DESIGN &amp; PHP</h1>
+<h2>Pertemuan 1 — Activity Diagram</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mampu memvisualisasikan setiap kegiatan yang terjadi pada sistem.</li>
+<li>Mampu menentukan hasil akhir dari setiap kegiatan sistem.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Component of Basic Model</strong></p>
+<p>Activity Diagram adalah diagram UML yang menggambarkan <strong>alur kerja/proses</strong> dalam sistem — mirip flowchart, tapi dengan notasi standar:</p>
+<table>
+<thead>
+<tr>
+<th>Simbol</th>
+<th>Arti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>● (bulat hitam)</td>
+<td>Start / titik mulai</td>
+</tr>
+<tr>
+<td>⬤ dalam lingkaran (bullseye)</td>
+<td>End / titik akhir</td>
+</tr>
+<tr>
+<td>▭ (persegi ujung bulat)</td>
+<td>Activity / aktivitas</td>
+</tr>
+<tr>
+<td>◇ (belah ketupat)</td>
+<td>Decision / percabangan kondisi</td>
+</tr>
+<tr>
+<td>▬ (garis tebal horizontal)</td>
+<td>Fork/Join — proses paralel</td>
+</tr>
+<tr>
+<td>→</td>
+<td>Alur/arah proses</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Advanced Model Components</strong></p>
+<ul>
+<li><strong>Swimlane</strong> — membagi diagram menjadi beberapa &quot;jalur&quot; berdasarkan aktor (misal: jalur &quot;Pengunjung&quot; dan jalur &quot;Sistem&quot;).</li>
+<li><strong>Guard condition</strong> — label pada tanda panah setelah decision, contoh <code>[valid]</code> atau <code>[tidak valid]</code>.</li>
+</ul>
+<p><strong>Rules to Create Activity Diagram</strong></p>
+<ol>
+<li>Selalu mulai dari 1 titik start dan boleh berakhir di lebih dari 1 titik end.</li>
+<li>Setiap decision (◇) wajib punya minimal 2 output dengan guard condition yang jelas.</li>
+<li>Gunakan swimlane jika melibatkan lebih dari 1 aktor (pengunjung vs sistem/admin).</li>
+<li>Urutan proses harus logis — tidak boleh ada aktivitas yang &quot;menggantung&quot; tanpa alur masuk/keluar.</li>
+</ol>
+<h3>🎯 Studi Kasus: Activity Diagram &quot;Pengunjung Mengirim Pesan&quot;</h3>
+<pre class="mermaid">flowchart TD
+    Start((Start)) --&gt; A[Pengunjung membuka website portfolio]
+    A --&gt; B[Pengunjung mengisi form kontak]
+    B --&gt; C{Semua field terisi &amp; email valid?}
+    C -- Tidak --&gt; D[Tampilkan pesan error]
+    D --&gt; B
+    C -- Ya --&gt; E[Sistem simpan data ke database]
+    E --&gt; F[Tampilkan notifikasi &#39;Pesan terkirim&#39;]
+    F --&gt; End((End))
+</pre>
+<h3>Challenge 1 — New Case Study</h3>
+<p>Peserta membuat Activity Diagram untuk alur <strong>Admin mengelola pesan</strong> (login admin → lihat daftar pesan → pilih pesan → ubah status/hapus → sistem update database → tampilan diperbarui).</p>
+<h3>Challenge 2 — Create UI Design</h3>
+<p>Peserta membuat <strong>wireframe/sketsa tampilan</strong> (boleh pakai Figma, Excalidraw, atau kertas) untuk halaman admin yang nanti akan diisi data sungguhan dari database: tabel daftar pesan, tombol filter, tombol urutkan, tombol hapus/ubah status.</p>
+<p><strong>Target:</strong> peserta bisa memvisualisasikan alur sistem sebelum menulis kode apa pun — kebiasaan penting sebelum membangun sistem sungguhan.</p>
+<hr>
+<h2>Pertemuan 2 — Class Diagram</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memvisualisasikan atribut dan akses yang dimiliki setiap bagian/aktor pada sistem.</li>
+<li>Memahami pentingnya hubungan dalam alur sistem (relasi antar tabel).</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Component of Basic Model</strong></p>
+<p>Class Diagram menggambarkan <strong>struktur data</strong> (bukan alur proses seperti Activity Diagram). Setiap &quot;class&quot; nantinya akan menjadi 1 tabel di database.</p>
+<pre><code>+------------------+
+|      Pesan       |   &lt;- Nama Class/Tabel
++------------------+
+| - id: int         |   &lt;- Atribut (attribute)
+| - nama: string     |
+| - email: string     |
+| - kategori_id: int   |
+| - pesan: text          |
+| - status: string        |
+| - tanggal_kirim: datetime|
++------------------+
+| + simpan()        |   &lt;- Method/perilaku (operation)
+| + hapus()          |
++------------------+
+</code></pre>
+<p><strong>Advanced Model Components — Relasi antar Class</strong></p>
+<ul>
+<li><strong>Association (garis biasa <code>——</code>)</strong> — dua class saling terhubung.</li>
+<li><strong>One-to-Many (<code>1</code> — <code>*</code>)</strong> — 1 kategori bisa dipakai banyak pesan.</li>
+</ul>
+<p><strong>Rules to Create Class</strong></p>
+<ol>
+<li>Nama class ditulis singular &amp; PascalCase secara konsep (<code>Pesan</code>, bukan <code>pesan-pesan</code> atau <code>Pesans</code>) — walau nama tabel di database biasanya ditulis lowercase.</li>
+<li>Atribut wajib punya tipe data.</li>
+<li>Tanda <code>-</code> (private) untuk atribut yang hanya diakses lewat method, <code>+</code> (public) untuk yang bisa diakses bebas.</li>
+</ol>
+<p><strong>Unique Value (Primary Key)</strong></p>
+<p>Setiap tabel <strong>wajib punya Primary Key</strong> — kolom unik yang tidak boleh sama antar baris, biasanya <code>id</code> dengan <code>AUTO_INCREMENT</code>. Primary Key inilah yang dipakai tabel lain untuk membuat relasi (Foreign Key).</p>
+<h3>🎯 Studi Kasus: Class Diagram &quot;Pesan&quot; &amp; &quot;Kategori&quot;</h3>
+<pre class="mermaid">classDiagram
+    class Kategori {
+        -id : int (PK)
+        -nama_kategori : string
+    }
+    class Pesan {
+        -id : int (PK)
+        -nama : string
+        -email : string
+        -kategori_id : int (FK)
+        -pesan : text
+        -status : string
+        -tanggal_kirim : datetime
+        +simpan()
+        +ubahStatus()
+        +hapus()
+    }
+    Kategori &#34;1&#34; -- &#34;many&#34; Pesan : memiliki
+</pre>
+<p>Penjelasan relasi: <strong>1 kategori bisa dimiliki oleh banyak pesan</strong> (One-to-Many) — misalnya kategori &quot;Landing Page&quot; bisa muncul di banyak baris pesan yang berbeda.</p>
+<h3>Challenge 2 — New Case Study</h3>
+<p>Peserta membuat Class Diagram untuk kasus lain, misalnya &quot;Sistem Perpustakaan&quot; (<code>Buku</code> dan <code>Peminjam</code>) atau &quot;Sistem Toko&quot; (<code>Produk</code> dan <code>Kategori Produk</code>) — untuk melatih pemahaman relasi One-to-Many di konteks berbeda.</p>
+<blockquote>
+<p><strong>Catatan pengajar:</strong> di pertemuan berikutnya (Intro to Database), Class Diagram di atas akan langsung diimplementasikan menjadi tabel <code>kategori</code> dan <code>pesan</code> yang sungguhan di MySQL — jadi pastikan peserta benar-benar memahami diagram ini sebelum lanjut.</p>
+</blockquote>
+<p><strong>Target:</strong> peserta memahami pentingnya merancang struktur data &amp; relasi SEBELUM membuat tabel database, serta paham konsep Primary Key.</p>
+<hr>
+<h2>Pertemuan 3 — Intro to Database</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami implementasi sesuai dengan rancangan Class Diagram.</li>
+<li>Membuat database, table, serta atribut yang dibutuhkan sesuai perancangan.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Install Local Server (Laragon)</strong></p>
+<ol>
+<li>Download Laragon dari <a href="https://laragon.org/">laragon.org</a> → pilih versi <strong>Full</strong> (sudah termasuk PHP, MySQL, Apache).</li>
+<li>Install seperti biasa, lalu buka aplikasi Laragon.</li>
+<li>Klik tombol <strong>Start All</strong> — ini akan menjalankan Apache (web server) dan MySQL (database server) sekaligus.</li>
+<li>Buka browser, akses <code>http://localhost</code> — jika muncul halaman Laragon, instalasi berhasil.</li>
+</ol>
+<p><strong>Download phpMyAdmin di Laragon (optional)</strong></p>
+<p>phpMyAdmin biasanya sudah termasuk dalam Laragon Full. Untuk mengaksesnya:</p>
+<ol>
+<li>Klik kanan ikon Laragon di tray → <strong>www</strong> → akan membuka folder <code>C:\laragon\www</code> (tempat semua project PHP diletakkan).</li>
+<li>Akses <code>http://localhost/phpmyadmin</code> di browser untuk membuka phpMyAdmin — antarmuka visual untuk mengelola database tanpa menulis SQL manual.</li>
+</ol>
+<p><strong>Create Database and Table</strong></p>
+<p>Lewat phpMyAdmin:</p>
+<ol>
+<li>Klik <strong>New</strong> di sidebar kiri → beri nama database: <code>portfolio_db</code> → <strong>Create</strong>.</li>
+<li>Pilih database <code>portfolio_db</code> → tab <strong>SQL</strong> → jalankan query berikut untuk membuat tabel sesuai Class Diagram pertemuan 2:</li>
+</ol>
+<pre><code class="language-sql">CREATE TABLE kategori (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_kategori VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE pesan (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    kategori_id INT,
+    pesan TEXT NOT NULL,
+    status ENUM(&#39;baru&#39;, &#39;dibaca&#39;) DEFAULT &#39;baru&#39;,
+    tanggal_kirim DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (kategori_id) REFERENCES kategori(id)
+);
+
+-- Data awal kategori
+INSERT INTO kategori (nama_kategori) VALUES
+(&#39;Landing Page&#39;), (&#39;E-Commerce&#39;), (&#39;Dashboard&#39;);
+</code></pre>
+<p>Penjelasan tiap bagian:</p>
+<ul>
+<li><code>AUTO_INCREMENT PRIMARY KEY</code> — id otomatis bertambah &amp; unik (implementasi dari &quot;Unique Value&quot; pertemuan 2).</li>
+<li><code>NOT NULL</code> — kolom wajib diisi, tidak boleh kosong.</li>
+<li><code>ENUM('baru','dibaca')</code> — kolom hanya boleh berisi salah satu dari 2 nilai ini.</li>
+<li><code>DEFAULT CURRENT_TIMESTAMP</code> — otomatis terisi waktu saat data dimasukkan.</li>
+<li><code>FOREIGN KEY (kategori_id) REFERENCES kategori(id)</code> — inilah relasi One-to-Many dari Class Diagram diimplementasikan secara nyata.</li>
+</ul>
+<h3>🎯 Proyek Pertemuan 3: <code>portfolio_db</code> siap dipakai</h3>
+<p><strong>Target:</strong> peserta punya local server aktif (Laragon), database <code>portfolio_db</code> dengan 2 tabel (<code>kategori</code>, <code>pesan</code>) yang sudah terisi data kategori awal, dan bisa membukanya lewat phpMyAdmin.</p>
+<hr>
+<h2>Pertemuan 4 — Intro to PHP</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami struktur dan perintah dasar PHP.</li>
+<li>Mengenal berbagai macam operator dalam bahasa pemrograman.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>PHP Structure</strong></p>
+<p>File PHP disimpan dengan ekstensi <code>.php</code>, diletakkan di dalam folder project Laragon, misal: <code>C:\laragon\www\portfolio-backend\index.php</code>.</p>
+<pre><code class="language-php">&lt;?php
+// Kode PHP selalu diawali &lt;?php dan diakhiri ?&gt;
+echo &#34;Halo dari PHP!&#34;;
+?&gt;
+</code></pre>
+<pre><code class="language-php">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;h1&gt;Website Saya&lt;/h1&gt;
+    &lt;?php
+        // PHP bisa disisipkan di tengah HTML
+        echo &#34;&lt;p&gt;Halaman ini dirender oleh PHP.&lt;/p&gt;&#34;;
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Akses lewat browser: <code>http://localhost/portfolio-backend/index.php</code>.</p>
+<p><strong>Basic Instruction PHP</strong></p>
+<pre><code class="language-php">&lt;?php
+$nama = &#34;Budi&#34;;          // variabel PHP diawali tanda $
+echo &#34;Halo, &#34; . $nama;   // titik (.) untuk menggabungkan string (concatenation)
+echo &#34;&lt;br&gt;&#34;;
+echo &#34;Halo, $nama&#34;;      // di dalam double quote, variabel otomatis terbaca
+?&gt;
+</code></pre>
+<p><strong>Basic Operator</strong></p>
+<pre><code class="language-php">&lt;?php
+// Arithmetic operator
+$total = 10 + 5;   // + - * / % **(pangkat)
+
+// Assignment operator
+$angka = 10;
+$angka += 5;   // sama dengan: $angka = $angka + 5;  -&gt; 15
+
+// Comparison operator
+var_dump(10 == &#34;10&#34;);   // true  (nilai sama)
+var_dump(10 === &#34;10&#34;);  // false (tipe data beda: int vs string)
+var_dump(10 != 5);      // true
+?&gt;
+</code></pre>
+<p><strong>Optional — Increment/Decrement, Logical, String, Array, Conditional Assignment</strong></p>
+<pre><code class="language-php">&lt;?php
+// Increment / Decrement
+$hitung = 5;
+$hitung++;  // 6
+$hitung--;  // kembali ke 5
+
+// Logical operator
+$umurCukup = (17 &gt;= 17) &amp;&amp; true;  // AND
+$bolehAkses = false || true;       // OR
+
+// String operator
+$namaLengkap = &#34;Budi&#34; . &#34; &#34; . &#34;Santoso&#34;;
+
+// Array
+$kategoriList = [&#34;Landing Page&#34;, &#34;E-Commerce&#34;, &#34;Dashboard&#34;];
+echo $kategoriList[0]; // &#34;Landing Page&#34;
+
+// Conditional Assignment (ternary &amp; null coalescing)
+$status = isset($_GET[&#39;status&#39;]) ? $_GET[&#39;status&#39;] : &#39;baru&#39;;
+$status2 = $_GET[&#39;status&#39;] ?? &#39;baru&#39;; // null coalescing, lebih ringkas
+?&gt;
+</code></pre>
+<h3>Konsep Tambahan Wajib: <code>$_POST</code> &amp; <code>$_GET</code> Superglobals</h3>
+<p>Sebelum masuk ke koneksi database, peserta <strong>wajib</strong> paham cara PHP menerima data dari form HTML:</p>
+<pre><code class="language-php">&lt;!-- form.html --&gt;
+&lt;form action=&#34;proses.php&#34; method=&#34;POST&#34;&gt;
+    &lt;input type=&#34;text&#34; name=&#34;nama&#34;&gt;
+    &lt;button type=&#34;submit&#34;&gt;Kirim&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="language-php">&lt;?php
+// proses.php
+$nama = $_POST[&#39;nama&#39;];   // ambil data dari form method=&#34;POST&#34;
+echo &#34;Nama yang dikirim: &#34; . $nama;
+
+// $_GET dipakai untuk data dari URL, contoh: proses.php?id=3
+$id = $_GET[&#39;id&#39;];
+?&gt;
+</code></pre>
+<h3>🎯 Proyek Pertemuan 4: <code>koneksi.php</code> (persiapan) &amp; latihan operator</h3>
+<pre><code class="language-php">&lt;?php
+// latihan.php — sekadar latihan operator, belum terhubung ke database
+$namaProject = [&#34;Landing Page&#34;, &#34;E-Commerce&#34;, &#34;Dashboard&#34;];
+$totalProject = count($namaProject);
+
+echo &#34;Total kategori project: &#34; . $totalProject . &#34;&lt;br&gt;&#34;;
+echo &#34;Kategori pertama: &#34; . $namaProject[0];
+?&gt;
+</code></pre>
+<p><strong>Target:</strong> peserta paham struktur dasar file PHP, variabel, operator, dan cara PHP menerima data dari form (<code>$_POST</code>/<code>$_GET</code>) — fondasi wajib sebelum pertemuan Connection.</p>
+<hr>
+<h2>Pertemuan 5 — Branching (PHP)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mampu memanfaatkan penggunaan operator.</li>
+<li>Mampu implementasi penggunaan konsep &quot;conditional - IF&quot;.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Review Materi</strong>: peserta review variabel, operator, dan <code>$_POST</code>/<code>$_GET</code> dari pertemuan sebelumnya.</p>
+<p><strong>If Statement</strong></p>
+<pre><code class="language-php">&lt;?php
+$status = &#34;baru&#34;;
+
+if ($status === &#34;baru&#34;) {
+    echo &#34;Pesan ini belum dibaca.&#34;;
+} else {
+    echo &#34;Pesan ini sudah dibaca.&#34;;
+}
+?&gt;
+</code></pre>
+<p><strong>Switch Statement</strong></p>
+<pre><code class="language-php">&lt;?php
+$kategoriId = 2;
+
+switch ($kategoriId) {
+    case 1:
+        echo &#34;Landing Page&#34;;
+        break;
+    case 2:
+        echo &#34;E-Commerce&#34;;
+        break;
+    case 3:
+        echo &#34;Dashboard&#34;;
+        break;
+    default:
+        echo &#34;Kategori tidak diketahui&#34;;
+}
+?&gt;
+</code></pre>
+<p><strong>Nested If</strong></p>
+<pre><code class="language-php">&lt;?php
+$nama = $_POST[&#39;nama&#39;] ?? &#39;&#39;;
+$email = $_POST[&#39;email&#39;] ?? &#39;&#39;;
+
+if (!empty($nama)) {
+    if (strpos($email, &#39;@&#39;) !== false) {
+        echo &#34;Data valid, siap disimpan.&#34;;
+    } else {
+        echo &#34;Format email tidak valid.&#34;;
+    }
+} else {
+    echo &#34;Nama wajib diisi.&#34;;
+}
+?&gt;
+</code></pre>
+<h3>🎯 Proyek Pertemuan 5: fungsi validasi &amp; label status pesan</h3>
+<pre><code class="language-php">&lt;?php
+// validasi.php
+function validasiPesan($nama, $email, $pesan) {
+    if (empty($nama) || empty($email) || empty($pesan)) {
+        return &#34;⚠️ Semua field wajib diisi!&#34;;
+    }
+    if (strpos($email, &#39;@&#39;) === false) {
+        return &#34;⚠️ Format email tidak valid.&#34;;
+    }
+    return &#34;✅ Data valid.&#34;;
+}
+
+function labelStatus($status) {
+    switch ($status) {
+        case &#34;baru&#34;:
+            return &#34;🔵 Baru&#34;;
+        case &#34;dibaca&#34;:
+            return &#34;✅ Sudah Dibaca&#34;;
+        default:
+            return &#34;❓ Tidak diketahui&#34;;
+    }
+}
+
+// contoh pemakaian
+echo validasiPesan(&#34;Budi&#34;, &#34;budi@mail.com&#34;, &#34;Halo, saya tertarik project Anda.&#34;);
+echo &#34;&lt;br&gt;&#34;;
+echo labelStatus(&#34;baru&#34;);
+?&gt;
+</code></pre>
+<p><strong>Target:</strong> peserta paham <code>if/else</code>, <code>switch</code>, dan nested if di PHP, serta menyiapkan fungsi validasi yang akan langsung dipakai di pertemuan Connection.</p>
+<hr>
+<h2>Pertemuan 6 — Connection (PHP ↔ MySQL)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami atribut dasar yang dimiliki server.</li>
+<li>Memahami cara membuat koneksi antara website dengan database.</li>
+<li>Memahami penggunaan kombinasi perintah SQL dengan PHP untuk input data.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Database Connection Using PHP (MySQLi Object-Oriented)</strong></p>
+<pre><code class="language-php">&lt;?php
+// koneksi.php
+$host = &#34;localhost&#34;;
+$user = &#34;root&#34;;       // default Laragon
+$password = &#34;&#34;;       // default Laragon (kosong)
+$database = &#34;portfolio_db&#34;;
+
+$koneksi = new mysqli($host, $user, $password, $database);
+
+// Error handling dasar — WAJIB, agar tidak &#34;blank putih&#34; saat gagal konek
+if ($koneksi-&gt;connect_error) {
+    die(&#34;Koneksi database gagal: &#34; . $koneksi-&gt;connect_error);
+}
+?&gt;
+</code></pre>
+<blockquote>
+<p><strong>Kenapa dicek errornya?</strong> Kalau database belum di-Start di Laragon, atau nama database salah ketik, developer harus tahu PERSIS di mana masalahnya — bukan sekadar layar putih kosong.</p>
+</blockquote>
+<p><strong>Input Data to MySQL Database (SQL Query | SQL Part 1: INSERT INTO)</strong></p>
+<p>⚠️ <strong>Konsep tambahan penting: Prepared Statement (mencegah SQL Injection)</strong></p>
+<p>Menulis query dengan menggabungkan langsung <code>$_POST</code> ke dalam string SQL <strong>sangat berbahaya</strong> (rentan SQL Injection). Selalu gunakan <strong>prepared statement</strong>:</p>
+<pre><code class="language-php">&lt;?php
+// proses_kirim_pesan.php
+require &#39;koneksi.php&#39;;
+require &#39;validasi.php&#39;;
+
+$nama = htmlspecialchars($_POST[&#39;nama&#39;] ?? &#39;&#39;);
+$email = htmlspecialchars($_POST[&#39;email&#39;] ?? &#39;&#39;);
+$kategoriId = $_POST[&#39;kategori_id&#39;] ?? &#39;&#39;;
+$pesanIsi = htmlspecialchars($_POST[&#39;pesan&#39;] ?? &#39;&#39;);
+
+$hasilValidasi = validasiPesan($nama, $email, $pesanIsi);
+
+if ($hasilValidasi === &#34;✅ Data valid.&#34;) {
+    // Prepared statement — placeholder &#34;?&#34; diisi lewat bind_param, BUKAN digabung manual ke string
+    $stmt = $koneksi-&gt;prepare(
+        &#34;INSERT INTO pesan (nama, email, kategori_id, pesan) VALUES (?, ?, ?, ?)&#34;
+    );
+    $stmt-&gt;bind_param(&#34;ssis&#34;, $nama, $email, $kategoriId, $pesanIsi);
+    // &#34;ssis&#34; = string, string, integer, string -&gt; urutan &amp; tipe HARUS sesuai urutan &#34;?&#34;
+
+    if ($stmt-&gt;execute()) {
+        echo &#34;✅ Pesan berhasil dikirim. Terima kasih, $nama!&#34;;
+    } else {
+        echo &#34;❌ Gagal menyimpan pesan: &#34; . $stmt-&gt;error;
+    }
+    $stmt-&gt;close();
+} else {
+    echo $hasilValidasi;
+}
+
+$koneksi-&gt;close();
+?&gt;
+</code></pre>
+<p><strong>Menghubungkan ke form kontak front end</strong></p>
+<p>Ubah form kontak dari front end (<code>index.html</code>) supaya benar-benar mengirim data ke PHP:</p>
+<pre><code class="language-html">&lt;form id=&#34;formKontak&#34; action=&#34;proses_kirim_pesan.php&#34; method=&#34;POST&#34;&gt;
+    &lt;input type=&#34;text&#34; name=&#34;nama&#34; id=&#34;inputNama&#34; placeholder=&#34;Nama Lengkap&#34; required&gt;
+    &lt;input type=&#34;email&#34; name=&#34;email&#34; id=&#34;inputEmail&#34; placeholder=&#34;Email&#34; required&gt;
+    &lt;select name=&#34;kategori_id&#34;&gt;
+        &lt;option value=&#34;1&#34;&gt;Landing Page&lt;/option&gt;
+        &lt;option value=&#34;2&#34;&gt;E-Commerce&lt;/option&gt;
+        &lt;option value=&#34;3&#34;&gt;Dashboard&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;textarea name=&#34;pesan&#34; id=&#34;inputPesan&#34; placeholder=&#34;Pesan Anda&#34; required&gt;&lt;/textarea&gt;
+    &lt;button type=&#34;submit&#34; class=&#34;btn-primary&#34;&gt;Kirim Pesan&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<blockquote>
+<p>Karena sekarang form dikirim ke server (<code>action=&quot;proses_kirim_pesan.php&quot;</code>), file HTML front end juga perlu diganti ekstensinya menjadi <code>.php</code> (misal <code>index.php</code>) supaya bisa berjalan di server yang sama, atau ditempatkan pada folder project PHP yang sama di Laragon.</p>
+</blockquote>
+<h3>🎯 Proyek Pertemuan 6: form kontak tersambung ke database sungguhan</h3>
+<p>Setelah pertemuan ini, mengisi form kontak di website portfolio benar-benar menyimpan data ke tabel <code>pesan</code> di <code>portfolio_db</code> — bisa dicek lewat phpMyAdmin.</p>
+<p><strong>Target:</strong> peserta paham cara PHP terhubung ke MySQL, dan <strong>kenapa prepared statement wajib dipakai</strong>, bukan sekadar query string biasa.</p>
+<hr>
+<h2>Pertemuan 7 — Loop x Array x SQL (Bagian 1: Konsep Looping)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mampu memanfaatkan penggunaan konsep pemrograman Loop.</li>
+<li>Mampu implementasi penggunaan konsep &quot;conditional - Loop&quot;.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Intro to Looping Concept</strong>: sama seperti di JavaScript, loop di PHP dipakai untuk mengulang sebuah proses tanpa menulis kode berkali-kali — sangat penting karena nantinya dipakai untuk menampilkan <strong>banyak baris data dari database sekaligus</strong>.</p>
+<p><strong>While &amp; Do-While Statement</strong></p>
+<pre><code class="language-php">&lt;?php
+// While — cek kondisi DULU, baru jalankan
+$i = 1;
+while ($i &lt;= 5) {
+    echo &#34;Perulangan ke-$i &lt;br&gt;&#34;;
+    $i++;
+}
+
+// Do-While — jalankan DULU minimal 1x, baru cek kondisi
+$j = 1;
+do {
+    echo &#34;Perulangan ke-$j &lt;br&gt;&#34;;
+    $j++;
+} while ($j &lt;= 5);
+?&gt;
+</code></pre>
+<p><strong>For Statement</strong></p>
+<pre><code class="language-php">&lt;?php
+for ($i = 1; $i &lt;= 5; $i++) {
+    echo &#34;Perulangan ke-$i &lt;br&gt;&#34;;
+}
+?&gt;
+</code></pre>
+<p><strong>Nested Loop</strong></p>
+<pre><code class="language-php">&lt;?php
+for ($baris = 1; $baris &lt;= 3; $baris++) {
+    for ($kolom = 1; $kolom &lt;= 3; $kolom++) {
+        echo &#34;[$baris,$kolom] &#34;;
+    }
+    echo &#34;&lt;br&gt;&#34;;
+}
+?&gt;
+</code></pre>
+<h3>🎯 Proyek Pertemuan 7: latihan loop sebagai pemanasan sebelum menampilkan data database</h3>
+<pre><code class="language-php">&lt;?php
+// latihan_loop.php
+$kategoriDummy = [&#34;Landing Page&#34;, &#34;E-Commerce&#34;, &#34;Dashboard&#34;];
+
+for ($i = 0; $i &lt; count($kategoriDummy); $i++) {
+    echo &#34;&lt;li&gt;&#34; . $kategoriDummy[$i] . &#34;&lt;/li&gt;&#34;;
+}
+?&gt;
+</code></pre>
+<p><strong>Target:</strong> peserta lancar memakai <code>while</code>, <code>do-while</code>, <code>for</code>, dan nested loop — siap dipakai untuk menampilkan data asli dari database di pertemuan berikutnya.</p>
+<hr>
+<h2>Pertemuan 8 — Loop x Array x SQL (Bagian 2: Basic Array + SELECT * FROM)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami penggunaan kombinasi perintah SQL dengan array PHP untuk pengambilan data.</li>
+<li>Membuat tampilan halaman website untuk menampilkan data dari database.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Basic Array (PHP)</strong></p>
+<pre><code class="language-php">&lt;?php
+$kategori = [&#34;Landing Page&#34;, &#34;E-Commerce&#34;, &#34;Dashboard&#34;]; // indexed array
+$pesanSatuBaris = [
+    &#34;nama&#34; =&gt; &#34;Budi&#34;,
+    &#34;email&#34; =&gt; &#34;budi@mail.com&#34;,
+    &#34;pesan&#34; =&gt; &#34;Halo!&#34;
+]; // associative array — mirip object di JS
+
+echo $pesanSatuBaris[&#34;nama&#34;]; // &#34;Budi&#34;
+?&gt;
+</code></pre>
+<p><strong>SQL Part 2 — SELECT * FROM</strong></p>
+<pre><code class="language-sql">SELECT * FROM pesan;
+</code></pre>
+<p><strong>Menggabungkan SELECT + Array + Loop untuk menampilkan data</strong></p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+
+$query = &#34;SELECT * FROM pesan&#34;;
+$hasil = $koneksi-&gt;query($query);
+// $hasil berisi banyak baris data, mirip array of array/object
+?&gt;
+
+&lt;table border=&#34;1&#34; cellpadding=&#34;8&#34;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Nama&lt;/th&gt;&lt;th&gt;Email&lt;/th&gt;&lt;th&gt;Pesan&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Tanggal&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;?php while ($baris = $hasil-&gt;fetch_assoc()) : ?&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;nama&#39;]) ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;email&#39;]) ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;pesan&#39;]) ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;status&#39;]) ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?= $baris[&#39;tanggal_kirim&#39;] ?&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;?php endwhile; ?&gt;
+&lt;/table&gt;
+</code></pre>
+<p>Penjelasan:</p>
+<ul>
+<li><code>fetch_assoc()</code> — mengambil 1 baris data dari hasil query, dalam bentuk associative array (<code>$baris['nama']</code>, dst).</li>
+<li><code>while (...)</code> — loop ini otomatis berhenti saat data sudah habis dibaca.</li>
+<li><code>&lt;?= ... ?&gt;</code> — singkatan dari <code>&lt;?php echo ...; ?&gt;</code>, memudahkan menyisipkan PHP di tengah HTML.</li>
+<li><code>htmlspecialchars()</code> — <strong>wajib</strong> dipakai saat menampilkan data yang berasal dari input pengguna, untuk mencegah XSS (kalau ada yang mengisi pesan berisi tag <code>&lt;script&gt;</code>, tag itu akan ditampilkan sebagai teks biasa, bukan dieksekusi).</li>
+</ul>
+<h3>Challenge 3 — Create New UI Design for View Data</h3>
+<p>Peserta merancang &amp; membangun halaman <code>admin.php</code> yang menampilkan tabel pesan di atas dengan tampilan yang lebih rapi (bisa pakai Bootstrap dari materi front end).</p>
+<h3>🎯 Proyek Pertemuan 8: <code>admin.php</code> — halaman admin menampilkan semua pesan</h3>
+<pre><code class="language-php">&lt;?php
+// admin.php
+require &#39;koneksi.php&#39;;
+$hasil = $koneksi-&gt;query(&#34;SELECT * FROM pesan&#34;);
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;id&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;title&gt;Admin — Daftar Pesan&lt;/title&gt;
+    &lt;link href=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+&lt;/head&gt;
+&lt;body class=&#34;container py-4&#34;&gt;
+    &lt;h1&gt;Daftar Pesan Masuk&lt;/h1&gt;
+    &lt;table class=&#34;table table-striped&#34;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;&lt;th&gt;Nama&lt;/th&gt;&lt;th&gt;Email&lt;/th&gt;&lt;th&gt;Pesan&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Tanggal&lt;/th&gt;&lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;?php while ($baris = $hasil-&gt;fetch_assoc()) : ?&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;nama&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;email&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;pesan&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;status&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= $baris[&#39;tanggal_kirim&#39;] ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;?php endwhile; ?&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>Target:</strong> admin bisa membuka <code>admin.php</code> dan melihat semua pesan yang sudah dikirim lewat form kontak — data asli dari database, bukan lagi data dummy.</p>
+<hr>
+<h2>Pertemuan 9 — Loop x Array x SQL (Bagian 3: ORDER BY)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami penggunaan kombinasi perintah SQL dengan berpikir kritis mengolah data.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>SQL Part 3 — ORDER BY</strong></p>
+<pre><code class="language-sql">SELECT * FROM pesan ORDER BY tanggal_kirim DESC; -- terbaru dulu
+SELECT * FROM pesan ORDER BY tanggal_kirim ASC;  -- terlama dulu
+SELECT * FROM pesan ORDER BY nama ASC;           -- urut abjad nama
+</code></pre>
+<h3>Challenge 4 — Show Data Using Concept &quot;Order By&quot;</h3>
+<p>Tambahkan dropdown pengurutan di <code>admin.php</code>, gunakan <code>$_GET</code> untuk menentukan urutan:</p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+
+$urutan = $_GET[&#39;urutan&#39;] ?? &#39;terbaru&#39;;
+$orderBy = ($urutan === &#39;terlama&#39;) ? &#39;ASC&#39; : &#39;DESC&#39;;
+
+$query = &#34;SELECT * FROM pesan ORDER BY tanggal_kirim $orderBy&#34;;
+$hasil = $koneksi-&gt;query($query);
+?&gt;
+
+&lt;form method=&#34;GET&#34; class=&#34;mb-3&#34;&gt;
+    &lt;select name=&#34;urutan&#34; onchange=&#34;this.form.submit()&#34;&gt;
+        &lt;option value=&#34;terbaru&#34; &lt;?= $urutan === &#39;terbaru&#39; ? &#39;selected&#39; : &#39;&#39; ?&gt;&gt;Terbaru&lt;/option&gt;
+        &lt;option value=&#34;terlama&#34; &lt;?= $urutan === &#39;terlama&#39; ? &#39;selected&#39; : &#39;&#39; ?&gt;&gt;Terlama&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+</code></pre>
+<blockquote>
+<p><strong>Catatan keamanan:</strong> karena <code>$orderBy</code> di sini hanya berisi <code>'ASC'</code> atau <code>'DESC'</code> (ditentukan lewat if/else, bukan langsung dari <code>$_GET</code>), ini aman dari SQL Injection. <strong>Jangan pernah</strong> menyisipkan <code>$_GET</code>/<code>$_POST</code> mentah langsung ke bagian <code>ORDER BY</code> sebuah query.</p>
+</blockquote>
+<h3>🎯 Proyek Pertemuan 9: <code>admin.php</code> bisa diurutkan</h3>
+<p><strong>Target:</strong> admin bisa mengurutkan daftar pesan dari terbaru/terlama lewat dropdown, tanpa reload manual (form auto-submit via <code>onchange</code>).</p>
+<hr>
+<h2>Pertemuan 10 — Loop x Array x SQL (Bagian 4: DELETE &amp; UPDATE)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Memahami konsep hapus dan memperbarui data tanpa akses langsung ke database.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>SQL Part 4 — DELETE Data</strong></p>
+<pre><code class="language-sql">DELETE FROM pesan WHERE id = 5;
+</code></pre>
+<p><strong>SQL Part 5 — UPDATE Data</strong></p>
+<pre><code class="language-sql">UPDATE pesan SET status = &#39;dibaca&#39; WHERE id = 5;
+</code></pre>
+<p><strong>Implementasi PHP — hapus_pesan.php</strong></p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+
+$id = $_GET[&#39;id&#39;] ?? null;
+
+if ($id) {
+    $stmt = $koneksi-&gt;prepare(&#34;DELETE FROM pesan WHERE id = ?&#34;);
+    $stmt-&gt;bind_param(&#34;i&#34;, $id);
+    $stmt-&gt;execute();
+    $stmt-&gt;close();
+}
+
+header(&#34;Location: admin.php&#34;); // redirect kembali ke halaman admin setelah hapus
+exit;
+?&gt;
+</code></pre>
+<p><strong>Implementasi PHP — ubah_status.php</strong></p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+
+$id = $_GET[&#39;id&#39;] ?? null;
+
+if ($id) {
+    $stmt = $koneksi-&gt;prepare(&#34;UPDATE pesan SET status = &#39;dibaca&#39; WHERE id = ?&#34;);
+    $stmt-&gt;bind_param(&#34;i&#34;, $id);
+    $stmt-&gt;execute();
+    $stmt-&gt;close();
+}
+
+header(&#34;Location: admin.php&#34;);
+exit;
+?&gt;
+</code></pre>
+<h3>Challenge 5 — Delete and Update Data</h3>
+<p>Tambahkan tombol Aksi di setiap baris tabel <code>admin.php</code>:</p>
+<pre><code class="language-php">&lt;td&gt;
+    &lt;a href=&#34;ubah_status.php?id=&lt;?= $baris[&#39;id&#39;] ?&gt;&#34; class=&#34;btn btn-sm btn-success&#34;&gt;Tandai Dibaca&lt;/a&gt;
+    &lt;a href=&#34;hapus_pesan.php?id=&lt;?= $baris[&#39;id&#39;] ?&gt;&#34;
+       class=&#34;btn btn-sm btn-danger&#34;
+       onclick=&#34;return confirm(&#39;Yakin ingin menghapus pesan ini?&#39;)&#34;&gt;Hapus&lt;/a&gt;
+&lt;/td&gt;
+</code></pre>
+<blockquote>
+<p><code>confirm()</code> di JavaScript memunculkan dialog konfirmasi sebelum link dijalankan — mencegah admin tidak sengaja menghapus data.</p>
+</blockquote>
+<h3>🎯 Proyek Pertemuan 10: <code>admin.php</code> lengkap dengan aksi ubah status &amp; hapus</h3>
+<p><strong>Target:</strong> admin bisa mengubah status pesan menjadi &quot;dibaca&quot; dan menghapus pesan langsung dari tabel — tanpa perlu buka phpMyAdmin secara manual.</p>
+<hr>
+<h2>Pertemuan 11 — Final Exam Part 1: Free Project</h2>
+<h3>Tujuan Belajar</h3>
+<p>Menghasilkan prototipe sistem yang dapat dijadikan sebagai fondasi sistem CRUD sederhana.</p>
+<h3>Aktivitas</h3>
+<ol>
+<li>Review seluruh materi Part 1 (Activity/Class Diagram → Database → PHP dasar → Branching → Connection → Loop/Array/SQL).</li>
+<li><strong>Challenge</strong>: peserta menyempurnakan sistem manajemen pesan pribadi masing-masing secara mandiri.</li>
+</ol>
+<h3>Checklist Final Exam Part 1</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Activity Diagram &amp; Class Diagram sudah dibuat sebelum coding</li>
+<li><input disabled="" type="checkbox"> Database <code>portfolio_db</code> dengan tabel <code>pesan</code> &amp; <code>kategori</code> (relasi Foreign Key)</li>
+<li><input disabled="" type="checkbox"> Form kontak front end benar-benar menyimpan data ke database (prepared statement)</li>
+<li><input disabled="" type="checkbox"> Halaman <code>admin.php</code> menampilkan seluruh data pesan (SELECT + loop)</li>
+<li><input disabled="" type="checkbox"> Bisa diurutkan (ORDER BY)</li>
+<li><input disabled="" type="checkbox"> Bisa ubah status &amp; hapus data (UPDATE &amp; DELETE, dengan prepared statement)</li>
+<li><input disabled="" type="checkbox"> Semua output data memakai <code>htmlspecialchars()</code> (aman dari XSS)</li>
+</ul>
+<h3>📄 Kode Kumulatif — Akhir Part 1</h3>
+<p><code>koneksi.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+$koneksi = new mysqli(&#34;localhost&#34;, &#34;root&#34;, &#34;&#34;, &#34;portfolio_db&#34;);
+if ($koneksi-&gt;connect_error) {
+    die(&#34;Koneksi database gagal: &#34; . $koneksi-&gt;connect_error);
+}
+?&gt;
+</code></pre>
+<p><code>proses_kirim_pesan.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+
+function validasiPesan($nama, $email, $pesan) {
+    if (empty($nama) || empty($email) || empty($pesan)) {
+        return &#34;⚠️ Semua field wajib diisi!&#34;;
+    }
+    if (strpos($email, &#39;@&#39;) === false) {
+        return &#34;⚠️ Format email tidak valid.&#34;;
+    }
+    return &#34;OK&#34;;
+}
+
+$nama = htmlspecialchars($_POST[&#39;nama&#39;] ?? &#39;&#39;);
+$email = htmlspecialchars($_POST[&#39;email&#39;] ?? &#39;&#39;);
+$kategoriId = $_POST[&#39;kategori_id&#39;] ?? &#39;&#39;;
+$pesanIsi = htmlspecialchars($_POST[&#39;pesan&#39;] ?? &#39;&#39;);
+
+$hasilValidasi = validasiPesan($nama, $email, $pesanIsi);
+
+if ($hasilValidasi === &#34;OK&#34;) {
+    $stmt = $koneksi-&gt;prepare(&#34;INSERT INTO pesan (nama, email, kategori_id, pesan) VALUES (?, ?, ?, ?)&#34;);
+    $stmt-&gt;bind_param(&#34;ssis&#34;, $nama, $email, $kategoriId, $pesanIsi);
+    $stmt-&gt;execute();
+    $stmt-&gt;close();
+    header(&#34;Location: index.php?status=sukses&#34;);
+} else {
+    header(&#34;Location: index.php?status=gagal&amp;pesan=&#34; . urlencode($hasilValidasi));
+}
+$koneksi-&gt;close();
+exit;
+?&gt;
+</code></pre>
+<p><code>admin.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+
+$urutan = $_GET[&#39;urutan&#39;] ?? &#39;terbaru&#39;;
+$orderBy = ($urutan === &#39;terlama&#39;) ? &#39;ASC&#39; : &#39;DESC&#39;;
+
+$hasil = $koneksi-&gt;query(&#34;SELECT * FROM pesan ORDER BY tanggal_kirim $orderBy&#34;);
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;id&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;title&gt;Admin — Daftar Pesan&lt;/title&gt;
+    &lt;link href=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+&lt;/head&gt;
+&lt;body class=&#34;container py-4&#34;&gt;
+    &lt;h1&gt;Daftar Pesan Masuk&lt;/h1&gt;
+
+    &lt;form method=&#34;GET&#34; class=&#34;mb-3&#34;&gt;
+        &lt;select name=&#34;urutan&#34; class=&#34;form-select w-auto d-inline-block&#34; onchange=&#34;this.form.submit()&#34;&gt;
+            &lt;option value=&#34;terbaru&#34; &lt;?= $urutan === &#39;terbaru&#39; ? &#39;selected&#39; : &#39;&#39; ?&gt;&gt;Terbaru&lt;/option&gt;
+            &lt;option value=&#34;terlama&#34; &lt;?= $urutan === &#39;terlama&#39; ? &#39;selected&#39; : &#39;&#39; ?&gt;&gt;Terlama&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/form&gt;
+
+    &lt;table class=&#34;table table-striped&#34;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;&lt;th&gt;Nama&lt;/th&gt;&lt;th&gt;Email&lt;/th&gt;&lt;th&gt;Pesan&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Tanggal&lt;/th&gt;&lt;th&gt;Aksi&lt;/th&gt;&lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;?php while ($baris = $hasil-&gt;fetch_assoc()) : ?&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;nama&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;email&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;pesan&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;status&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= $baris[&#39;tanggal_kirim&#39;] ?&gt;&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;a href=&#34;ubah_status.php?id=&lt;?= $baris[&#39;id&#39;] ?&gt;&#34; class=&#34;btn btn-sm btn-success&#34;&gt;Tandai Dibaca&lt;/a&gt;
+                    &lt;a href=&#34;hapus_pesan.php?id=&lt;?= $baris[&#39;id&#39;] ?&gt;&#34; class=&#34;btn btn-sm btn-danger&#34;
+                       onclick=&#34;return confirm(&#39;Yakin ingin menghapus pesan ini?&#39;)&#34;&gt;Hapus&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;?php endwhile; ?&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>hapus_pesan.php</code> &amp; <code>ubah_status.php</code>: sama seperti kode pertemuan 10 di atas.</p>
+<hr>
+<h1>PART 2 — JOIN, SUMMARY DATA &amp; PUBLISH</h1>
+<h2>Pertemuan 12 — Back to Part 1: Review Web Dev (Front End &amp; Back End)</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Menguasai konsep dasar dari web dev (front end dan back end).</li>
+<li>Mampu implementasi dalam studi kasus lain.</li>
+</ol>
+<h3>Aktivitas</h3>
+<ol>
+<li><strong>Review Front End</strong>: HTML semantic, CSS Flexbox/Grid, JavaScript (DOM, loop, array, function, event handler).</li>
+<li><strong>Review Back End</strong>: struktur PHP, koneksi database, prepared statement, CRUD (Create/Read/Update/Delete).</li>
+<li>Peserta yang masih lemah di salah satu bagian diberi latihan tambahan sesuai kebutuhan (misal: latihan tambahan query SELECT+WHERE, atau latihan tambahan DOM manipulation).</li>
+</ol>
+<h3>🎯 Latihan Review: tambahkan 1 fitur kecil secara mandiri</h3>
+<p>Sebagai uji pemahaman menyeluruh, peserta diminta menambahkan fitur <strong>&quot;Cari pesan berdasarkan nama&quot;</strong> secara mandiri (menggabungkan <code>$_GET</code>, <code>LIKE</code> di SQL, dan form HTML) — sebelum lanjut ke materi Join di pertemuan berikutnya.</p>
+<pre><code class="language-php">&lt;?php
+$kataKunci = $_GET[&#39;cari&#39;] ?? &#39;&#39;;
+$stmt = $koneksi-&gt;prepare(&#34;SELECT * FROM pesan WHERE nama LIKE ? ORDER BY tanggal_kirim DESC&#34;);
+$likeParam = &#34;%&#34; . $kataKunci . &#34;%&#34;;
+$stmt-&gt;bind_param(&#34;s&#34;, $likeParam);
+$stmt-&gt;execute();
+$hasil = $stmt-&gt;get_result();
+?&gt;
+</code></pre>
+<p><strong>Target:</strong> peserta mampu menghubungkan kembali seluruh materi front end + back end dalam 1 studi kasus yang sama, siap melangkah ke materi lanjutan (Join &amp; Summary Data).</p>
+<hr>
+<h2>Pertemuan 13 — Join Table: Join</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Menjelaskan fungsi serta pemanfaatan join tabel.</li>
+<li>Menampilkan data dengan memanfaatkan berbagai versi join.</li>
+</ol>
+<h3>Materi</h3>
+<p>Sampai pertemuan 12, tabel <code>admin.php</code> menampilkan <code>kategori_id</code> (angka <code>1</code>, <code>2</code>, <code>3</code>) — bukan nama kategorinya. Untuk menampilkan <strong>nama kategori</strong>, kita perlu <strong>JOIN</strong> tabel <code>pesan</code> dengan tabel <code>kategori</code>.</p>
+<p><strong>Inner Join</strong> — hanya menampilkan baris yang punya pasangan cocok di kedua tabel</p>
+<pre><code class="language-sql">SELECT pesan.id, pesan.nama, pesan.pesan, kategori.nama_kategori
+FROM pesan
+INNER JOIN kategori ON pesan.kategori_id = kategori.id;
+</code></pre>
+<p><strong>Left Join</strong> — semua baris tabel kiri (<code>pesan</code>) tetap tampil walau <code>kategori_id</code>-nya kosong/tidak cocok</p>
+<pre><code class="language-sql">SELECT pesan.id, pesan.nama, kategori.nama_kategori
+FROM pesan
+LEFT JOIN kategori ON pesan.kategori_id = kategori.id;
+</code></pre>
+<p><strong>Right Join</strong> — semua baris tabel kanan (<code>kategori</code>) tetap tampil, walau belum ada pesan yang memakainya</p>
+<pre><code class="language-sql">SELECT kategori.nama_kategori, pesan.nama
+FROM pesan
+RIGHT JOIN kategori ON pesan.kategori_id = kategori.id;
+</code></pre>
+<p><strong>Cross Join</strong> — mengombinasikan SETIAP baris tabel A dengan SETIAP baris tabel B (jarang dipakai untuk laporan, lebih untuk kombinasi/permutasi data)</p>
+<pre><code class="language-sql">SELECT pesan.nama, kategori.nama_kategori
+FROM pesan
+CROSS JOIN kategori;
+-- Jika pesan ada 5 baris dan kategori ada 3 baris, hasilnya 5 x 3 = 15 baris kombinasi
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Jenis Join</th>
+<th>Kapan dipakai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INNER JOIN</td>
+<td>Hanya butuh data yang punya pasangan lengkap di kedua tabel (paling umum)</td>
+</tr>
+<tr>
+<td>LEFT JOIN</td>
+<td>Butuh semua data utama tetap tampil walau relasinya kosong</td>
+</tr>
+<tr>
+<td>RIGHT JOIN</td>
+<td>Butuh semua data tabel kedua tetap tampil (jarang, biasanya diganti LEFT JOIN dengan tabel dibalik urutannya)</td>
+</tr>
+<tr>
+<td>CROSS JOIN</td>
+<td>Butuh semua kombinasi yang mungkin antar 2 tabel</td>
+</tr>
+</tbody>
+</table>
+<h3>🎯 Proyek Pertemuan 13: <code>admin.php</code> menampilkan nama kategori (bukan angka)</h3>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+
+$hasil = $koneksi-&gt;query(&#34;
+    SELECT pesan.*, kategori.nama_kategori
+    FROM pesan
+    INNER JOIN kategori ON pesan.kategori_id = kategori.id
+    ORDER BY pesan.tanggal_kirim DESC
+&#34;);
+?&gt;
+&lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;nama_kategori&#39;]) ?&gt;&lt;/td&gt;
+</code></pre>
+<p><strong>Target:</strong> peserta paham perbedaan ke-4 jenis join dan bisa menggunakan <code>INNER JOIN</code> untuk menampilkan nama kategori yang mudah dibaca, bukan sekadar angka <code>kategori_id</code>.</p>
+<hr>
+<h2>Pertemuan 14 — Join Table: Group</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Mampu berpikir kritis terhadap pengolahan data yang disatukan.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>GROUP BY</strong> — mengelompokkan baris data yang punya nilai sama pada 1 kolom, lalu diringkas dengan fungsi agregat (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, dst).</p>
+<pre><code class="language-sql">SELECT kategori.nama_kategori, COUNT(pesan.id) AS jumlah_pesan
+FROM pesan
+INNER JOIN kategori ON pesan.kategori_id = kategori.id
+GROUP BY kategori.nama_kategori;
+</code></pre>
+<p>Hasil contoh:</p>
+<pre><code>+----------------+---------------+
+| nama_kategori  | jumlah_pesan  |
++----------------+---------------+
+| Landing Page   | 4             |
+| E-Commerce     | 7             |
+| Dashboard      | 2             |
++----------------+---------------+
+</code></pre>
+<p><strong>Implementasi PHP</strong></p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+
+$query = &#34;
+    SELECT kategori.nama_kategori, COUNT(pesan.id) AS jumlah_pesan
+    FROM kategori
+    LEFT JOIN pesan ON pesan.kategori_id = kategori.id
+    GROUP BY kategori.nama_kategori
+&#34;;
+// LEFT JOIN dari kategori dipakai di sini supaya kategori yang BELUM punya pesan
+// tetap muncul dengan jumlah_pesan = 0, bukan hilang dari hasil.
+$hasil = $koneksi-&gt;query($query);
+
+while ($baris = $hasil-&gt;fetch_assoc()) {
+    echo $baris[&#39;nama_kategori&#39;] . &#34;: &#34; . $baris[&#39;jumlah_pesan&#39;] . &#34; pesan&lt;br&gt;&#34;;
+}
+?&gt;
+</code></pre>
+<h3>🎯 Proyek Pertemuan 14: query ringkasan jumlah pesan per kategori</h3>
+<p><strong>Target:</strong> peserta paham <code>GROUP BY</code> untuk meringkas data, dan paham kenapa kombinasi <code>LEFT JOIN</code> (bukan <code>INNER JOIN</code>) lebih tepat dipakai di sini — data ini akan langsung dipakai untuk membuat grafik di pertemuan berikutnya.</p>
+<hr>
+<h2>Pertemuan 15 — Summary Data: Dynamic Column Chart</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Menjelaskan secara singkat tentang function, array, dan dynamic column chart beserta fungsinya pada program.</li>
+<li>Melakukan implementasi dengan menghasilkan grafik berdasarkan data yang dimiliki.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>PHP Function</strong> — membungkus query GROUP BY dari pertemuan 14 menjadi function reusable</p>
+<pre><code class="language-php">&lt;?php
+function ambilRingkasanKategori($koneksi) {
+    $query = &#34;
+        SELECT kategori.nama_kategori, COUNT(pesan.id) AS jumlah_pesan
+        FROM kategori
+        LEFT JOIN pesan ON pesan.kategori_id = kategori.id
+        GROUP BY kategori.nama_kategori
+    &#34;;
+    $hasil = $koneksi-&gt;query($query);
+
+    $data = [];
+    while ($baris = $hasil-&gt;fetch_assoc()) {
+        $data[] = $baris;
+    }
+    return $data;
+}
+?&gt;
+</code></pre>
+<p><strong>PHP Array</strong> — mengubah hasil query menjadi 2 array terpisah (label &amp; jumlah), format yang dibutuhkan Chart.js</p>
+<pre><code class="language-php">&lt;?php
+$ringkasan = ambilRingkasanKategori($koneksi);
+
+$labelKategori = [];
+$jumlahPesan = [];
+
+foreach ($ringkasan as $item) {
+    $labelKategori[] = $item[&#39;nama_kategori&#39;];
+    $jumlahPesan[] = $item[&#39;jumlah_pesan&#39;];
+}
+?&gt;
+</code></pre>
+<p><strong>Create Dynamic Column Chart</strong> (dengan Chart.js)</p>
+<p>PHP menyiapkan data lewat <code>json_encode()</code>, lalu JavaScript (Chart.js) yang menggambarnya:</p>
+<pre><code class="language-php">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;id&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;title&gt;Dashboard Admin&lt;/title&gt;
+    &lt;link href=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+    &lt;script src=&#34;https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&#34;container py-4&#34;&gt;
+    &lt;h1&gt;Dashboard — Jumlah Pesan per Kategori&lt;/h1&gt;
+    &lt;canvas id=&#34;chartKategori&#34; style=&#34;max-width: 600px;&#34;&gt;&lt;/canvas&gt;
+
+    &lt;script&gt;
+        const labelKategori = &lt;?= json_encode($labelKategori) ?&gt;;
+        const jumlahPesan = &lt;?= json_encode($jumlahPesan) ?&gt;;
+
+        new Chart(document.getElementById(&#39;chartKategori&#39;), {
+            type: &#39;bar&#39;, // column chart
+            data: {
+                labels: labelKategori,
+                datasets: [{
+                    label: &#39;Jumlah Pesan&#39;,
+                    data: jumlahPesan,
+                    backgroundColor: &#39;#1c3d5a&#39;
+                }]
+            },
+            options: {
+                scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Penjelasan: <code>json_encode($labelKategori)</code> mengubah array PHP <code>[&quot;Landing Page&quot;,&quot;E-Commerce&quot;,&quot;Dashboard&quot;]</code> menjadi string JSON yang valid dibaca JavaScript — inilah <strong>jembatan</strong> antara PHP (back end) dan Chart.js (front end).</p>
+<h3>🎯 Proyek Pertemuan 15: <code>dashboard.php</code> dengan grafik dinamis</h3>
+<p><strong>Target:</strong> admin bisa melihat grafik batang jumlah pesan per kategori yang datanya <strong>langsung dari database</strong>, otomatis berubah setiap ada pesan baru masuk.</p>
+<hr>
+<h2>Pertemuan 16 — Summary Data: Filtering Data</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Melakukan latihan dengan menerapkan kombinasi konsep pada materi sebelumnya.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>Review Dynamic Column Chart</strong>: peserta review cara kerja <code>json_encode</code> + Chart.js dari pertemuan 15.</p>
+<h3>Challenge 2 — Show Data Based on Value (button select + dynamic chart)</h3>
+<p>Menggabungkan <strong>Branching</strong> (pertemuan 5), <strong>Join+Group By</strong> (pertemuan 13-14), dan <strong>Chart.js</strong> (pertemuan 15) menjadi 1 fitur: filter dashboard berdasarkan <strong>status pesan</strong> (<code>semua</code> / <code>baru</code> / <code>dibaca</code>).</p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+
+$statusFilter = $_GET[&#39;status&#39;] ?? &#39;semua&#39;;
+
+function ambilRingkasanKategori($koneksi, $statusFilter) {
+    $query = &#34;
+        SELECT kategori.nama_kategori, COUNT(pesan.id) AS jumlah_pesan
+        FROM kategori
+        LEFT JOIN pesan ON pesan.kategori_id = kategori.id
+    &#34;;
+
+    if ($statusFilter !== &#39;semua&#39;) {
+        $query .= &#34; AND pesan.status = ?&#34;;
+    }
+    $query .= &#34; GROUP BY kategori.nama_kategori&#34;;
+
+    // Karena query berubah struktur (ada WHERE opsional), gunakan prepared statement kondisional
+    if ($statusFilter !== &#39;semua&#39;) {
+        $stmt = $koneksi-&gt;prepare(str_replace(
+            &#34;LEFT JOIN pesan ON pesan.kategori_id = kategori.id AND&#34;,
+            &#34;LEFT JOIN pesan ON pesan.kategori_id = kategori.id WHERE&#34;,
+            $query
+        ));
+        $stmt-&gt;bind_param(&#34;s&#34;, $statusFilter);
+        $stmt-&gt;execute();
+        $hasil = $stmt-&gt;get_result();
+    } else {
+        $hasil = $koneksi-&gt;query(str_replace(&#34; AND pesan.status = ?&#34;, &#34;&#34;, $query));
+    }
+
+    $data = [];
+    while ($baris = $hasil-&gt;fetch_assoc()) {
+        $data[] = $baris;
+    }
+    return $data;
+}
+
+$ringkasan = ambilRingkasanKategori($koneksi, $statusFilter);
+$labelKategori = array_column($ringkasan, &#39;nama_kategori&#39;);
+$jumlahPesan = array_column($ringkasan, &#39;jumlah_pesan&#39;);
+?&gt;
+
+&lt;div class=&#34;btn-group mb-3&#34;&gt;
+    &lt;a href=&#34;?status=semua&#34; class=&#34;btn btn-outline-primary &lt;?= $statusFilter === &#39;semua&#39; ? &#39;active&#39; : &#39;&#39; ?&gt;&#34;&gt;Semua&lt;/a&gt;
+    &lt;a href=&#34;?status=baru&#34; class=&#34;btn btn-outline-primary &lt;?= $statusFilter === &#39;baru&#39; ? &#39;active&#39; : &#39;&#39; ?&gt;&#34;&gt;Baru&lt;/a&gt;
+    &lt;a href=&#34;?status=dibaca&#34; class=&#34;btn btn-outline-primary &lt;?= $statusFilter === &#39;dibaca&#39; ? &#39;active&#39; : &#39;&#39; ?&gt;&#34;&gt;Dibaca&lt;/a&gt;
+&lt;/div&gt;
+&lt;canvas id=&#34;chartKategori&#34; style=&#34;max-width: 600px;&#34;&gt;&lt;/canvas&gt;
+&lt;script&gt;
+    // sama seperti pertemuan 15, memakai $labelKategori &amp; $jumlahPesan yang sudah difilter
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p><strong>Catatan pengajar:</strong> contoh di atas sengaja ditulis manual (<code>str_replace</code>) supaya peserta melihat bagaimana query SQL bisa berubah kondisional. Untuk kelas dengan level lebih lanjut, ini bisa disederhanakan dengan membangun query secara lebih terstruktur — namun untuk pemula, pendekatan eksplisit ini lebih mudah ditelusuri langkah demi langkah.</p>
+</blockquote>
+<h3>🎯 Proyek Pertemuan 16: dashboard dengan tombol filter status</h3>
+<p><strong>Target:</strong> dashboard admin kini bisa difilter berdasarkan status pesan, dan grafik ikut berubah sesuai filter yang dipilih — menggabungkan hampir seluruh materi Part 2 sejauh ini.</p>
+<hr>
+<h2>Pertemuan 17 — Publish: Server</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Menjelaskan tahapan yang perlu dilakukan saat publish website.</li>
+</ol>
+<h3>Materi</h3>
+<p>Berbeda dari front end statis (yang bisa langsung deploy ke Vercel), website dengan PHP + MySQL butuh <strong>hosting yang mendukung PHP &amp; database</strong>. Tahapan umum:</p>
+<p><strong>1. Pilih layanan hosting</strong></p>
+<table>
+<thead>
+<tr>
+<th>Opsi</th>
+<th>Cocok untuk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shared hosting (Niagahoster, DomaiNesia, Hostinger)</td>
+<td>Paling mudah untuk pemula, ada cPanel</td>
+</tr>
+<tr>
+<td>InfinityFree / 000webhost</td>
+<td>Gratis, cocok untuk latihan/demo</td>
+</tr>
+<tr>
+<td>Railway / Render</td>
+<td>Modern, mendukung deployment dari GitHub, butuh sedikit konfigurasi tambahan untuk PHP</td>
+</tr>
+<tr>
+<td>VPS (DigitalOcean, dsb)</td>
+<td>Fleksibel penuh, tapi butuh setup manual (Apache/Nginx + PHP + MySQL sendiri)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Set Up Server (langkah umum di shared hosting/cPanel)</strong></p>
+<ol>
+<li>Login ke cPanel dari penyedia hosting.</li>
+<li>Buka <strong>File Manager</strong> → upload seluruh file project (<code>index.php</code>, <code>admin.php</code>, <code>css/</code>, <code>js/</code>, dst) ke folder <code>public_html</code>.</li>
+<li>Buka <strong>MySQL Databases</strong> di cPanel → buat database baru &amp; user baru, catat nama database/username/password.</li>
+<li>Buka <strong>phpMyAdmin</strong> di cPanel → <strong>Import</strong> file <code>.sql</code> (export struktur tabel dari Laragon terlebih dulu lewat phpMyAdmin lokal: <strong>Export → Quick → Go</strong>).</li>
+<li><strong>Update <code>koneksi.php</code></strong> dengan kredensial database hosting (host, user, password, nama database — biasanya BUKAN <code>localhost</code>/<code>root</code>/kosong lagi seperti di Laragon).</li>
+</ol>
+<pre><code class="language-php">&lt;?php
+// koneksi.php — versi production (contoh, sesuaikan dengan kredensial hosting asli)
+$koneksi = new mysqli(&#34;localhost&#34;, &#34;namauser_db&#34;, &#34;passwordAsli123&#34;, &#34;namauser_portfoliodb&#34;);
+if ($koneksi-&gt;connect_error) {
+    die(&#34;Koneksi database gagal.&#34;);
+    // di production, JANGAN tampilkan detail error teknis ke pengguna publik
+}
+?&gt;
+</code></pre>
+<blockquote>
+<p><strong>Catatan keamanan production:</strong> pesan error di atas sengaja dibuat generik (&quot;Koneksi database gagal.&quot;) tanpa menampilkan <code>$koneksi-&gt;connect_error</code> — detail error sebaiknya hanya dicatat ke log server (<code>error_log()</code>), bukan ditampilkan ke pengunjung, supaya tidak membocorkan struktur internal sistem.</p>
+</blockquote>
+<h3>🎯 Proyek Pertemuan 17: checklist persiapan deployment</h3>
+<p><strong>Target:</strong> peserta paham tahapan menyiapkan server untuk aplikasi PHP + MySQL, dan file <code>koneksi.php</code> sudah dipisahkan pengaturannya antara environment lokal (Laragon) dan production (hosting).</p>
+<hr>
+<h2>Pertemuan 18 — Publish: System Test</h2>
+<h3>Tujuan Belajar</h3>
+<ol>
+<li>Melakukan uji coba terhadap website yang baru saja dipublish.</li>
+</ol>
+<h3>Materi</h3>
+<p><strong>System Testing</strong> — checklist pengujian sebelum website benar-benar dipakai publik:</p>
+<ol>
+<li>
+<p><strong>Functional testing</strong> — semua fitur dicoba satu per satu:</p>
+<ul>
+<li>Kirim pesan dari form kontak → cek apakah masuk ke database.</li>
+<li>Coba kirim form dengan field kosong → harus muncul pesan error, bukan crash.</li>
+<li>Coba kirim email tanpa <code>@</code> → harus ditolak validasi.</li>
+<li>Urutkan data (terbaru/terlama) → cek hasilnya benar.</li>
+<li>Filter dashboard by status → cek grafik ikut berubah.</li>
+<li>Ubah status &amp; hapus pesan → cek data benar-benar berubah di database.</li>
+</ul>
+</li>
+<li>
+<p><strong>Security testing dasar</strong></p>
+<ul>
+<li>Coba masukkan <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> di field pesan → pastikan tidak muncul sebagai popup (berarti <code>htmlspecialchars()</code> bekerja).</li>
+<li>Coba masukkan tanda kutip aneh (<code>' OR '1'='1</code>) di field nama → pastikan tidak error/aneh (berarti prepared statement bekerja).</li>
+</ul>
+</li>
+<li>
+<p><strong>Cross-browser &amp; responsive testing</strong></p>
+<ul>
+<li>Buka website di Chrome, Firefox, dan HP — pastikan tampilan tetap rapi (hasil dari materi responsive di front end).</li>
+</ul>
+</li>
+<li>
+<p><strong>Error handling testing</strong></p>
+<ul>
+<li>Matikan sementara koneksi database (misal salah kredensial) → pastikan muncul pesan error yang jelas, bukan halaman blank/crash fatal.</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-php">&lt;?php
+// Contoh sederhana mencatat error ke log, bukan ke layar (untuk production)
+if ($koneksi-&gt;connect_error) {
+    error_log(&#34;DB Connection Error: &#34; . $koneksi-&gt;connect_error);
+    die(&#34;Maaf, terjadi gangguan sistem. Silakan coba lagi nanti.&#34;);
+}
+?&gt;
+</code></pre>
+<h3>🎯 Proyek Pertemuan 18: laporan hasil system testing</h3>
+<p>Peserta membuat tabel sederhana berisi: nama fitur yang diuji, langkah pengujian, hasil yang diharapkan, hasil aktual, status (Pass/Fail).</p>
+<table>
+<thead>
+<tr>
+<th>Fitur</th>
+<th>Langkah</th>
+<th>Hasil Diharapkan</th>
+<th>Hasil Aktual</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kirim pesan</td>
+<td>Isi &amp; submit form</td>
+<td>Data masuk ke DB</td>
+<td>✅ Sesuai</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>Validasi email</td>
+<td>Kirim tanpa <code>@</code></td>
+<td>Muncul pesan error</td>
+<td>✅ Sesuai</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>Hapus pesan</td>
+<td>Klik tombol hapus</td>
+<td>Data hilang dari tabel</td>
+<td>✅ Sesuai</td>
+<td>Pass</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Target:</strong> peserta terbiasa melakukan pengujian sistematis sebelum website benar-benar dipakai publik — bukan sekadar &quot;kelihatannya jalan&quot;.</p>
+<hr>
+<h2>Pertemuan 19 — Final Exam Part 2: Free Project</h2>
+<h3>Tujuan Belajar</h3>
+<p>Menghasilkan prototipe sistem yang dapat dijadikan sebagai portofolio nyata — front end dan back end terhubung penuh, online, dan sudah diuji.</p>
+<h3>Aktivitas</h3>
+<ol>
+<li>Review seluruh materi Part 2 (Review gabungan → Join → Group By → Dynamic Chart → Filtering → Publish → Testing).</li>
+<li><strong>Challenge</strong>: peserta menyelesaikan versi final sistem manajemen pesan &amp; dashboard admin, lalu publish ke hosting.</li>
+</ol>
+<h3>Checklist Final Exam Part 2</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Dashboard admin menampilkan nama kategori (hasil JOIN), bukan angka id</li>
+<li><input disabled="" type="checkbox"> Ringkasan jumlah pesan per kategori (GROUP BY) ditampilkan sebagai grafik (Chart.js)</li>
+<li><input disabled="" type="checkbox"> Dashboard bisa difilter berdasarkan status pesan</li>
+<li><input disabled="" type="checkbox"> Semua query INSERT/UPDATE/DELETE memakai prepared statement</li>
+<li><input disabled="" type="checkbox"> Semua output data memakai <code>htmlspecialchars()</code></li>
+<li><input disabled="" type="checkbox"> Sudah diuji dengan checklist system testing (functional, security, responsive, error handling)</li>
+<li><input disabled="" type="checkbox"> Sudah online di hosting yang mendukung PHP + MySQL, kredensial <code>koneksi.php</code> sudah disesuaikan ke production</li>
+</ul>
+<h3>📄 Kode Kumulatif Lengkap — Versi Final Back End (Part 1 + Part 2)</h3>
+<p><code>koneksi.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+// Ganti kredensial ini sesuai environment (Laragon lokal vs hosting production)
+$host = &#34;localhost&#34;;
+$user = &#34;root&#34;;
+$password = &#34;&#34;;
+$database = &#34;portfolio_db&#34;;
+
+$koneksi = new mysqli($host, $user, $password, $database);
+
+if ($koneksi-&gt;connect_error) {
+    error_log(&#34;DB Connection Error: &#34; . $koneksi-&gt;connect_error);
+    die(&#34;Maaf, terjadi gangguan sistem. Silakan coba lagi nanti.&#34;);
+}
+?&gt;
+</code></pre>
+<p><code>functions.php</code> (kumpulan function reusable):</p>
+<pre><code class="language-php">&lt;?php
+function validasiPesan($nama, $email, $pesan) {
+    if (empty($nama) || empty($email) || empty($pesan)) {
+        return &#34;⚠️ Semua field wajib diisi!&#34;;
+    }
+    if (strpos($email, &#39;@&#39;) === false) {
+        return &#34;⚠️ Format email tidak valid.&#34;;
+    }
+    return &#34;OK&#34;;
+}
+
+function labelStatus($status) {
+    switch ($status) {
+        case &#34;baru&#34;: return &#34;🔵 Baru&#34;;
+        case &#34;dibaca&#34;: return &#34;✅ Sudah Dibaca&#34;;
+        default: return &#34;❓ Tidak diketahui&#34;;
+    }
+}
+
+function ambilRingkasanKategori($koneksi, $statusFilter = &#39;semua&#39;) {
+    if ($statusFilter !== &#39;semua&#39;) {
+        $stmt = $koneksi-&gt;prepare(&#34;
+            SELECT kategori.nama_kategori, COUNT(pesan.id) AS jumlah_pesan
+            FROM kategori
+            LEFT JOIN pesan ON pesan.kategori_id = kategori.id AND pesan.status = ?
+            GROUP BY kategori.nama_kategori
+        &#34;);
+        $stmt-&gt;bind_param(&#34;s&#34;, $statusFilter);
+        $stmt-&gt;execute();
+        $hasil = $stmt-&gt;get_result();
+    } else {
+        $hasil = $koneksi-&gt;query(&#34;
+            SELECT kategori.nama_kategori, COUNT(pesan.id) AS jumlah_pesan
+            FROM kategori
+            LEFT JOIN pesan ON pesan.kategori_id = kategori.id
+            GROUP BY kategori.nama_kategori
+        &#34;);
+    }
+
+    $data = [];
+    while ($baris = $hasil-&gt;fetch_assoc()) {
+        $data[] = $baris;
+    }
+    return $data;
+}
+?&gt;
+</code></pre>
+<p><code>proses_kirim_pesan.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+require &#39;functions.php&#39;;
+
+$nama = htmlspecialchars($_POST[&#39;nama&#39;] ?? &#39;&#39;);
+$email = htmlspecialchars($_POST[&#39;email&#39;] ?? &#39;&#39;);
+$kategoriId = $_POST[&#39;kategori_id&#39;] ?? &#39;&#39;;
+$pesanIsi = htmlspecialchars($_POST[&#39;pesan&#39;] ?? &#39;&#39;);
+
+$hasilValidasi = validasiPesan($nama, $email, $pesanIsi);
+
+if ($hasilValidasi === &#34;OK&#34;) {
+    $stmt = $koneksi-&gt;prepare(&#34;INSERT INTO pesan (nama, email, kategori_id, pesan) VALUES (?, ?, ?, ?)&#34;);
+    $stmt-&gt;bind_param(&#34;ssis&#34;, $nama, $email, $kategoriId, $pesanIsi);
+    $stmt-&gt;execute();
+    $stmt-&gt;close();
+    header(&#34;Location: index.php?status=sukses&#34;);
+} else {
+    header(&#34;Location: index.php?status=gagal&amp;pesan=&#34; . urlencode($hasilValidasi));
+}
+$koneksi-&gt;close();
+exit;
+?&gt;
+</code></pre>
+<p><code>admin.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+require &#39;functions.php&#39;;
+
+$urutan = $_GET[&#39;urutan&#39;] ?? &#39;terbaru&#39;;
+$orderBy = ($urutan === &#39;terlama&#39;) ? &#39;ASC&#39; : &#39;DESC&#39;;
+
+$hasil = $koneksi-&gt;query(&#34;
+    SELECT pesan.*, kategori.nama_kategori
+    FROM pesan
+    INNER JOIN kategori ON pesan.kategori_id = kategori.id
+    ORDER BY pesan.tanggal_kirim $orderBy
+&#34;);
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;id&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;title&gt;Admin — Daftar Pesan&lt;/title&gt;
+    &lt;link href=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+&lt;/head&gt;
+&lt;body class=&#34;container py-4&#34;&gt;
+    &lt;h1&gt;Daftar Pesan Masuk&lt;/h1&gt;
+    &lt;a href=&#34;dashboard.php&#34; class=&#34;btn btn-outline-dark mb-3&#34;&gt;Lihat Dashboard →&lt;/a&gt;
+
+    &lt;form method=&#34;GET&#34; class=&#34;mb-3&#34;&gt;
+        &lt;select name=&#34;urutan&#34; class=&#34;form-select w-auto d-inline-block&#34; onchange=&#34;this.form.submit()&#34;&gt;
+            &lt;option value=&#34;terbaru&#34; &lt;?= $urutan === &#39;terbaru&#39; ? &#39;selected&#39; : &#39;&#39; ?&gt;&gt;Terbaru&lt;/option&gt;
+            &lt;option value=&#34;terlama&#34; &lt;?= $urutan === &#39;terlama&#39; ? &#39;selected&#39; : &#39;&#39; ?&gt;&gt;Terlama&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/form&gt;
+
+    &lt;table class=&#34;table table-striped&#34;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;&lt;th&gt;Nama&lt;/th&gt;&lt;th&gt;Email&lt;/th&gt;&lt;th&gt;Kategori&lt;/th&gt;&lt;th&gt;Pesan&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Tanggal&lt;/th&gt;&lt;th&gt;Aksi&lt;/th&gt;&lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;?php while ($baris = $hasil-&gt;fetch_assoc()) : ?&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;nama&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;email&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;nama_kategori&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= htmlspecialchars($baris[&#39;pesan&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= labelStatus($baris[&#39;status&#39;]) ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?= $baris[&#39;tanggal_kirim&#39;] ?&gt;&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;a href=&#34;ubah_status.php?id=&lt;?= $baris[&#39;id&#39;] ?&gt;&#34; class=&#34;btn btn-sm btn-success&#34;&gt;Tandai Dibaca&lt;/a&gt;
+                    &lt;a href=&#34;hapus_pesan.php?id=&lt;?= $baris[&#39;id&#39;] ?&gt;&#34; class=&#34;btn btn-sm btn-danger&#34;
+                       onclick=&#34;return confirm(&#39;Yakin ingin menghapus pesan ini?&#39;)&#34;&gt;Hapus&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;?php endwhile; ?&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>dashboard.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+require &#39;functions.php&#39;;
+
+$statusFilter = $_GET[&#39;status&#39;] ?? &#39;semua&#39;;
+$ringkasan = ambilRingkasanKategori($koneksi, $statusFilter);
+
+$labelKategori = array_column($ringkasan, &#39;nama_kategori&#39;);
+$jumlahPesan = array_column($ringkasan, &#39;jumlah_pesan&#39;);
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;id&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;title&gt;Dashboard Admin&lt;/title&gt;
+    &lt;link href=&#34;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+    &lt;script src=&#34;https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js&#34;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&#34;container py-4&#34;&gt;
+    &lt;h1&gt;Dashboard — Jumlah Pesan per Kategori&lt;/h1&gt;
+    &lt;a href=&#34;admin.php&#34; class=&#34;btn btn-outline-dark mb-3&#34;&gt;← Kembali ke Daftar Pesan&lt;/a&gt;
+
+    &lt;div class=&#34;btn-group mb-3&#34;&gt;
+        &lt;a href=&#34;?status=semua&#34; class=&#34;btn btn-outline-primary &lt;?= $statusFilter === &#39;semua&#39; ? &#39;active&#39; : &#39;&#39; ?&gt;&#34;&gt;Semua&lt;/a&gt;
+        &lt;a href=&#34;?status=baru&#34; class=&#34;btn btn-outline-primary &lt;?= $statusFilter === &#39;baru&#39; ? &#39;active&#39; : &#39;&#39; ?&gt;&#34;&gt;Baru&lt;/a&gt;
+        &lt;a href=&#34;?status=dibaca&#34; class=&#34;btn btn-outline-primary &lt;?= $statusFilter === &#39;dibaca&#39; ? &#39;active&#39; : &#39;&#39; ?&gt;&#34;&gt;Dibaca&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;canvas id=&#34;chartKategori&#34; style=&#34;max-width: 600px;&#34;&gt;&lt;/canvas&gt;
+
+    &lt;script&gt;
+        const labelKategori = &lt;?= json_encode($labelKategori) ?&gt;;
+        const jumlahPesan = &lt;?= json_encode($jumlahPesan) ?&gt;;
+
+        new Chart(document.getElementById(&#39;chartKategori&#39;), {
+            type: &#39;bar&#39;,
+            data: {
+                labels: labelKategori,
+                datasets: [{ label: &#39;Jumlah Pesan&#39;, data: jumlahPesan, backgroundColor: &#39;#1c3d5a&#39; }]
+            },
+            options: { scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>hapus_pesan.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+$id = $_GET[&#39;id&#39;] ?? null;
+if ($id) {
+    $stmt = $koneksi-&gt;prepare(&#34;DELETE FROM pesan WHERE id = ?&#34;);
+    $stmt-&gt;bind_param(&#34;i&#34;, $id);
+    $stmt-&gt;execute();
+    $stmt-&gt;close();
+}
+header(&#34;Location: admin.php&#34;);
+exit;
+?&gt;
+</code></pre>
+<p><code>ubah_status.php</code>:</p>
+<pre><code class="language-php">&lt;?php
+require &#39;koneksi.php&#39;;
+$id = $_GET[&#39;id&#39;] ?? null;
+if ($id) {
+    $stmt = $koneksi-&gt;prepare(&#34;UPDATE pesan SET status = &#39;dibaca&#39; WHERE id = ?&#34;);
+    $stmt-&gt;bind_param(&#34;i&#34;, $id);
+    $stmt-&gt;execute();
+    $stmt-&gt;close();
+}
+header(&#34;Location: admin.php&#34;);
+exit;
+?&gt;
+</code></pre>
+<p><strong>Target akhir kelas:</strong> peserta memiliki <strong>1 sistem penuh front end + back end</strong>: pengunjung mengisi form di website portfolio → data tersimpan ke database → admin mengelola pesan lewat dashboard yang aman (prepared statement, XSS-safe), bisa di-join/di-filter/diurutkan, dan dilengkapi grafik ringkasan — online dan sudah melalui system testing.</p>
+<hr>
+<h2>Ringkasan Peta Konsep per Pertemuan</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Topik Utama</th>
+<th>Peserta bisa apa setelah ini?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Activity Diagram</td>
+<td>Memvisualisasikan alur proses sistem sebelum coding</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Class Diagram</td>
+<td>Merancang struktur tabel &amp; relasi sebelum membuat database</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Intro to Database</td>
+<td>Setup Laragon, membuat database &amp; tabel sesuai rancangan</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Intro to PHP</td>
+<td>Struktur file, variabel, operator, <code>$_POST</code>/<code>$_GET</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Branching</td>
+<td>Logika kondisi (if/switch/nested) di PHP</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Connection</td>
+<td>Menghubungkan PHP–MySQL, INSERT data dengan aman (prepared statement)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Loop (konsep)</td>
+<td>Pengulangan dasar (while/do-while/for/nested)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Array + SELECT</td>
+<td>Menampilkan semua data dari database ke halaman web</td>
+</tr>
+<tr>
+<td>9</td>
+<td>ORDER BY</td>
+<td>Mengurutkan data yang ditampilkan</td>
+</tr>
+<tr>
+<td>10</td>
+<td>DELETE &amp; UPDATE</td>
+<td>Menghapus &amp; memperbarui data tanpa akses manual ke database</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Final Exam 1</strong></td>
+<td>Sistem CRUD pesan lengkap &amp; aman</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Review Full Stack</td>
+<td>Menghubungkan kembali seluruh materi front end + back end</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Join</td>
+<td>Menggabungkan data dari 2 tabel yang berelasi</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Group By</td>
+<td>Meringkas &amp; mengelompokkan data</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Dynamic Chart</td>
+<td>Menyajikan data sebagai grafik interaktif</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Filtering Data</td>
+<td>Menggabungkan branching + join + chart jadi 1 fitur filter</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Setup Server</td>
+<td>Menyiapkan hosting untuk aplikasi PHP + MySQL</td>
+</tr>
+<tr>
+<td>18</td>
+<td>System Testing</td>
+<td>Menguji sistem secara sistematis sebelum go-live</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>Final Exam 2</strong></td>
+<td>Sistem full-stack lengkap, aman, teruji, dan online</td>
+</tr>
+</tbody>
+</table>
+
+
+<!--claude-mermaid-runtime-begin:3477-->
+<style>.mermaid-diagram{margin-block:4px}.mermaid-diagram svg{display:block;margin:0 auto;max-width:100%;height:auto}</style>
+<script src="/_runtime/mermaid-11.16.1.min.js"></script>
+<script>(function(){
+var CFG={"palettes":{"light":{"surface":"#f4efe4","text":"#42392e","line":"#8a7f6d","border":"#7a6c52","bg":"#fffdf8"},"dark":{"surface":"#262b34","text":"#f2f3f5","line":"#a8adb8","border":"#9aa4b8","bg":"#1f232b"}}};
+if(typeof mermaid==='undefined')return;
+var pres=Array.prototype.slice.call(document.querySelectorAll('pre.mermaid')).filter(function(p){if(p.hasAttribute('data-claude-mermaid-claimed'))return false;p.setAttribute('data-claude-mermaid-claimed','1');return true;});
+if(!pres.length)return;
+var mq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+var root=document.documentElement;
+var items=pres.map(function(pre){
+var mount=document.createElement('div');mount.className='mermaid-diagram';
+return {pre:pre,mount:mount,src:pre.textContent||''};
+});
+var seq=0;
+var renderGen=0;
+var lastKey='';
+function pageBg(fallback){
+var els=[document.body,document.documentElement];
+for(var i=0;i<els.length;i++){
+var c=els[i]&&getComputedStyle(els[i]).backgroundColor;
+if(c&&c!=='transparent'&&c!=='rgba(0, 0, 0, 0)')return c;
+}
+return fallback;
+}
+function render(){
+var theme=root.getAttribute('data-theme');
+var dark=theme==='dark'||(!!(mq&&mq.matches)&&theme!=='light');
+var pal=dark?CFG.palettes.dark:CFG.palettes.light;
+var bg=pageBg(pal.bg);
+var key=(dark?'d':'l')+'|'+bg;
+if(key===lastKey)return;
+lastKey=key;
+var gen=++renderGen;
+var font=getComputedStyle(document.body).fontFamily||'sans-serif';
+var nat={useMaxWidth:false};
+mermaid.initialize({
+startOnLoad:false,securityLevel:'strict',theme:'base',
+flowchart:nat,sequence:nat,er:nat,state:nat,class:nat,pie:nat,
+gantt:nat,journey:nat,timeline:nat,gitGraph:nat,mindmap:nat,xyChart:nat,
+quadrantChart:nat,sankey:nat,c4:nat,requirement:nat,block:nat,
+packet:nat,kanban:nat,architecture:nat,radar:nat,
+themeVariables:{background:bg,mainBkg:pal.surface,primaryColor:pal.surface,
+primaryTextColor:pal.text,lineColor:pal.line,primaryBorderColor:pal.border,
+nodeBorder:pal.border,clusterBorder:pal.border,edgeLabelBackground:bg,
+clusterBkg:'rgba(127,127,127,0.07)',titleColor:pal.text,
+darkMode:dark,rowOdd:bg,rowEven:'rgba(127,127,127,0.07)',
+attributeBackgroundColorOdd:bg,attributeBackgroundColorEven:'rgba(127,127,127,0.07)',
+fontSize:'16px',fontFamily:font},
+themeCSS:'.node rect, .node circle, .node polygon, .node path, .cluster rect { stroke-width: 2px; }'
+});
+items.forEach(function(it){
+var id='claude-mermaid-'+seq++;
+mermaid.render(id,it.src).then(function(r){
+if(gen!==renderGen)return;
+var prev=it.pre.previousElementSibling;
+if(prev&&prev.className==='mermaid-diagram'&&prev!==it.mount)return;
+it.mount.innerHTML=r.svg;
+if(!it.mount.parentNode)it.pre.parentNode.insertBefore(it.mount,it.pre);
+it.pre.style.display='none';
+},function(){
+var scratch=document.getElementById(id);
+if(scratch)scratch.parentNode.removeChild(scratch);
+scratch=document.getElementById('d'+id);
+if(scratch)scratch.parentNode.removeChild(scratch);
+if(gen!==renderGen)return;
+if(it.mount.parentNode)it.mount.parentNode.removeChild(it.mount);
+it.pre.style.display='';
+});
+});
+}
+render();
+if(mq&&mq.addEventListener)mq.addEventListener('change',render);
+if(typeof MutationObserver!=='undefined')new MutationObserver(render).observe(root,{attributes:true,attributeFilter:['data-theme']});
+})();</script>
+<!--claude-mermaid-runtime-end-->
+</body></html>

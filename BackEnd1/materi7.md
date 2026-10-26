@@ -2,6 +2,7 @@
 ## file yang di buat
 - functions.php
 - dynamic_chart.php => pakai style dan js (canvasjs)
+- untuk file tes ada di kasir/sample/sample.php
 
 ## 1\. Rangkuman Konsep Utama
 
@@ -14,6 +15,13 @@
 -----
 
 ## 2\. Struktur Database & Helper Functions (`functions.php`)
+function salam($nama)
+              ↑
+          parameter
+
+salam("Alief")
+       ↑
+    argument
 
 ### Database Schema yang di pakai
 
