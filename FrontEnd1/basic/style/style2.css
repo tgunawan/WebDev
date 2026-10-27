@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box; /* untuk  */
+
+}
+
+body{
+    background-color: aquamarine;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px 40px;
+    color: #333;
+
+}
+
+.content-wrapper{
+    display: flex;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.main-content{
+    flex: 3;
+}
+
+.sidebar{
+    flex: 1;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+
+/* Gambar artikel */
+.main-content img {
+    display: block;
+    max-width: 100%;
+    margin: 15px auto;
+    border-radius: 6px;
+}
+
+/* Blockquote */
+blockquote {
+    border-left: 4px solid #007acc;
+    background-color: #e6f0fa;
+    padding: 10px 15px;
+    margin: 15px 0;
+    font-style: italic;
+    color: #004a99;
+}
+
+/* Responsivitas */
+@media (max-width: 600px) {
+    .content-wrapper {
+        flex-direction: column;
+}
+
+.sidebar {
+    margin-top: 20px;
+    }
+}
+
+/* Header */
+header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.article-title {
+    font-size: 2.8rem;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.article-meta {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Sidebar links */
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #007acc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #004a99;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.footer nav a {
+    color: #007acc;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer nav a:hover {
+    color: #009991;
+}
+
+/* Responsivitas tambahan */
+@media (max-width: 400px) {
+    .article-title {
+        font-size: 2rem;
+    }
+
+    .main-content p {
+        font-size: 0.9rem;
+    }
+
+    body {
+        padding: 10px;
+    }
+}

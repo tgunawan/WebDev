@@ -1,0 +1,12 @@
+body { font-family: 'Segoe UI', Arial, sans-serif; }
+.profile-photo {
+    width: 160px; height: 160px; object-fit: cover;
+    border-radius: 50%; margin-bottom: 16px;
+    transition: transform 0.3s ease;
+}
+.profile-photo:hover { transform: scale(1.05); }
+.section-title { border-bottom: 2px solid #1c3d5a; padding-bottom: 4px; margin-bottom: 20px; }
+.skill-bar { margin-bottom: 12px; }
+.bar-bg { background: #dde3e8; border-radius: 6px; overflow: hidden; height: 12px; }
+.bar-fill { background: #1c3d5a; height: 100%; }
+.navbar a.active { text-decoration: underline; font-weight: bold; }

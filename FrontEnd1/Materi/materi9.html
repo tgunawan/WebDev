@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi JS</title>
+    <link rel="stylesheet" href="./CSS/js.css">
+</head>
+<body>
+    <header>
+        <h1 id="title">Gallery</h1>
+    </header>
+        
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="assets/images/project1.jpg" alt="Landing Page">
+            </div>
+            <div class="flip-card-back">
+                <h3>Landing Page</h3>
+                <p>Dibuat dengan HTML, CSS, Flexbox.</p>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="sayHello()">Click Me</button>
+    <button onclick="changeTitle()">
+    Change Title
+    </button>
+
+    <p id="result">
+        
+    </p>
+    <a href="#art4">article 4</a>
+    <p id="test_para" name="test_para">
+        Masukkan nama
+    </p>
+
+    <div class="container">
+        <aside class="left">
+            <button onclick="showArticle('art1')">
+                Story
+            </button>
+
+            <button onclick="showArticle('art2')">
+                Characters
+            </button>
+
+            <button onclick="showArticle('art3')">
+                Gallery
+            </button>
+            <button onclick="goto('art4')">
+                Gallery
+            </button>
+        </aside>
+
+        <main>
+            <p id="art1" class="paragraf">
+                paragraf 1
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+            </p>
+            <p id="art2" class="paragraf">
+                paragraf 2
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                
+            </p>
+            <p id="art3" class="paragraf">
+                paragraf 3
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                
+            </p>
+        </main>
+    </div>
+    <p id="art4">
+                paragraf 4
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam mollitia recusandae expedita veniam esse itaque beatae excepturi molestias saepe, impedit provident quia ex natus earum odio ea minus. Accusantium, id.
+                
+            </p>
+    <label for="textInput">Selamat datang
+        <span id="nama">Nama</span>
+    </label><br>
+    <input id="textInput" type="text" placeholder="Masukkan nama">
+    <button onclick="ubahNama()">Ubah nama</button>
+
+    <label for="textInput2">Selamat datang
+        <span id="nama">Nama</span>
+    </label><br>
+    <input id="textInput2" type="text" placeholder="Masukkan nama" oninput="ubahNama()">
+    
+    <hr><hr>
+        
+   
+
+
+
+    <script src="./Scripts/script.js"></script>
+
+</body>
+</html>

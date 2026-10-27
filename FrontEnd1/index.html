@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Saya — Tedi Gunawan</title>
+    <link rel="stylesheet" href="Materi/CSS/freestyle.css">
+</head>
+<body>
+    <header class="navbar">
+        <span class="logo">Tedi Gunawan</span>
+        <nav>
+            <ul>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Project</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="tentang">
+            <img src="assets/images/profile.jpg" alt="Foto Tedi Gunawan" class="profile-photo">
+            <h1 id="main-title">Tedi Gunawan</h1>
+            <p class="subtitle">Front End Web Developer</p>
+            <p>
+                Halo! Saya Tedi, seorang pemula yang sedang belajar web development.
+                Saya tertarik membangun website yang <strong>rapi</strong> dan
+                <strong>fungsional</strong>.
+            </p>
+        </section>
+        
+        
+        
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div id="skill-bars"></div>
+            <!-- <ul class="skill-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript (basic)</li>
+                <li>Git & GitHub</li>
+            </ul> -->
+
+            <h2 class="section-title">Pengalaman</h2>
+            <ol class="timeline">
+                <li>2023 — Mengikuti bootcamp Web Development</li>
+                <li>2024 — Membuat 3 project portfolio pribadi</li>
+            </ol>
+        </section>
+
+        <section id="project">
+                <h2 class="section-title">Project Saya</h2>
+                <div class="gallery" id="project-container"></div>
+            <!-- <div class="gallery">
+                <img src="assets/images/project1.jpg" alt="Landing Page" class="gallery-img">
+                <img src="assets/images/project2.jpg" alt="E-Commerce" class="gallery-img">
+                <img src="assets/images/project3.jpg" alt="Dashboard" class="gallery-img">
+            </div> -->
+        </section>
+
+        <section id="kontak">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <form>
+                <p>Metode kontak yang diinginkan:</p>
+                <label><input type="radio" name="contact" value="email" checked> Email</label>
+                <label><input type="radio" name="contact" value="wa"> WhatsApp</label>
+
+                <p>Jenis project yang saya minati:</p>
+                <label><input type="checkbox" name="interest" value="landing"> Landing Page</label>
+                <label><input type="checkbox" name="interest" value="ecommerce"> E-Commerce</label>
+
+                <p>
+                    <label for="topik">Topik favorit:</label>
+                    <select id="topik" name="topik">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="js">JavaScript</option>
+                    </select>
+                </p>
+
+                <button type="button" class="btn-primary">Kirim Pesan</button>
+            </form>
+            <form id="formKontak">
+                <input type="text" id="inputNama" placeholder="Nama Lengkap" required>
+                <input type="email" id="inputEmail" placeholder="Email" required>
+                <textarea id="inputPesan" placeholder="Pesan Anda" required></textarea>
+                <button type="submit" class="btn-primary">Kirim Pesan</button>
+            </form>
+            <p id="formStatus"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Tedi Gunawan. Dibuat dengan HTML & CSS.</p>
+    </footer>
+    <script src="./Materi/Scripts/mainScript.js"></script>
+</body>
+</html>

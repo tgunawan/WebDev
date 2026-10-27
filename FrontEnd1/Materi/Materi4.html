@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio saya 4</title>
+    <!-- <style>
+        h1{
+            color: #ce6464;
+            /* text-align: center; */
+        }
+    </style>  -->
+    <link rel="stylesheet" href="contohStyle.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="story.html">Story</a>
+            </li>
+            <li>
+                <a href="characters.html">Characters</a>
+            </li>
+            <li>
+                <a href="gallery.html">Gallery</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <h1 class="section-title" id="contact">Contact Me</h1>
+   
+
+
+    <form>  
+        <p>Pilih metode kontak: </p>
+        <label><input type="radio" name="contact" value="email" checked>E-mail</label>
+        <label><input type="radio" name="contact" value="wa">WhatsApp</label>
+    
+        <p>Jenis project yang saya minati:</p>
+        <label><input type="checkbox" name="interest" value="landing" checked> Landing Page</label>
+        <label><input type="checkbox" name="interest" value="ecommerce"> E-Commerce</label>
+
+        <p>
+            <label for="topik">Topik favorit:</label>
+            <select id="topik" name="topik">
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JavaScript</option>
+            </select>
+        </p>
+
+        <button type="button" class="btn-primary">Kirim Pesan</button>
+        <button type="reset" class="btn-reset">Reset</button>
+    
+    </form>
+
+
+</body> 
+</html>
+<!--  Form & Button Style
+Button bisa tanpa form
+Button type nya: button, submit, reset
+- button untuk hanya tombol yang menjalankan Js, tanpa kirim form, lebih buka modal, preview, tambah item dan interaksi ui.
+- reset untuk kembalikan form ke kondisi awal
+- submit untuk kirim data form, tanpa di set browser default baca submit
+
+Input untuk menyimpan data yang bisa di simpan
+Input type : radio, checkbox
+- radio : jika user hanya pilih satu
+- checkbox : user dapat memilih lebih dari 1 opsi
+ - name : untuk mengelompokkan pilihan, wajib ada untuk elemen apapun yang akan mengirim data ke server (input,select,textarea) dapat di katakan di HTML mirip dengan nama variable yang di kirim ke server
+  -id="nama" → dipakai HTML/CSS/JavaScript.
+  -name="nama" → dipakai saat submit form.
+ - value : nilai yang di kirim saat input di pilih
+ - checked : menjadikan pilihan default
+ - pattern="html|web" untuk memastikan input sesuai yang di inginkan
+    contoh 
+    pattern="08[0-9]{8,12} cek no hp
+    pattern="[A-Za-z]+" harus huruf
+ - type="number"
+        min="1"
+        max="100"
+ -  type="email"
+ - type="text"
+    minlength="5"
+    maxlength="20"
+- action
+<form class="card" action="indexTestDua2.html">
+    jika button submit di tekan maka akan pindah
+
+
+
+- label -> dapat di pakai untuk mengurung input agar lebih rapih dan dapat membuat text dalam label terklik juga
+    - jika dalam 1 elemen p sebelum select ada for artinya saat label di klik dapat otomatis fokus pada dropdown select
+
+Select di gunakan untuk dropdown menu
+sama seperti input dimana ada name, value, sedangkan checked menjadi selected untuk default
+- untuk membuat placeholder pakai disabled selected yang biasanya dengan value kosong / "", disabled membuat pilihan ini tidak dapat di pilih hanya di tampilkan untuk awal
+- option pilihan pada select
+
+tombol / link CTA (Call To Action) adalah elemen pada website, iklan, email, atau aplikasi yang bertujuan mengajak pengguna melakukan tindakan tertentu.
+harus singkat,jelas, dan mengandung aksi
+Daftar Sekarang
+Mulai Gratis
+Download Ebook
+Coba Demo
+Hubungi Kami
+
+biasanya CTA adalah tujuan dari web tersebut
+CTA Primer vs Sekunder
+- Aksi utama yang paling diinginkan. = Daftar Sekarang
+- Pilihan alternatif= Lihat kurikulum
+
+-->
