@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belajar Python — Materi 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+/* ── ROOT VARIABLES ─────────────────────────────────── */
+:root {
+  --bg:           #0e1117;
+  --bg2:          #161b27;
+  --bg3:          #1e2535;
+  --bg4:          #242d42;
+  --border:       #2a3450;
+  --border2:      #3a4a6a;
+
+  --text:         #e2e8f5;
+  --text2:        #a0aec8;
+  --text3:        #6b7a99;
+
+  --gold:         #f5c842;
+  --gold2:        #e8a820;
+  --blue:         #5b9cf6;
+  --blue2:        #3b7de8;
+  --teal:         #3ecfb2;
+  --teal2:        #2ab09a;
+  --coral:        #ff6b6b;
+  --purple:       #b48eff;
+  --green:        #52d68a;
+  --orange:       #ff9f43;
+
+  /* syntax */
+  --s-keyword:    #c792ea;
+  --s-func:       #82aaff;
+  --s-string:     #c3e88d;
+  --s-number:     #f78c6c;
+  --s-comment:    #546e7a;
+  --s-builtin:    #ffcb6b;
+  --s-op:         #89ddff;
+  --s-plain:      #d6deeb;
+
+  --font-display: 'Fraunces', serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --max-w: 780px;
+  --radius: 10px;
+}
+
+/* ── RESET & BASE ──────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── LAYOUT ────────────────────────────────────────── */
+.book {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px 120px;
+}
+
+/* ── COVER ─────────────────────────────────────────── */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 24px;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 20%, rgba(91,156,246,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 80%, rgba(62,207,178,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(245,200,66,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cover-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(91,156,246,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91,156,246,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+.cover-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(62,207,178,0.1);
+  border: 1px solid rgba(62,207,178,0.25);
+  padding: 6px 18px;
+  border-radius: 100px;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+.cover-snake {
+  font-size: 5.5rem;
+  line-height: 1;
+  margin-bottom: 28px;
+  filter: drop-shadow(0 0 40px rgba(91,156,246,0.4));
+}
+.cover-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.cover-title span { color: var(--gold); }
+.cover-sub {
+  font-size: 1.1rem;
+  color: var(--text2);
+  font-weight: 300;
+  margin-bottom: 52px;
+  font-style: italic;
+}
+.cover-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 52px;
+}
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+}
+.chip.c-blue  { background: rgba(91,156,246,0.12);  border-color: rgba(91,156,246,0.3);  color: var(--blue); }
+.chip.c-teal  { background: rgba(62,207,178,0.10);  border-color: rgba(62,207,178,0.25); color: var(--teal); }
+.chip.c-gold  { background: rgba(245,200,66,0.10);  border-color: rgba(245,200,66,0.25); color: var(--gold); }
+.chip.c-coral { background: rgba(255,107,107,0.10); border-color: rgba(255,107,107,0.25);color: var(--coral);}
+.chip.c-purp  { background: rgba(180,142,255,0.10); border-color: rgba(180,142,255,0.25);color: var(--purple);}
+.chip.c-grn   { background: rgba(82,214,138,0.10);  border-color: rgba(82,214,138,0.25); color: var(--green);}
+.cover-divider {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border2), transparent);
+  margin: 0 auto 28px;
+}
+.cover-project {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text3);
+  letter-spacing: 0.04em;
+}
+.cover-project span { color: var(--gold); }
+
+/* ── TABLE OF CONTENTS ─────────────────────────────── */
+.toc-section {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 44px;
+  margin: 60px 0;
+}
+.toc-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.toc-list { list-style: none; }
+.toc-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(42,52,80,0.5);
+}
+.toc-list li:last-child { border-bottom: none; }
+.toc-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text3);
+  min-width: 2.4em;
+}
+.toc-name {
+  flex: 1;
+  font-size: 0.97rem;
+  color: var(--text2);
+  font-weight: 400;
+}
+.toc-name strong { color: var(--text); font-weight: 500; }
+.toc-dot {
+  flex: 1;
+  border-bottom: 1px dotted var(--border2);
+  margin: 0 12px;
+  position: relative;
+  top: -3px;
+}
+.toc-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 3px 9px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ── CHAPTER DIVIDER ───────────────────────────────── */
+.chapter-start {
+  margin: 80px 0 48px;
+  position: relative;
+}
+.ch-number {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 10px;
+}
+.ch-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.ch-sub {
+  font-size: 0.95rem;
+  color: var(--text3);
+  margin-top: 6px;
+  font-style: italic;
+}
+.ch-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border2) 0%, transparent 60%);
+  margin-top: 24px;
+}
+.ch-accent {
+  display: inline-block;
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+/* ── SECTION HEADER ────────────────────────────────── */
+.sec-head {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 44px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sec-head::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── BODY TEXT ─────────────────────────────────────── */
+p {
+  font-size: 1rem;
+  color: var(--text2);
+  margin-bottom: 18px;
+  line-height: 1.8;
+}
+p strong { color: var(--text); font-weight: 600; }
+p em { color: var(--text); font-style: italic; font-weight: 300; }
+code {
+  font-family: var(--font-mono);
+  font-size: 0.83em;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: var(--blue);
+}
+
+/* ── CALLOUT BOXES ─────────────────────────────────── */
+.callout {
+  display: flex;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: var(--radius);
+  margin: 24px 0;
+  border: 1px solid;
+}
+.callout-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.callout-body { flex: 1; }
+.callout-title { font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; font-family: var(--font-mono); }
+.callout-text { font-size: 0.93rem; color: var(--text2); line-height: 1.65; margin: 0; }
+.callout.tip    { background: rgba(91,156,246,0.07);  border-color: rgba(91,156,246,0.25); }
+.callout.tip .callout-title { color: var(--blue); }
+.callout.warn   { background: rgba(245,200,66,0.07);  border-color: rgba(245,200,66,0.25); }
+.callout.warn .callout-title { color: var(--gold); }
+.callout.info   { background: rgba(62,207,178,0.07);  border-color: rgba(62,207,178,0.25); }
+.callout.info .callout-title { color: var(--teal); }
+.callout.danger { background: rgba(255,107,107,0.07); border-color: rgba(255,107,107,0.25);}
+.callout.danger .callout-title { color: var(--coral); }
+
+/* ── CODE BLOCK ────────────────────────────────────── */
+.code-wrap {
+  margin: 24px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+.code-header {
+  background: var(--bg3);
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.code-dots { display: flex; gap: 6px; }
+.code-dots span {
+  width: 11px; height: 11px; border-radius: 50%;
+}
+.code-dots span:nth-child(1) { background: #ff5f57; }
+.code-dots span:nth-child(2) { background: #febc2e; }
+.code-dots span:nth-child(3) { background: #28c840; }
+.code-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text3);
+  letter-spacing: 0.06em;
+  margin-left: 4px;
+}
+.code-body {
+  background: #0d1117;
+  padding: 22px 24px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.855rem;
+  line-height: 1.8;
+}
+.code-body pre { margin: 0; }
+
+/* syntax tokens */
+.kw  { color: var(--s-keyword); }
+.fn  { color: var(--s-func); }
+.st  { color: var(--s-string); }
+.nm  { color: var(--s-number); }
+.cm  { color: var(--s-comment); font-style: italic; }
+.bi  { color: var(--s-builtin); }
+.op  { color: var(--s-op); }
+.pl  { color: var(--s-plain); }
+
+/* ── OUTPUT BLOCK ──────────────────────────────────── */
+.output-wrap {
+  margin: -16px 0 28px;
+  border-radius: 0 0 var(--radius) var(--radius);
+  border: 1px solid rgba(62,207,178,0.2);
+  border-top: none;
+  overflow: hidden;
+}
+.output-header {
+  background: rgba(62,207,178,0.08);
+  padding: 7px 18px;
+  border-bottom: 1px solid rgba(62,207,178,0.15);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--teal);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.output-header::before { content: '▶'; font-size: 0.6rem; }
+.output-body {
+  background: rgba(14,17,23,0.8);
+  padding: 16px 24px;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  color: var(--teal);
+  line-height: 1.75;
+  white-space: pre;
+}
+
+/* ── TABLES ────────────────────────────────────────── */
+.table-wrap { margin: 24px 0; overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+thead { background: var(--bg3); }
+thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: rgba(42,52,80,0.3); }
+td {
+  padding: 11px 16px;
+  color: var(--text2);
+  vertical-align: top;
+}
+td:first-child { font-family: var(--font-mono); color: var(--blue); font-size: 0.85rem; }
+td.val { color: var(--coral); font-family: var(--font-mono); font-size: 0.83rem; }
+td.desc { color: var(--text2); }
+td.result { color: var(--green); font-family: var(--font-mono); font-size: 0.83rem; font-weight: 500; }
+td.op-name { color: var(--text); }
+
+/* ── LISTS ─────────────────────────────────────────── */
+ul, ol { padding-left: 0; margin-bottom: 18px; list-style: none; }
+ul li, ol li {
+  color: var(--text2);
+  padding: 5px 0 5px 26px;
+  position: relative;
+  font-size: 0.97rem;
+  line-height: 1.7;
+}
+ul li::before { content: '◆'; color: var(--blue); position: absolute; left: 0; font-size: 0.5rem; top: 10px; }
+ol { counter-reset: ol-counter; }
+ol li::before {
+  counter-increment: ol-counter;
+  content: counter(ol-counter);
+  color: var(--gold);
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  top: 7px;
+  background: rgba(245,200,66,0.1);
+  width: 20px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 4px;
+  border: 1px solid rgba(245,200,66,0.2);
+}
+
+/* ── FORMULA BOX ───────────────────────────────────── */
+.formula {
+  background: linear-gradient(135deg, rgba(245,200,66,0.08), rgba(245,200,66,0.04));
+  border: 1px solid rgba(245,200,66,0.25);
+  border-radius: var(--radius);
+  padding: 22px 28px;
+  margin: 24px 0;
+  text-align: center;
+}
+.formula-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--gold2);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+.formula-eq {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: -0.01em;
+}
+
+/* ── BMI CATEGORY CARDS ────────────────────────────── */
+.bmi-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 24px 0;
+}
+.bmi-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  border-left: 3px solid;
+}
+.bmi-range { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text3); margin-bottom: 4px; }
+.bmi-cat   { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+.bmi-saran { font-size: 0.82rem; color: var(--text3); line-height: 1.55; }
+
+/* ── CHALLENGE CARDS ───────────────────────────────── */
+.challenges { display: grid; gap: 12px; margin: 24px 0; }
+.chal-card {
+  display: flex;
+  gap: 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  align-items: flex-start;
+}
+.chal-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  background: rgba(245,200,66,0.1);
+  border: 1px solid rgba(245,200,66,0.2);
+  border-radius: 6px;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.chal-text { font-size: 0.93rem; color: var(--text2); line-height: 1.65; }
+.chal-text strong { color: var(--text); }
+
+/* ── SUMMARY TABLE ─────────────────────────────────── */
+.summary-row { display: grid; grid-template-columns: 140px 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+.summary-row:last-child { border-bottom: none; }
+.summary-key {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--blue);
+  padding: 14px 16px;
+  background: var(--bg3);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  font-weight: 500;
+}
+.summary-val {
+  font-size: 0.9rem;
+  color: var(--text2);
+  padding: 14px 18px;
+  line-height: 1.6;
+}
+.summary-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 24px 0;
+}
+
+/* ── PROJECT SECTION ───────────────────────────────── */
+.project-banner {
+  background: linear-gradient(135deg, #0d1a35 0%, #0e2040 50%, #0a1e2e 100%);
+  border: 1px solid rgba(91,156,246,0.2);
+  border-radius: 16px;
+  padding: 44px 44px 36px;
+  margin: 60px 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+.project-banner::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(91,156,246,0.15), transparent 60%);
+  pointer-events: none;
+}
+.project-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--teal);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.project-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.project-desc { font-size: 0.95rem; color: var(--text2); max-width: 520px; }
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+/* ── CONCEPT PILLS ─────────────────────────────────── */
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+.concept-pill {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.concept-pill .icon { font-size: 1.4rem; margin-bottom: 6px; }
+.concept-pill .label { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text3); }
+
+/* ── CLOSING ───────────────────────────────────────── */
+.closing {
+  text-align: center;
+  padding: 64px 24px;
+  border-top: 1px solid var(--border);
+  margin-top: 80px;
+}
+.closing-emoji { font-size: 3rem; margin-bottom: 20px; }
+.closing-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.closing-sub { font-size: 0.95rem; color: var(--text3); margin-bottom: 32px; }
+.next-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 14px 24px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text2);
+}
+.next-badge .arr { color: var(--blue); }
+
+/* ── PRINT ─────────────────────────────────────────── */
+@media print {
+  body { background: #fff; color: #111; }
+  .cover { min-height: auto; page-break-after: always; }
+  .chapter-start { page-break-before: always; }
+  .code-body, .output-body { font-size: 0.78rem; }
+}
+
+/* ── RESPONSIVE ────────────────────────────────────── */
+@media (max-width: 600px) {
+  .book { padding: 0 16px 80px; }
+  .toc-section { padding: 28px 24px; }
+  .bmi-cards { grid-template-columns: 1fr; }
+  .concept-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-banner { padding: 28px 24px; }
+  .toc-dot { display: none; }
+  .cover-chips { gap: 7px; }
+}
+</style>
+</head>
+<body>
+<div class="book">
+
+<!-- ═══════════════════════════════════════════════════
+     COVER
+════════════════════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-grid"></div>
+  <span class="cover-badge">Panduan Pemula · Materi 1</span>
+  <div class="cover-snake">🐍</div>
+  <h1 class="cover-title">Belajar<br><span>Python</span></h1>
+  <p class="cover-sub">Panduan lengkap dari nol untuk pemula</p>
+  <div class="cover-chips">
+    <span class="chip c-blue">print()</span>
+    <span class="chip c-teal">input()</span>
+    <span class="chip c-gold">Tipe Data</span>
+    <span class="chip c-coral">Variabel</span>
+    <span class="chip c-purp">Operator</span>
+    <span class="chip c-grn">if / elif / else</span>
+  </div>
+  <div class="cover-divider"></div>
+  <p class="cover-project">Mini Project: <span>Kalkulator BMI Interaktif</span></p>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc-section">
+  <div class="toc-title">Daftar Isi</div>
+  <ul class="toc-list">
+    <li><span class="toc-num">01</span><span class="toc-name"><strong>Print</strong> — Menampilkan Output</span><span class="toc-dot"></span><span class="chip c-blue toc-tag">print()</span></li>
+    <li><span class="toc-num">02</span><span class="toc-name"><strong>Input</strong> — Menerima Data Pengguna</span><span class="toc-dot"></span><span class="chip c-teal toc-tag">input()</span></li>
+    <li><span class="toc-num">03</span><span class="toc-name"><strong>Tipe Data</strong> — int, float, str, bool</span><span class="toc-dot"></span><span class="chip c-gold toc-tag">data types</span></li>
+    <li><span class="toc-num">04</span><span class="toc-name"><strong>Variabel</strong> — Menyimpan Data</span><span class="toc-dot"></span><span class="chip c-coral toc-tag">variables</span></li>
+    <li><span class="toc-num">05</span><span class="toc-name"><strong>Operator</strong> — Aritmatika, Perbandingan &amp; Logika</span><span class="toc-dot"></span><span class="chip c-purp toc-tag">operators</span></li>
+    <li><span class="toc-num">06</span><span class="toc-name"><strong>Kondisional</strong> — if / elif / else</span><span class="toc-dot"></span><span class="chip c-grn toc-tag">conditional</span></li>
+    <li><span class="toc-num">★</span><span class="toc-name"><strong>Mini Project</strong> — Kalkulator BMI</span><span class="toc-dot"></span><span class="chip c-gold toc-tag">project</span></li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     BAB 1 — PRINT
+════════════════════════════════════════════════════ -->
+<div class="chapter-start">
+  <div class="ch-accent" style="background: var(--blue);"></div>
+  <div class="ch-number">Bab 01</div>
+  <h2 class="ch-title">Print</h2>
+  <p class="ch-sub">Menampilkan output ke layar</p>
+  <div class="ch-line"></div>
+</div>
+
+<p><strong>print()</strong> adalah fungsi paling fundamental di Python. Hampir setiap program menggunakannya untuk menampilkan teks, angka, hasil perhitungan, atau isi variabel ke layar terminal.</p>
+
+<div class="sec-head">Sintaks Dasar</div>
+
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">python</span></div>
+  <div class="code-body"><pre><span class="fn">print</span><span class="op">(</span><span class="pl">nilai</span><span class="op">)</span>                  <span class="cm"># cetak satu nilai</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">nilai1</span><span class="op">,</span> <span class="pl">nilai2</span><span class="op">, ...)</span>    <span class="cm"># cetak beberapa nilai</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"teks {variabel}"</span><span class="op">)</span>     <span class="cm"># f-string (cara modern)</span></pre></div>
+</div>
+
+<div class="sec-head">Contoh 1 — Print Sederhana</div>
+
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">contoh_1.py</span></div>
+  <div class="code-body"><pre><span class="cm"># Menampilkan teks</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"Halo, Dunia!"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"Selamat belajar Python"</span><span class="op">)</span>
+
+<span class="cm"># Menampilkan angka</span>
+<span class="fn">print</span><span class="op">(</span><span class="nm">100</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="nm">3.14</span><span class="op">)</span>
+
+<span class="cm"># Menampilkan beberapa nilai sekaligus</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"Nama:"</span><span class="op">,</span> <span class="st">"Budi"</span><span class="op">,</span> <span class="st">"Usia:"</span><span class="op">,</span> <span class="nm">20</span><span class="op">)</span></pre></div>
+</div>
+<div class="output-wrap">
+  <div class="output-header">Output</div>
+  <div class="output-body">Halo, Dunia!
+Selamat belajar Python
+100
+3.14
+Nama: Budi Usia: 20</div>
+</div>
+
+<div class="sec-head">Contoh 2 — Parameter sep dan end</div>
+<p>Parameter <code>sep</code> mengatur pemisah antar nilai (default: spasi). Parameter <code>end</code> mengatur karakter di akhir baris (default: baris baru <code>\n</code>).</p>
+
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">contoh_2.py</span></div>
+  <div class="code-body"><pre><span class="cm"># sep: ubah pemisah antar nilai</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"A"</span><span class="op">,</span> <span class="st">"B"</span><span class="op">,</span> <span class="st">"C"</span><span class="op">,</span> <span class="pl">sep</span><span class="op">=</span><span class="st">"-"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="nm">1</span><span class="op">,</span> <span class="nm">2</span><span class="op">,</span> <span class="nm">3</span><span class="op">,</span> <span class="pl">sep</span><span class="op">=</span><span class="st">" | "</span><span class="op">)</span>
+
+<span class="cm"># end: cetak tanpa garis baru</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"Loading"</span><span class="op">,</span> <span class="pl">end</span><span class="op">=</span><span class="st">""</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"..."</span><span class="op">)</span>
+
+<span class="cm"># Kombinasi</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"Python"</span><span class="op">,</span> <span class="st">"is"</span><span class="op">,</span> <span class="st">"fun"</span><span class="op">,</span> <span class="pl">sep</span><span class="op">=</span><span class="st">"_"</span><span class="op">,</span> <span class="pl">end</span><span class="op">=</span><span class="st">"!\n"</span><span class="op">)</span></pre></div>
+</div>
+<div class="output-wrap">
+  <div class="output-header">Output</div>
+  <div class="output-body">A-B-C
+1 | 2 | 3
+Loading...
+Python_is_fun!</div>
+</div>
+
+<div class="sec-head">Contoh 3 — F-String (Format String)</div>
+<p>F-string adalah cara paling modern dan elegan untuk memasukkan variabel ke dalam teks. Tambahkan huruf <code>f</code> sebelum tanda kutip, lalu tulis nama variabel dalam kurung kurawal <code>{ }</code>.</p>
+
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">contoh_3.py</span></div>
+  <div class="code-body"><pre><span class="pl">nama</span>  <span class="op">=</span> <span class="st">"Sari"</span>
+<span class="pl">usia</span>  <span class="op">=</span> <span class="nm">21</span>
+<span class="pl">kota</span>  <span class="op">=</span> <span class="st">"Jakarta"</span>
+
+<span class="cm"># Masukkan variabel langsung ke dalam teks</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Nama saya {nama}"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Saya berusia {usia} tahun"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Tinggal di {kota}"</span><span class="op">)</span>
+
+<span class="cm"># F-string bisa juga berisi ekspresi</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Tahun depan saya berusia {usia + 1} tahun"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"3 x 4 = {3 * 4}"</span><span class="op">)</span></pre></div>
+</div>
+<div class="output-wrap">
+  <div class="output-header">Output</div>
+  <div class="output-body">Nama saya Sari
+Saya berusia 21 tahun
+Tinggal di Jakarta
+Tahun depan saya berusia 22 tahun
+3 x 4 = 12</div>
+</div>
+
+<div class="callout tip">
+  <span class="callout-icon">💡</span>
+  <div class="callout-body">
+    <div class="callout-title">Tips</div>
+    <p class="callout-text">Gunakan f-string untuk kode yang lebih bersih dan mudah dibaca. <code>f"Halo {nama}"</code> jauh lebih elegan daripada <code>"Halo " + nama</code>.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     BAB 2 — INPUT
+════════════════════════════════════════════════════ -->
+<div class="chapter-start">
+  <div class="ch-accent" style="background: var(--teal);"></div>
+  <div class="ch-number">Bab 02</div>
+  <h2 class="ch-title">Input</h2>
+  <p class="ch-sub">Menerima data yang diketik pengguna</p>
+  <div class="ch-line"></div>
+</div>
+
+<p><strong>input()</strong> adalah fungsi untuk menerima data dari pengguna melalui keyboard. Program akan berhenti sejenak dan menunggu pengguna mengetik sesuatu, lalu menekan Enter. Penting: hasil dari <code>input()</code> <em>selalu bertipe string</em>.</p>
+
+<div class="callout danger">
+  <span class="callout-icon">⚠️</span>
+  <div class="callout-body">
+    <div class="callout-title">Perhatian Penting</div>
+    <p class="callout-text"><code>input()</code> <strong>selalu</strong> menghasilkan tipe <code>str</code> (string). Jika ingin menggunakannya untuk perhitungan, wajib dikonversi terlebih dahulu:<br><code>int(input(...))</code> → bilangan bulat &nbsp;|&nbsp; <code>float(input(...))</code> → bilangan desimal</p>
+  </div>
+</div>
+
+<div class="sec-head">Contoh 1 — Input Teks</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">contoh_4.py</span></div>
+  <div class="code-body"><pre><span class="pl">nama</span> <span class="op">=</span> <span class="fn">input</span><span class="op">(</span><span class="st">"Masukkan nama Anda: "</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Halo, {nama}! Selamat datang di Python."</span><span class="op">)</span></pre></div>
+</div>
+<div class="output-wrap">
+  <div class="output-header">Output</div>
+  <div class="output-body">Masukkan nama Anda: Budi
+Halo, Budi! Selamat datang di Python.</div>
+</div>
+
+<div class="sec-head">Contoh 2 — Input Angka dengan Konversi</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">contoh_5.py</span></div>
+  <div class="code-body"><pre><span class="cm"># Konversi ke int agar bisa dihitung</span>
+<span class="pl">umur</span> <span class="op">=</span> <span class="bi">int</span><span class="op">(</span><span class="fn">input</span><span class="op">(</span><span class="st">"Berapa umur Anda? "</span><span class="op">))</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Umur Anda: {umur} tahun"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"10 tahun lagi: {umur + 10} tahun"</span><span class="op">)</span>
+
+<span class="cm"># Konversi ke float untuk angka desimal</span>
+<span class="pl">tinggi</span> <span class="op">=</span> <span class="bi">float</span><span class="op">(</span><span class="fn">input</span><span class="op">(</span><span class="st">"Tinggi badan (meter): "</span><span class="op">))</span>
+<span class="pl">berat</span>  <span class="op">=</span> <span class="bi">float</span><span class="op">(</span><span class="fn">input</span><span class="op">(</span><span class="st">"Berat badan (kg): "</span><span class="op">))</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Data: tinggi {tinggi}m, berat {berat}kg"</span><span class="op">)</span></pre></div>
+</div>
+<div class="output-wrap">
+  <div class="output-header">Output</div>
+  <div class="output-body">Berapa umur Anda? 20
+Umur Anda: 20 tahun
+10 tahun lagi: 30 tahun
+Tinggi badan (meter): 1.72
+Berat badan (kg): 65
+Data: tinggi 1.72m, berat 65.0kg</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     BAB 3 — TIPE DATA
+════════════════════════════════════════════════════ -->
+<div class="chapter-start">
+  <div class="ch-accent" style="background: var(--gold);"></div>
+  <div class="ch-number">Bab 03</div>
+  <h2 class="ch-title">Tipe Data</h2>
+  <p class="ch-sub">Jenis-jenis data yang dikenali Python</p>
+  <div class="ch-line"></div>
+</div>
+
+<p>Python secara otomatis menentukan tipe data sebuah variabel saat nilainya ditetapkan (<em>dynamic typing</em>). Memahami tipe data penting agar tidak terjadi error saat melakukan operasi.</p>
+
+<div class="sec-head">Tabel Tipe Data Utama</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Tipe</th><th>Contoh Nilai</th><th>Keterangan</th></tr></thead>
+    <tbody>
+      <tr><td>int</td><td class="val">1, -5, 100, 0</td><td class="desc">Bilangan bulat, tanpa titik desimal</td></tr>
+      <tr><td>float</td><td class="val">3.14, -0.5, 2.0</td><td class="desc">Bilangan dengan titik desimal</td></tr>
+      <tr><td>str</td><td class="val">"Halo", 'Python'</td><td class="desc">Teks / kumpulan karakter</td></tr>
+      <tr><td>bool</td><td class="val">True, False</td><td class="desc">Nilai logika benar atau salah</td></tr>
+      <tr><td>list</td><td class="val">[1, 2, 3]</td><td class="desc">Kumpulan data terurut, bisa diubah</td></tr>
+      <tr><td>dict</td><td class="val">{"nama": "Budi"}</td><td class="desc">Pasangan kunci–nilai</td></tr>
+      <tr><td>NoneType</td><td class="val">None</td><td class="desc">Tidak ada nilai (seperti null)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec-head">Contoh Setiap Tipe Data</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">tipe_data.py</span></div>
+  <div class="code-body"><pre><span class="cm"># Integer</span>
+<span class="pl">umur</span>    <span class="op">=</span> <span class="nm">25</span>
+<span class="pl">siswa</span>   <span class="op">=</span> <span class="nm">30</span>
+
+<span class="cm"># Float</span>
+<span class="pl">tinggi</span>  <span class="op">=</span> <span class="nm">1.75</span>
+<span class="pl">pi</span>      <span class="op">=</span> <span class="nm">3.14159</span>
+
+<span class="cm"># String — kutip tunggal atau ganda sama saja</span>
+<span class="pl">nama</span>    <span class="op">=</span> <span class="st">"Budi Santoso"</span>
+<span class="pl">kota</span>    <span class="op">=</span> <span class="st">'Jakarta'</span>
+
+<span class="cm"># Boolean</span>
+<span class="pl">sudah_login</span>  <span class="op">=</span> <span class="kw">True</span>
+<span class="pl">is_admin</span>     <span class="op">=</span> <span class="kw">False</span>
+
+<span class="cm"># Cek tipe dengan type()</span>
+<span class="fn">print</span><span class="op">(</span><span class="bi">type</span><span class="op">(</span><span class="pl">umur</span><span class="op">))</span>    <span class="cm"># &lt;class 'int'&gt;</span>
+<span class="fn">print</span><span class="op">(</span><span class="bi">type</span><span class="op">(</span><span class="pl">tinggi</span><span class="op">))</span> <span class="cm"># &lt;class 'float'&gt;</span>
+<span class="fn">print</span><span class="op">(</span><span class="bi">type</span><span class="op">(</span><span class="pl">nama</span><span class="op">))</span>   <span class="cm"># &lt;class 'str'&gt;</span>
+<span class="fn">print</span><span class="op">(</span><span class="bi">type</span><span class="op">(</span><span class="pl">sudah_login</span><span class="op">))</span> <span class="cm"># &lt;class 'bool'&gt;</span></pre></div>
+</div>
+
+<div class="sec-head">Operasi pada String</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">string_ops.py</span></div>
+  <div class="code-body"><pre><span class="pl">nama</span> <span class="op">=</span> <span class="st">"Budi Santoso"</span>
+
+<span class="fn">print</span><span class="op">(</span><span class="pl">nama</span><span class="op">.</span><span class="fn">upper</span><span class="op">())</span>        <span class="cm"># BUDI SANTOSO</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">nama</span><span class="op">.</span><span class="fn">lower</span><span class="op">())</span>        <span class="cm"># budi santoso</span>
+<span class="fn">print</span><span class="op">(</span><span class="bi">len</span><span class="op">(</span><span class="pl">nama</span><span class="op">))</span>           <span class="cm"># 12 (jumlah karakter)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">nama</span><span class="op">[</span><span class="nm">0</span><span class="op">])</span>             <span class="cm"># B  (indeks pertama)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">nama</span> <span class="op">+</span> <span class="st">" Jr."</span><span class="op">)</span>        <span class="cm"># Budi Santoso Jr.</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"Python"</span> <span class="op">*</span> <span class="nm">3</span><span class="op">)</span>        <span class="cm"># PythonPythonPython</span></pre></div>
+</div>
+
+<div class="sec-head">Konversi Tipe Data (Type Casting)</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">type_casting.py</span></div>
+  <div class="code-body"><pre><span class="cm"># String → int</span>
+<span class="pl">angka_str</span> <span class="op">=</span> <span class="st">"42"</span>
+<span class="pl">angka_int</span> <span class="op">=</span> <span class="bi">int</span><span class="op">(</span><span class="pl">angka_str</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">angka_int</span> <span class="op">+</span> <span class="nm">8</span><span class="op">)</span>    <span class="cm"># 50</span>
+
+<span class="cm"># int → float</span>
+<span class="fn">print</span><span class="op">(</span><span class="bi">float</span><span class="op">(</span><span class="nm">5</span><span class="op">))</span>         <span class="cm"># 5.0</span>
+
+<span class="cm"># int → string (untuk penggabungan teks)</span>
+<span class="pl">nilai</span> <span class="op">=</span> <span class="nm">100</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"Nilai: "</span> <span class="op">+</span> <span class="bi">str</span><span class="op">(</span><span class="pl">nilai</span><span class="op">))</span>   <span class="cm"># Nilai: 100</span></pre></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     BAB 4 — VARIABEL
+════════════════════════════════════════════════════ -->
+<div class="chapter-start">
+  <div class="ch-accent" style="background: var(--coral);"></div>
+  <div class="ch-number">Bab 04</div>
+  <h2 class="ch-title">Variabel</h2>
+  <p class="ch-sub">Menamai dan menyimpan data di memori</p>
+  <div class="ch-line"></div>
+</div>
+
+<p>Variabel adalah <em>nama</em> yang kita berikan untuk menyimpan data di memori komputer. Di Python, tidak perlu mendeklarasikan tipe variabel — Python otomatis menentukan tipenya dari nilai yang diberikan.</p>
+
+<div class="sec-head">Aturan Penamaan Variabel</div>
+<ul>
+  <li>Hanya boleh mengandung huruf, angka, dan underscore (<code>_</code>)</li>
+  <li>Tidak boleh dimulai dengan angka</li>
+  <li>Tidak boleh menggunakan kata kunci Python: <code>if</code>, <code>for</code>, <code>while</code>, <code>class</code>, dll.</li>
+  <li>Bersifat <em>case-sensitive</em>: <code>nama</code> dan <code>Nama</code> adalah variabel berbeda</li>
+  <li>Gunakan <code>snake_case</code> untuk nama yang panjang: <code>nama_lengkap</code>, <code>jumlah_siswa</code></li>
+</ul>
+
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">variabel.py</span></div>
+  <div class="code-body"><pre><span class="cm"># ✅ Nama variabel yang benar</span>
+<span class="pl">nama</span>         <span class="op">=</span> <span class="st">"Andi"</span>
+<span class="pl">usia_user</span>    <span class="op">=</span> <span class="nm">25</span>
+<span class="pl">nilai1</span>       <span class="op">=</span> <span class="nm">90</span>
+<span class="pl">_catatan</span>     <span class="op">=</span> <span class="st">"private"</span>
+
+<span class="cm"># ❌ Nama variabel yang SALAH (akan error!)</span>
+<span class="cm"># 1nama = "error"     → tidak boleh dimulai angka</span>
+<span class="cm"># if = 10             → kata kunci Python</span>
+<span class="cm"># nama-lengkap = ...  → tanda minus tidak boleh</span></pre></div>
+</div>
+
+<div class="sec-head">Multiple Assignment dan Swap</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">multi_assign.py</span></div>
+  <div class="code-body"><pre><span class="cm"># Assign banyak variabel dalam satu baris</span>
+<span class="pl">a</span><span class="op">,</span> <span class="pl">b</span><span class="op">,</span> <span class="pl">c</span> <span class="op">=</span> <span class="nm">1</span><span class="op">,</span> <span class="nm">2</span><span class="op">,</span> <span class="nm">3</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">a</span><span class="op">,</span> <span class="pl">b</span><span class="op">,</span> <span class="pl">c</span><span class="op">)</span>       <span class="cm"># 1 2 3</span>
+
+<span class="cm"># Nilai sama ke banyak variabel</span>
+<span class="pl">x</span> <span class="op">=</span> <span class="pl">y</span> <span class="op">=</span> <span class="pl">z</span> <span class="op">=</span> <span class="nm">0</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">x</span><span class="op">,</span> <span class="pl">y</span><span class="op">,</span> <span class="pl">z</span><span class="op">)</span>       <span class="cm"># 0 0 0</span>
+
+<span class="cm"># Swap dua variabel — Python sangat ringkas!</span>
+<span class="pl">a</span> <span class="op">=</span> <span class="nm">10</span>
+<span class="pl">b</span> <span class="op">=</span> <span class="nm">20</span>
+<span class="pl">a</span><span class="op">,</span> <span class="pl">b</span> <span class="op">=</span> <span class="pl">b</span><span class="op">,</span> <span class="pl">a</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">a</span><span class="op">,</span> <span class="pl">b</span><span class="op">)</span>          <span class="cm"># 20 10</span></pre></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     BAB 5 — OPERATOR
+════════════════════════════════════════════════════ -->
+<div class="chapter-start">
+  <div class="ch-accent" style="background: var(--purple);"></div>
+  <div class="ch-number">Bab 05</div>
+  <h2 class="ch-title">Operator</h2>
+  <p class="ch-sub">Melakukan operasi pada nilai dan variabel</p>
+  <div class="ch-line"></div>
+</div>
+
+<p>Operator adalah simbol yang digunakan untuk melakukan operasi — dari perhitungan matematika hingga perbandingan nilai dan logika kondisional.</p>
+
+<div class="sec-head">Operator Aritmatika</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Operator</th><th>Nama</th><th>Contoh</th><th>Hasil</th></tr></thead>
+    <tbody>
+      <tr><td>+</td><td class="op-name">Penjumlahan</td><td class="val">5 + 3</td><td class="result">8</td></tr>
+      <tr><td>-</td><td class="op-name">Pengurangan</td><td class="val">10 - 4</td><td class="result">6</td></tr>
+      <tr><td>*</td><td class="op-name">Perkalian</td><td class="val">3 * 7</td><td class="result">21</td></tr>
+      <tr><td>/</td><td class="op-name">Pembagian</td><td class="val">10 / 4</td><td class="result">2.5</td></tr>
+      <tr><td>//</td><td class="op-name">Bagi bulat (floor division)</td><td class="val">10 // 3</td><td class="result">3</td></tr>
+      <tr><td>%</td><td class="op-name">Sisa bagi (modulo)</td><td class="val">10 % 3</td><td class="result">1</td></tr>
+      <tr><td>**</td><td class="op-name">Pangkat</td><td class="val">2 ** 8</td><td class="result">256</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec-head">Operator Perbandingan</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Operator</th><th>Makna</th><th>Contoh</th><th>Hasil</th></tr></thead>
+    <tbody>
+      <tr><td>==</td><td class="op-name">Sama dengan</td><td class="val">5 == 5</td><td class="result">True</td></tr>
+      <tr><td>!=</td><td class="op-name">Tidak sama dengan</td><td class="val">5 != 3</td><td class="result">True</td></tr>
+      <tr><td>&gt;</td><td class="op-name">Lebih besar</td><td class="val">7 &gt; 4</td><td class="result">True</td></tr>
+      <tr><td>&lt;</td><td class="op-name">Lebih kecil</td><td class="val">3 &lt; 2</td><td class="result">False</td></tr>
+      <tr><td>&gt;=</td><td class="op-name">Lebih besar atau sama</td><td class="val">5 &gt;= 5</td><td class="result">True</td></tr>
+      <tr><td>&lt;=</td><td class="op-name">Lebih kecil atau sama</td><td class="val">3 &lt;= 2</td><td class="result">False</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec-head">Operator Logika</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Operator</th><th>Makna</th><th>Contoh</th><th>Hasil</th></tr></thead>
+    <tbody>
+      <tr><td>and</td><td class="op-name">DAN — kedua kondisi harus True</td><td class="val">True and True</td><td class="result">True</td></tr>
+      <tr><td>or</td><td class="op-name">ATAU — salah satu kondisi True</td><td class="val">True or False</td><td class="result">True</td></tr>
+      <tr><td>not</td><td class="op-name">BUKAN — membalik nilai bool</td><td class="val">not True</td><td class="result">False</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sec-head">Contoh Penggunaan Operator</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">operator.py</span></div>
+  <div class="code-body"><pre><span class="pl">a</span><span class="op">,</span> <span class="pl">b</span> <span class="op">=</span> <span class="nm">15</span><span class="op">,</span> <span class="nm">4</span>
+
+<span class="cm"># Aritmatika</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"{a} + {b} = {a + b}"</span><span class="op">)</span>      <span class="cm"># 19</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"{a} // {b} = {a // b}"</span><span class="op">)</span>    <span class="cm"># 3</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"{a} % {b} = {a % b}"</span><span class="op">)</span>      <span class="cm"># 3</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"2 ** 10 = {2 ** 10}"</span><span class="op">)</span>       <span class="cm"># 1024</span>
+
+<span class="cm"># Assignment gabungan</span>
+<span class="pl">x</span> <span class="op">=</span> <span class="nm">10</span>
+<span class="pl">x</span> <span class="op">+=</span> <span class="nm">5</span>     <span class="cm"># x = x + 5  →  15</span>
+<span class="pl">x</span> <span class="op">*=</span> <span class="nm">2</span>     <span class="cm"># x = x * 2  →  30</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">x</span><span class="op">)</span>   <span class="cm"># 30</span>
+
+<span class="cm"># Operator logika</span>
+<span class="pl">usia</span>      <span class="op">=</span> <span class="nm">20</span>
+<span class="pl">punya_ktp</span> <span class="op">=</span> <span class="kw">True</span>
+<span class="pl">bisa_vote</span> <span class="op">=</span> <span class="pl">usia</span> <span class="op">&gt;=</span> <span class="nm">17</span> <span class="kw">and</span> <span class="pl">punya_ktp</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Bisa voting: {bisa_vote}"</span><span class="op">)</span>   <span class="cm"># True</span></pre></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     BAB 6 — KONDISIONAL
+════════════════════════════════════════════════════ -->
+<div class="chapter-start">
+  <div class="ch-accent" style="background: var(--green);"></div>
+  <div class="ch-number">Bab 06</div>
+  <h2 class="ch-title">Kondisional</h2>
+  <p class="ch-sub">Membuat program yang bisa mengambil keputusan</p>
+  <div class="ch-line"></div>
+</div>
+
+<p>Pernyataan kondisional memungkinkan program berjalan secara berbeda tergantung situasi: <em>"Jika kondisi ini terpenuhi, lakukan ini — jika tidak, lakukan yang lain."</em></p>
+
+<div class="sec-head">Struktur if / elif / else</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">struktur.py</span></div>
+  <div class="code-body"><pre><span class="kw">if</span> <span class="pl">kondisi1</span><span class="op">:</span>
+    <span class="cm"># dijalankan jika kondisi1 bernilai True</span>
+<span class="kw">elif</span> <span class="pl">kondisi2</span><span class="op">:</span>
+    <span class="cm"># dijalankan jika kondisi2 bernilai True</span>
+<span class="kw">elif</span> <span class="pl">kondisi3</span><span class="op">:</span>
+    <span class="cm"># dijalankan jika kondisi3 bernilai True</span>
+<span class="kw">else</span><span class="op">:</span>
+    <span class="cm"># dijalankan jika semua kondisi di atas False</span></pre></div>
+</div>
+
+<div class="callout warn">
+  <span class="callout-icon">📌</span>
+  <div class="callout-body">
+    <div class="callout-title">Indentasi Wajib!</div>
+    <p class="callout-text">Python menggunakan indentasi (4 spasi atau 1 tab) untuk menandai blok kode di dalam kondisi. Tanpa indentasi yang benar, program akan menghasilkan <code>IndentationError</code>.</p>
+  </div>
+</div>
+
+<div class="sec-head">Contoh 1 — Cek Nilai Ujian</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">nilai_ujian.py</span></div>
+  <div class="code-body"><pre><span class="pl">nilai</span> <span class="op">=</span> <span class="bi">int</span><span class="op">(</span><span class="fn">input</span><span class="op">(</span><span class="st">"Masukkan nilai ujian (0–100): "</span><span class="op">))</span>
+
+<span class="kw">if</span> <span class="pl">nilai</span> <span class="op">&gt;=</span> <span class="nm">90</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="st">"Grade: A — Sangat Baik! 🌟"</span><span class="op">)</span>
+<span class="kw">elif</span> <span class="pl">nilai</span> <span class="op">&gt;=</span> <span class="nm">80</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="st">"Grade: B — Baik 👍"</span><span class="op">)</span>
+<span class="kw">elif</span> <span class="pl">nilai</span> <span class="op">&gt;=</span> <span class="nm">70</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="st">"Grade: C — Cukup"</span><span class="op">)</span>
+<span class="kw">elif</span> <span class="pl">nilai</span> <span class="op">&gt;=</span> <span class="nm">60</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="st">"Grade: D — Kurang"</span><span class="op">)</span>
+<span class="kw">else</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="st">"Grade: E — Tidak Lulus ❌"</span><span class="op">)</span></pre></div>
+</div>
+<div class="output-wrap">
+  <div class="output-header">Output (nilai = 85)</div>
+  <div class="output-body">Masukkan nilai ujian (0–100): 85
+Grade: B — Baik 👍</div>
+</div>
+
+<div class="sec-head">Contoh 2 — Ganjil atau Genap</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">ganjil_genap.py</span></div>
+  <div class="code-body"><pre><span class="pl">angka</span> <span class="op">=</span> <span class="bi">int</span><span class="op">(</span><span class="fn">input</span><span class="op">(</span><span class="st">"Masukkan sebuah angka: "</span><span class="op">))</span>
+
+<span class="kw">if</span> <span class="pl">angka</span> <span class="op">%</span> <span class="nm">2</span> <span class="op">==</span> <span class="nm">0</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"{angka} adalah bilangan GENAP"</span><span class="op">)</span>
+<span class="kw">else</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"{angka} adalah bilangan GANJIL"</span><span class="op">)</span></pre></div>
+</div>
+
+<div class="sec-head">Contoh 3 — if Bersarang (Nested if)</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">cek_voting.py</span></div>
+  <div class="code-body"><pre><span class="pl">usia</span>      <span class="op">=</span> <span class="bi">int</span><span class="op">(</span><span class="fn">input</span><span class="op">(</span><span class="st">"Masukkan usia: "</span><span class="op">))</span>
+<span class="pl">punya_ktp</span> <span class="op">=</span> <span class="fn">input</span><span class="op">(</span><span class="st">"Punya KTP? (ya/tidak): "</span><span class="op">)</span>
+
+<span class="kw">if</span> <span class="pl">usia</span> <span class="op">&gt;=</span> <span class="nm">17</span><span class="op">:</span>
+    <span class="kw">if</span> <span class="pl">punya_ktp</span> <span class="op">==</span> <span class="st">"ya"</span><span class="op">:</span>
+        <span class="fn">print</span><span class="op">(</span><span class="st">"✅ Anda memenuhi syarat untuk memilih"</span><span class="op">)</span>
+    <span class="kw">else</span><span class="op">:</span>
+        <span class="fn">print</span><span class="op">(</span><span class="st">"⚠️  Silakan buat KTP terlebih dahulu"</span><span class="op">)</span>
+<span class="kw">else</span><span class="op">:</span>
+    <span class="pl">sisa</span> <span class="op">=</span> <span class="nm">17</span> <span class="op">-</span> <span class="pl">usia</span>
+    <span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"❌ Belum cukup umur, kurang {sisa} tahun lagi"</span><span class="op">)</span></pre></div>
+</div>
+
+<div class="sec-head">Contoh 4 — Cek Cuaca dengan and / or</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">cek_cuaca.py</span></div>
+  <div class="code-body"><pre><span class="pl">suhu</span> <span class="op">=</span> <span class="bi">float</span><span class="op">(</span><span class="fn">input</span><span class="op">(</span><span class="st">"Suhu hari ini (°C): "</span><span class="op">))</span>
+
+<span class="kw">if</span> <span class="pl">suhu</span> <span class="op">&gt;=</span> <span class="nm">35</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="st">"🔥 Sangat panas! Minum air yang banyak"</span><span class="op">)</span>
+<span class="kw">elif</span> <span class="pl">suhu</span> <span class="op">&gt;=</span> <span class="nm">28</span> <span class="kw">and</span> <span class="pl">suhu</span> <span class="op">&lt;</span> <span class="nm">35</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="st">"☀️  Panas biasa, tetap jaga hidrasi"</span><span class="op">)</span>
+<span class="kw">elif</span> <span class="pl">suhu</span> <span class="op">&gt;=</span> <span class="nm">20</span> <span class="kw">and</span> <span class="pl">suhu</span> <span class="op">&lt;</span> <span class="nm">28</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="st">"🌤  Cuaca nyaman untuk beraktivitas"</span><span class="op">)</span>
+<span class="kw">elif</span> <span class="pl">suhu</span> <span class="op">&gt;=</span> <span class="nm">15</span> <span class="kw">and</span> <span class="pl">suhu</span> <span class="op">&lt;</span> <span class="nm">20</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="st">"🌥  Agak dingin, pakai jaket tipis"</span><span class="op">)</span>
+<span class="kw">else</span><span class="op">:</span>
+    <span class="fn">print</span><span class="op">(</span><span class="st">"🥶 Sangat dingin! Kenakan jaket tebal"</span><span class="op">)</span></pre></div>
+</div>
+<div class="output-wrap">
+  <div class="output-header">Output (suhu = 31)</div>
+  <div class="output-body">Suhu hari ini (°C): 31
+☀️  Panas biasa, tetap jaga hidrasi</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MINI PROJECT
+════════════════════════════════════════════════════ -->
+<div class="project-banner">
+  <div class="project-eyebrow">★ Mini Project — Materi 1</div>
+  <h2 class="project-title">Kalkulator BMI Interaktif</h2>
+  <p class="project-desc">Program yang menggabungkan semua konsep Materi 1: print, input, tipe data, variabel, operator, dan kondisional dalam satu program yang benar-benar berguna.</p>
+  <div class="project-meta">
+    <span class="chip c-blue">print()</span>
+    <span class="chip c-teal">input()</span>
+    <span class="chip c-gold">float / int</span>
+    <span class="chip c-coral">variabel</span>
+    <span class="chip c-purp">operator **</span>
+    <span class="chip c-grn">if / elif / else</span>
+  </div>
+</div>
+
+<div class="formula">
+  <div class="formula-label">Rumus BMI</div>
+  <div class="formula-eq">BMI = Berat (kg) ÷ Tinggi (m)²</div>
+</div>
+
+<div class="sec-head">Kategori BMI</div>
+<div class="bmi-cards">
+  <div class="bmi-card" style="border-left-color: #5b9cf6;">
+    <div class="bmi-range">BMI &lt; 18.5</div>
+    <div class="bmi-cat" style="color:#5b9cf6;">😟 Kurus (Underweight)</div>
+    <div class="bmi-saran">Perbanyak asupan kalori dan protein. Konsultasi ke dokter gizi.</div>
+  </div>
+  <div class="bmi-card" style="border-left-color: #52d68a;">
+    <div class="bmi-range">18.5 – 24.9</div>
+    <div class="bmi-cat" style="color:#52d68a;">😊 Normal (Ideal)</div>
+    <div class="bmi-saran">Pertahankan gaya hidup sehat. Olahraga rutin dan makan bergizi.</div>
+  </div>
+  <div class="bmi-card" style="border-left-color: #ff9f43;">
+    <div class="bmi-range">25.0 – 29.9</div>
+    <div class="bmi-cat" style="color:#ff9f43;">😐 Gemuk (Overweight)</div>
+    <div class="bmi-saran">Kurangi makanan tinggi kalori. Perbanyak aktivitas fisik harian.</div>
+  </div>
+  <div class="bmi-card" style="border-left-color: #ff6b6b;">
+    <div class="bmi-range">BMI ≥ 30.0</div>
+    <div class="bmi-cat" style="color:#ff6b6b;">😰 Obesitas</div>
+    <div class="bmi-saran">Sangat disarankan konsultasi dengan dokter untuk program diet aman.</div>
+  </div>
+</div>
+
+<div class="sec-head">Kode Program Lengkap</div>
+<div class="code-wrap">
+  <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-label">kalkulator_bmi.py</span></div>
+  <div class="code-body"><pre><span class="cm"># ================================================</span>
+<span class="cm">#      KALKULATOR BMI — Mini Project Python        </span>
+<span class="cm">#         Materi 1: Dasar Python                   </span>
+<span class="cm"># ================================================</span>
+
+<span class="cm"># ── HEADER PROGRAM ──────────────────────────────</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"="</span> <span class="op">*</span> <span class="nm">45</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"   🐍 KALKULATOR BMI — Python Materi 1"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"="</span> <span class="op">*</span> <span class="nm">45</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">()</span>
+
+<span class="cm"># ── INPUT DATA PENGGUNA ──────────────────────────</span>
+<span class="pl">nama</span>   <span class="op">=</span> <span class="fn">input</span><span class="op">(</span><span class="st">"Nama Anda          : "</span><span class="op">)</span>
+<span class="pl">berat</span>  <span class="op">=</span> <span class="bi">float</span><span class="op">(</span><span class="fn">input</span><span class="op">(</span><span class="st">"Berat badan (kg)   : "</span><span class="op">))</span>
+<span class="pl">tinggi</span> <span class="op">=</span> <span class="bi">float</span><span class="op">(</span><span class="fn">input</span><span class="op">(</span><span class="st">"Tinggi badan (cm)  : "</span><span class="op">))</span>
+
+<span class="cm"># ── KONVERSI & HITUNG BMI ────────────────────────</span>
+<span class="pl">tinggi_m</span>  <span class="op">=</span> <span class="pl">tinggi</span> <span class="op">/</span> <span class="nm">100</span>               <span class="cm"># cm → meter</span>
+<span class="pl">bmi</span>       <span class="op">=</span> <span class="pl">berat</span> <span class="op">/</span> <span class="op">(</span><span class="pl">tinggi_m</span> <span class="op">**</span> <span class="nm">2</span><span class="op">)</span>     <span class="cm"># rumus BMI</span>
+<span class="pl">bmi_bulat</span> <span class="op">=</span> <span class="bi">round</span><span class="op">(</span><span class="pl">bmi</span><span class="op">,</span> <span class="nm">1</span><span class="op">)</span>               <span class="cm"># bulatkan 1 desimal</span>
+
+<span class="cm"># ── TENTUKAN KATEGORI ────────────────────────────</span>
+<span class="kw">if</span> <span class="pl">bmi</span> <span class="op">&lt;</span> <span class="nm">18.5</span><span class="op">:</span>
+    <span class="pl">kategori</span> <span class="op">=</span> <span class="st">"Kurus (Underweight)"</span>
+    <span class="pl">saran</span>    <span class="op">=</span> <span class="st">"Perbanyak asupan kalori & protein"</span>
+    <span class="pl">emoji</span>    <span class="op">=</span> <span class="st">"😟"</span>
+<span class="kw">elif</span> <span class="pl">bmi</span> <span class="op">&lt;</span> <span class="nm">25.0</span><span class="op">:</span>
+    <span class="pl">kategori</span> <span class="op">=</span> <span class="st">"Normal (Ideal)"</span>
+    <span class="pl">saran</span>    <span class="op">=</span> <span class="st">"Pertahankan gaya hidup sehat!"</span>
+    <span class="pl">emoji</span>    <span class="op">=</span> <span class="st">"😊"</span>
+<span class="kw">elif</span> <span class="pl">bmi</span> <span class="op">&lt;</span> <span class="nm">30.0</span><span class="op">:</span>
+    <span class="pl">kategori</span> <span class="op">=</span> <span class="st">"Gemuk (Overweight)"</span>
+    <span class="pl">saran</span>    <span class="op">=</span> <span class="st">"Kurangi kalori & perbanyak olahraga"</span>
+    <span class="pl">emoji</span>    <span class="op">=</span> <span class="st">"😐"</span>
+<span class="kw">else</span><span class="op">:</span>
+    <span class="pl">kategori</span> <span class="op">=</span> <span class="st">"Obesitas"</span>
+    <span class="pl">saran</span>    <span class="op">=</span> <span class="st">"Konsultasikan ke dokter segera"</span>
+    <span class="pl">emoji</span>    <span class="op">=</span> <span class="st">"😰"</span>
+
+<span class="cm"># ── TAMPILKAN HASIL ──────────────────────────────</span>
+<span class="fn">print</span><span class="op">()</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"="</span> <span class="op">*</span> <span class="nm">45</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"        HASIL ANALISIS BMI"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"="</span> <span class="op">*</span> <span class="nm">45</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Nama          : {nama}"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Berat         : {berat} kg"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Tinggi        : {tinggi} cm ({tinggi_m} m)"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"-"</span> <span class="op">*</span> <span class="nm">45</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Nilai BMI     : {bmi_bulat}"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"Kategori      : {emoji} {kategori}"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"-"</span> <span class="op">*</span> <span class="nm">45</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="pl">f</span><span class="st">"💡 Saran      : {saran}"</span><span class="op">)</span>
+<span class="fn">print</span><span class="op">(</span><span class="st">"="</span> <span class="op">*</span> <span class="nm">45</span><span class="op">)</span></pre></div>
+</div>
+
+<div class="sec-head">Contoh Output</div>
+<div class="output-wrap" style="margin-top:0; border-radius: var(--radius); border: 1px solid rgba(62,207,178,0.2);">
+  <div class="output-header">Output Lengkap (berat=70kg, tinggi=175cm)</div>
+  <div class="output-body">=============================================
+   🐍 KALKULATOR BMI — Python Materi 1
+=============================================
+
+Nama Anda          : Budi
+Berat badan (kg)   : 70
+Tinggi badan (cm)  : 175
+
+=============================================
+        HASIL ANALISIS BMI
+=============================================
+Nama          : Budi
+Berat         : 70.0 kg
+Tinggi        : 175.0 cm (1.75 m)
+---------------------------------------------
+Nilai BMI     : 22.9
+Kategori      : 😊 Normal (Ideal)
+---------------------------------------------
+💡 Saran      : Pertahankan gaya hidup sehat!
+=============================================</div>
+</div>
+
+<div class="sec-head">Penjelasan Per Bagian</div>
+<div class="summary-wrap">
+  <div class="summary-row"><div class="summary-key">print("="*45)</div><div class="summary-val"><code>print()</code> + operator <code>*</code> pada string untuk membuat garis pembatas yang rapi</div></div>
+  <div class="summary-row"><div class="summary-key">nama = input()</div><div class="summary-val"><code>input()</code> menerima teks dari pengguna, disimpan ke variabel <code>nama</code></div></div>
+  <div class="summary-row"><div class="summary-key">float(input())</div><div class="summary-val"><code>input()</code> + konversi <code>float()</code> agar data bisa digunakan untuk perhitungan</div></div>
+  <div class="summary-row"><div class="summary-key">tinggi / 100</div><div class="summary-val">Operator pembagian <code>/</code> untuk mengonversi satuan cm → meter</div></div>
+  <div class="summary-row"><div class="summary-key">tinggi_m ** 2</div><div class="summary-val">Operator pangkat <code>**</code> untuk menghitung tinggi kuadrat</div></div>
+  <div class="summary-row"><div class="summary-key">round(bmi, 1)</div><div class="summary-val">Fungsi bawaan <code>round()</code> untuk membulatkan ke 1 angka desimal</div></div>
+  <div class="summary-row"><div class="summary-key">if bmi &lt; 18.5</div><div class="summary-val">Kondisional <code>if</code> — membandingkan nilai BMI dengan operator <code>&lt;</code></div></div>
+  <div class="summary-row"><div class="summary-key">elif / else</div><div class="summary-val">Menangani semua kemungkinan kategori secara bertingkat</div></div>
+  <div class="summary-row"><div class="summary-key">f"... {var} ..."</div><div class="summary-val">F-string untuk menampilkan variabel langsung di dalam teks output</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     TANTANGAN
+════════════════════════════════════════════════════ -->
+<div class="chapter-start">
+  <div class="ch-accent" style="background: var(--gold);"></div>
+  <div class="ch-number">Tantangan</div>
+  <h2 class="ch-title">Latihan Mandiri</h2>
+  <p class="ch-sub">Kerjakan ini untuk memperdalam pemahamanmu</p>
+  <div class="ch-line"></div>
+</div>
+
+<div class="challenges">
+  <div class="chal-card"><div class="chal-num">1</div><div class="chal-text"><strong>Modifikasi BMI:</strong> Tambahkan input jenis kelamin (L/P) dan tampilkan pesan/saran yang berbeda untuk pria dan wanita.</div></div>
+  <div class="chal-card"><div class="chal-num">2</div><div class="chal-text"><strong>Konverter Suhu:</strong> Buat program yang mengonversi Celsius ke Fahrenheit, Kelvin, atau Reamur sesuai pilihan pengguna.</div></div>
+  <div class="chal-card"><div class="chal-num">3</div><div class="chal-text"><strong>Kalkulator Tagihan Listrik:</strong> Input daya watt, jam pemakaian per hari, dan harga per kWh — lalu tampilkan estimasi tagihan bulanan.</div></div>
+  <div class="chal-card"><div class="chal-num">4</div><div class="chal-text"><strong>Cek Tahun Kabisat:</strong> Minta input tahun. Tahun kabisat: habis dibagi 4, tapi jika habis dibagi 100 harus juga habis dibagi 400.</div></div>
+  <div class="chal-card"><div class="chal-num">5</div><div class="chal-text"><strong>Menu Program:</strong> Gabungkan semua program di atas menjadi satu aplikasi dengan pilihan menu 1–4 menggunakan <code>if/elif/else</code>.</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     RINGKASAN
+════════════════════════════════════════════════════ -->
+<div class="chapter-start">
+  <div class="ch-accent" style="background: var(--text3);"></div>
+  <div class="ch-number">Ringkasan</div>
+  <h2 class="ch-title">Yang Sudah Dipelajari</h2>
+  <div class="ch-line"></div>
+</div>
+
+<div class="summary-wrap">
+  <div class="summary-row"><div class="summary-key">print()</div><div class="summary-val">Menampilkan output. Gunakan f-string untuk format teks yang rapi dan modern.</div></div>
+  <div class="summary-row"><div class="summary-key">input()</div><div class="summary-val">Menerima input dari pengguna — selalu string, konversi jika perlu angka.</div></div>
+  <div class="summary-row"><div class="summary-key">Tipe Data</div><div class="summary-val"><code>int</code> (bulat), <code>float</code> (desimal), <code>str</code> (teks), <code>bool</code> (True/False). Gunakan <code>type()</code> untuk cek.</div></div>
+  <div class="summary-row"><div class="summary-key">Variabel</div><div class="summary-val">Wadah penyimpan data. Nama harus deskriptif dan menggunakan <code>snake_case</code>.</div></div>
+  <div class="summary-row"><div class="summary-key">Operator</div><div class="summary-val">Aritmatika (<code>+−*//%**</code>), Perbandingan (<code>== != &gt; &lt;</code>), Logika (<code>and or not</code>).</div></div>
+  <div class="summary-row"><div class="summary-key">if/elif/else</div><div class="summary-val">Menjalankan kode secara kondisional. Indentasi 4 spasi wajib diperhatikan.</div></div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-emoji">🎉</div>
+  <div class="closing-title">Materi 1 Selesai!</div>
+  <p class="closing-sub">Kamu sudah menguasai fondasi Python. Siap lanjut ke level berikutnya?</p>
+  <div class="next-badge">
+    <span>Materi 2</span>
+    <span class="arr">→</span>
+    <span>Loop (for &amp; while) dan Fungsi</span>
+  </div>
+</div>
+
+</div><!-- /book -->
+</body>
+</html>
